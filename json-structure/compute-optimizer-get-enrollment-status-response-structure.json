@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-get-enrollment-status-response-structure.json",
+  "name": "GetEnrollmentStatusResponse",
+  "description": "GetEnrollmentStatusResponse schema",
+  "type": "object",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Status"
+        },
+        {
+          "description": "The enrollment status of the account."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StatusReason"
+        },
+        {
+          "description": "<p>The reason for the enrollment status of the account.</p> <p>For example, an account might show a status of <code>Pending</code> because member accounts of an organization require more time to be enrolled in the service.</p>"
+        }
+      ]
+    },
+    "memberAccountsEnrolled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MemberAccountsEnrolled"
+        },
+        {
+          "description": "Confirms the enrollment status of member accounts of the organization, if the account is a management account of an organization."
+        }
+      ]
+    },
+    "lastUpdatedTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastUpdatedTimestamp"
+        },
+        {
+          "description": "The Unix epoch timestamp, in seconds, of when the account enrollment status was last updated."
+        }
+      ]
+    },
+    "numberOfMemberAccountsOptedIn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NumberOfMemberAccountsOptedIn"
+        },
+        {
+          "description": "The count of organization member accounts that are opted in to the service, if your account is an organization management account."
+        }
+      ]
+    }
+  }
+}

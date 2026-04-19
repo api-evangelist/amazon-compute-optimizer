@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-external-metric-status-structure.json",
+  "name": "ExternalMetricStatus",
+  "description": " Describes Compute Optimizer's integration status with your chosen external metric provider. For example, Datadog. ",
+  "type": "object",
+  "properties": {
+    "statusCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExternalMetricStatusCode"
+        },
+        {
+          "description": " The status code for Compute Optimizer's integration with an external metrics provider. "
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExternalMetricStatusReason"
+        },
+        {
+          "description": " The reason for Compute Optimizer's integration status with your external metric provider. "
+        }
+      ]
+    }
+  }
+}

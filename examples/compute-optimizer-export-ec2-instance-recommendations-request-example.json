@@ -1,0 +1,9 @@
+{
+  "accountIds": "example-string",
+  "filters": "example-string",
+  "fieldsToExport": "example-string",
+  "s3DestinationConfig": "example-string",
+  "fileFormat": "example-string",
+  "includeMemberAccounts": "example-string",
+  "recommendationPreferences": "example-string"
+}

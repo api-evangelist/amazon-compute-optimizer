@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-volume-recommendation-options-structure.json",
+  "name": "VolumeRecommendationOptions",
+  "description": "VolumeRecommendationOptions schema",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/VolumeRecommendationOption"
+  }
+}

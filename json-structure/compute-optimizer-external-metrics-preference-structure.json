@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-external-metrics-preference-structure.json",
+  "name": "ExternalMetricsPreference",
+  "description": " Describes the external metrics preferences for EC2 rightsizing recommendations. ",
+  "type": "object",
+  "properties": {
+    "source": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExternalMetricsSource"
+        },
+        {
+          "description": " Contains the source options for external metrics preferences. "
+        }
+      ]
+    }
+  }
+}

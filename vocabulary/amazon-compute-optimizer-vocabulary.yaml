@@ -1,0 +1,194 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Amazon Compute Optimizer"
+  description: "Vocabulary and taxonomy for Amazon Compute Optimizer covering resource rightsizing recommendations, optimization findings, and enrollment management."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: Amazon Compute Optimizer API
+      namespace: compute-optimizer
+      version: "2019-11-01"
+      baseUrl: https://compute-optimizer.{region}.amazonaws.com
+      status: active
+
+  resources:
+    - name: ec2-recommendations
+      description: "Rightsizing recommendations for EC2 instances."
+      api: compute-optimizer
+      actions: [get, export]
+    - name: asg-recommendations
+      description: "Rightsizing recommendations for Auto Scaling groups."
+      api: compute-optimizer
+      actions: [get, export]
+    - name: ebs-recommendations
+      description: "Rightsizing recommendations for EBS volumes."
+      api: compute-optimizer
+      actions: [get, export]
+    - name: lambda-recommendations
+      description: "Rightsizing recommendations for Lambda functions."
+      api: compute-optimizer
+      actions: [get, export]
+    - name: ecs-recommendations
+      description: "Rightsizing recommendations for ECS services."
+      api: compute-optimizer
+      actions: [get, export]
+    - name: rds-recommendations
+      description: "Rightsizing recommendations for RDS instances and clusters."
+      api: compute-optimizer
+      actions: [get, export]
+    - name: recommendation-summaries
+      description: "Aggregate optimization findings across resource types."
+      api: compute-optimizer
+      actions: [get]
+    - name: enrollment
+      description: "Enrollment status for Compute Optimizer service."
+      api: compute-optimizer
+      actions: [get, update, get-members]
+
+  actions:
+    - name: get
+      httpMethods: [POST]
+      pattern: read
+    - name: export
+      httpMethods: [POST]
+      pattern: write
+    - name: update
+      httpMethods: [POST]
+      pattern: write
+
+  schemas:
+    core:
+      - name: InstanceRecommendation
+        description: "An EC2 instance recommendation."
+        properties: [instanceArn, accountId, instanceName, currentInstanceType, finding, utilizationMetrics, recommendationOptions]
+      - name: AutoScalingGroupRecommendation
+        description: "An Auto Scaling group recommendation."
+        properties: [accountId, autoScalingGroupArn, autoScalingGroupName, finding, utilizationMetrics, recommendationOptions]
+      - name: VolumeRecommendation
+        description: "An EBS volume recommendation."
+        properties: [volumeArn, accountId, currentConfiguration, finding, utilizationMetrics, volumeRecommendationOptions]
+      - name: LambdaFunctionRecommendation
+        description: "A Lambda function recommendation."
+        properties: [functionArn, accountId, functionVersion, currentMemorySize, finding, utilizationMetrics, memorySizeRecommendationOptions]
+      - name: RecommendationSummary
+        description: "A summary of optimization recommendations."
+        properties: [summaries, recommendationResourceType, accountId, savingsOpportunity]
+
+  parameters:
+    pagination:
+      - nextToken
+      - maxResults
+    identifiers:
+      - instanceArns
+      - autoScalingGroupArns
+      - volumeArns
+      - functionArns
+      - serviceArns
+      - resourceArns
+    filters:
+      - filters
+      - accountIds
+
+  enums:
+    finding_types:
+      - Underprovisioned
+      - Overprovisioned
+      - Optimized
+      - NotOptimized
+    resource_types:
+      - Ec2Instance
+      - AutoScalingGroup
+      - EbsVolume
+      - LambdaFunction
+      - EcsService
+      - RdsDBInstance
+      - RdsDBInstanceStorage
+    enrollment_status:
+      - Active
+      - Inactive
+      - Pending
+      - Failed
+
+  authentication:
+    schemes:
+      - type: AWS SigV4
+        description: AWS Signature Version 4 for all API calls
+
+capability:
+  workflows:
+    - name: Resource Optimization
+      file: capabilities/resource-optimization.yaml
+      description: "Cross-resource rightsizing recommendations for cost optimization."
+      apis: [compute-optimizer]
+      toolCount: 8
+      personas:
+        - Cloud Architect
+        - FinOps Engineer
+
+  personas:
+    - id: cloud-architect
+      name: Cloud Architect
+      description: "Reviews recommendations to rightsize infrastructure and improve performance."
+      workflows: [resource-optimization]
+    - id: finops-engineer
+      name: FinOps Engineer
+      description: "Analyzes cost savings opportunities across compute resources."
+      workflows: [resource-optimization]
+
+  domains:
+    - name: Compute Optimization
+      resources: [ec2-recommendations, asg-recommendations]
+      workflows: [resource-optimization]
+    - name: Storage Optimization
+      resources: [ebs-recommendations, rds-recommendations]
+      workflows: [resource-optimization]
+    - name: Serverless Optimization
+      resources: [lambda-recommendations, ecs-recommendations]
+      workflows: [resource-optimization]
+    - name: Reporting
+      resources: [recommendation-summaries]
+      workflows: [resource-optimization]
+
+  namespaces:
+    - name: compute-optimizer
+      type: consumed
+      baseUri: https://compute-optimizer.{region}.amazonaws.com
+    - name: resource-optimization-api
+      type: rest-exposed
+      port: 8080
+    - name: resource-optimization-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - name: AWS_ACCESS_KEY_ID
+      workflows: [resource-optimization]
+    - name: AWS_SECRET_ACCESS_KEY
+      workflows: [resource-optimization]
+    - name: AWS_REGION
+      workflows: [resource-optimization]
+
+crossReference:
+  - resource: ec2-recommendations
+    operations:
+      - GetEC2InstanceRecommendations
+      - ExportEC2InstanceRecommendations
+    workflows: [resource-optimization]
+    personas: [cloud-architect, finops-engineer]
+
+  - resource: recommendation-summaries
+    operations:
+      - GetRecommendationSummaries
+    workflows: [resource-optimization]
+    personas: [cloud-architect, finops-engineer]
+
+  - resource: enrollment
+    operations:
+      - GetEnrollmentStatus
+      - UpdateEnrollmentStatus
+      - GetEnrollmentStatusesForOrganization
+    workflows: [resource-optimization]
+    personas: [cloud-architect]

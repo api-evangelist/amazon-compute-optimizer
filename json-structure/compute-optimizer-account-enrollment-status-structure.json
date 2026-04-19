@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-account-enrollment-status-structure.json",
+  "name": "AccountEnrollmentStatus",
+  "description": "Describes the enrollment status of an organization's member accounts in Compute Optimizer.",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccountId"
+        },
+        {
+          "description": "The Amazon Web Services account ID."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Status"
+        },
+        {
+          "description": "The account enrollment status."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StatusReason"
+        },
+        {
+          "description": "<p>The reason for the account enrollment status.</p> <p>For example, an account might show a status of <code>Pending</code> because member accounts of an organization require more time to be enrolled in the service.</p>"
+        }
+      ]
+    },
+    "lastUpdatedTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastUpdatedTimestamp"
+        },
+        {
+          "description": "The Unix epoch timestamp, in seconds, of when the account enrollment status was last updated."
+        }
+      ]
+    }
+  }
+}

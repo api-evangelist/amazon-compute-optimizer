@@ -1,0 +1,19 @@
+{
+  "instanceArn": "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+  "accountId": "example-string",
+  "instanceName": "example-name",
+  "currentInstanceType": "ec2",
+  "finding": "example-string",
+  "findingReasonCodes": "example-string",
+  "utilizationMetrics": "example-string",
+  "lookBackPeriodInDays": "example-string",
+  "recommendationOptions": "example-string",
+  "recommendationSources": "example-string",
+  "lastRefreshTimestamp": "example-string",
+  "currentPerformanceRisk": "example-string",
+  "effectiveRecommendationPreferences": "example-string",
+  "inferredWorkloadTypes": "ec2",
+  "instanceState": "example-string",
+  "tags": "example-string",
+  "externalMetricStatus": "Active"
+}

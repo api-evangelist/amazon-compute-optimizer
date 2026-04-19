@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-service-configuration-schema.json",
+  "title": "ServiceConfiguration",
+  "description": " The Amazon ECS service configurations used for recommendations. ",
+  "type": "object",
+  "properties": {
+    "memory": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableMemory"
+        },
+        {
+          "description": " The amount of memory used by the tasks in the Amazon ECS service. "
+        }
+      ]
+    },
+    "cpu": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableCpu"
+        },
+        {
+          "description": " The number of CPU units used by the tasks in the Amazon ECS service. "
+        }
+      ]
+    },
+    "containerConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerConfigurations"
+        },
+        {
+          "description": " The container configurations within a task of an Amazon ECS service. "
+        }
+      ]
+    },
+    "autoScalingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingConfiguration"
+        },
+        {
+          "description": "<p> Describes the Auto Scaling configuration methods for an Amazon ECS service. This affects the generated recommendations. For example, if Auto Scaling is configured on a service\u2019s CPU, then Compute Optimizer doesn\u2019t generate CPU size recommendations. </p> <p>The Auto Scaling configuration methods include:</p> <ul> <li> <p> <code>TARGET_TRACKING_SCALING_CPU</code> \u2014 If the Amazon ECS service is configured to use target scaling on CPU, Compute Optimizer doesn't generate CPU recommendations.</p> </li> <li> <p> <code>TARGET_TRACKING_SCALING_MEMORY</code> \u2014 If the Amazon ECS service is configured to use target scaling on memory, Compute Optimizer doesn't generate memory recommendations.</p> </li> </ul> <p>For more information about step scaling and target scaling, see <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html\"> Step scaling policies for Application Auto Scaling</a> and <a href=\"https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html\"> Target tracking scaling policies for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>"
+        }
+      ]
+    },
+    "taskDefinitionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TaskDefinitionArn"
+        },
+        {
+          "description": " The task definition ARN used by the tasks in the Amazon ECS service. "
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-inferred-workload-type-schema.json",
+  "title": "InferredWorkloadType",
+  "description": "InferredWorkloadType schema",
+  "type": "string",
+  "enum": [
+    "AmazonEmr",
+    "ApacheCassandra",
+    "ApacheHadoop",
+    "Memcached",
+    "Nginx",
+    "PostgreSql",
+    "Redis",
+    "Kafka",
+    "SQLServer"
+  ]
+}

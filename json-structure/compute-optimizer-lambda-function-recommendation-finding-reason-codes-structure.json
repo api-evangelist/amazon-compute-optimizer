@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-lambda-function-recommendation-finding-reason-codes-structure.json",
+  "name": "LambdaFunctionRecommendationFindingReasonCodes",
+  "description": "LambdaFunctionRecommendationFindingReasonCodes schema",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/LambdaFunctionRecommendationFindingReasonCode"
+  }
+}

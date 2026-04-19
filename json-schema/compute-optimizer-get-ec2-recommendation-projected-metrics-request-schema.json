@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-get-ec2-recommendation-projected-metrics-request-schema.json",
+  "title": "GetEC2RecommendationProjectedMetricsRequest",
+  "description": "GetEC2RecommendationProjectedMetricsRequest schema",
+  "type": "object",
+  "properties": {
+    "instanceArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the instances for which to return recommendation projected metrics."
+        }
+      ]
+    },
+    "stat": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricStatistic"
+        },
+        {
+          "description": "The statistic of the projected metrics."
+        }
+      ]
+    },
+    "period": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Period"
+        },
+        {
+          "description": "The granularity, in seconds, of the projected metrics data points."
+        }
+      ]
+    },
+    "startTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp of the first projected metrics data point to return."
+        }
+      ]
+    },
+    "endTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp of the last projected metrics data point to return."
+        }
+      ]
+    },
+    "recommendationPreferences": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecommendationPreferences"
+        },
+        {
+          "description": "An object to specify the preferences for the Amazon EC2 recommendation projected metrics to return in the response."
+        }
+      ]
+    }
+  },
+  "required": [
+    "instanceArn",
+    "stat",
+    "period",
+    "startTime",
+    "endTime"
+  ]
+}

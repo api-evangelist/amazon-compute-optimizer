@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-enrollment-filter-schema.json",
+  "title": "EnrollmentFilter",
+  "description": "Describes a filter that returns a more specific list of account enrollment statuses. Use this filter with the <a>GetEnrollmentStatusesForOrganization</a> action.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnrollmentFilterName"
+        },
+        {
+          "description": "<p>The name of the filter.</p> <p>Specify <code>Status</code> to return accounts with a specific enrollment status (for example, <code>Active</code>).</p>"
+        }
+      ]
+    },
+    "values": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterValues"
+        },
+        {
+          "description": "<p>The value of the filter.</p> <p>The valid values are <code>Active</code>, <code>Inactive</code>, <code>Pending</code>, and <code>Failed</code>.</p>"
+        }
+      ]
+    }
+  }
+}

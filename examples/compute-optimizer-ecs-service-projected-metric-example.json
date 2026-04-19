@@ -1,0 +1,6 @@
+{
+  "name": "example-name",
+  "timestamps": "example-string",
+  "upperBoundValues": "example-string",
+  "lowerBoundValues": "example-string"
+}

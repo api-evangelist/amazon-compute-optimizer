@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-get-auto-scaling-group-recommendations-request-structure.json",
+  "name": "GetAutoScalingGroupRecommendationsRequest",
+  "description": "GetAutoScalingGroupRecommendationsRequest schema",
+  "type": "object",
+  "properties": {
+    "accountIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccountIds"
+        },
+        {
+          "description": "<p>The ID of the Amazon Web Services account for which to return Auto Scaling group recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to return Auto Scaling group recommendations.</p> <p>Only one account ID can be specified per request.</p>"
+        }
+      ]
+    },
+    "autoScalingGroupArns": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupArns"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Auto Scaling groups for which to return recommendations."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token to advance to the next page of Auto Scaling group recommendations."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxResults"
+        },
+        {
+          "description": "<p>The maximum number of Auto Scaling group recommendations to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>"
+        }
+      ]
+    },
+    "filters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Filters"
+        },
+        {
+          "description": "An array of objects to specify a filter that returns a more specific list of Auto Scaling group recommendations."
+        }
+      ]
+    },
+    "recommendationPreferences": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecommendationPreferences"
+        },
+        {
+          "description": "An object to specify the preferences for the Auto Scaling group recommendations to return in the response."
+        }
+      ]
+    }
+  }
+}

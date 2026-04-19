@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-get-enrollment-status-request-structure.json",
+  "name": "GetEnrollmentStatusRequest",
+  "description": "GetEnrollmentStatusRequest schema",
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-s3-destination-schema.json",
+  "title": "S3Destination",
+  "description": "Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a recommendations export file, and its associated metadata file.",
+  "type": "object",
+  "properties": {
+    "bucket": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DestinationBucket"
+        },
+        {
+          "description": "The name of the Amazon S3 bucket used as the destination of an export file."
+        }
+      ]
+    },
+    "key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DestinationKey"
+        },
+        {
+          "description": "<p>The Amazon S3 bucket key of an export file.</p> <p>The key uniquely identifies the object, or export file, in the S3 bucket.</p>"
+        }
+      ]
+    },
+    "metadataKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetadataKey"
+        },
+        {
+          "description": "<p>The Amazon S3 bucket key of a metadata file.</p> <p>The key uniquely identifies the object, or metadata file, in the S3 bucket.</p>"
+        }
+      ]
+    }
+  }
+}

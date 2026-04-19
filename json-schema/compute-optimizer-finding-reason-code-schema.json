@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-finding-reason-code-schema.json",
+  "title": "FindingReasonCode",
+  "description": "FindingReasonCode schema",
+  "type": "string",
+  "enum": [
+    "MemoryOverprovisioned",
+    "MemoryUnderprovisioned"
+  ]
+}

@@ -1,0 +1,664 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://aws.amazon.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "InstanceRecommendation": "aws:InstanceRecommendation",
+    "ECSServiceProjectedUtilizationMetric": "aws:ECSServiceProjectedUtilizationMetric",
+    "InferredWorkloadSaving": "aws:InferredWorkloadSaving",
+    "GetEBSVolumeRecommendationsRequest": "aws:GetEBSVolumeRecommendationsRequest",
+    "JobFilter": "aws:JobFilter",
+    "S3Destination": "aws:S3Destination",
+    "LambdaFunctionMemoryRecommendationOption": "aws:LambdaFunctionMemoryRecommendationOption",
+    "RecommendationSource": "aws:RecommendationSource",
+    "ExportEC2InstanceRecommendationsResponse": "aws:ExportEC2InstanceRecommendationsResponse",
+    "RecommendationSummary": "aws:RecommendationSummary",
+    "GetLambdaFunctionRecommendationsResponse": "aws:GetLambdaFunctionRecommendationsResponse",
+    "AutoScalingGroupRecommendationOption": "aws:AutoScalingGroupRecommendationOption",
+    "EnrollmentFilter": "aws:EnrollmentFilter",
+    "EBSFilter": "aws:EBSFilter",
+    "RecommendedOptionProjectedMetric": "aws:RecommendedOptionProjectedMetric",
+    "ExportLambdaFunctionRecommendationsRequest": "aws:ExportLambdaFunctionRecommendationsRequest",
+    "GetECSServiceRecommendationProjectedMetricsResponse": "aws:GetECSServiceRecommendationProjectedMetricsResponse",
+    "PutRecommendationPreferencesResponse": "aws:PutRecommendationPreferencesResponse",
+    "AccountEnrollmentStatus": "aws:AccountEnrollmentStatus",
+    "VolumeRecommendationOption": "aws:VolumeRecommendationOption",
+    "GetEnrollmentStatusesForOrganizationRequest": "aws:GetEnrollmentStatusesForOrganizationRequest",
+    "ExportECSServiceRecommendationsRequest": "aws:ExportECSServiceRecommendationsRequest",
+    "ContainerRecommendation": "aws:ContainerRecommendation",
+    "GetEBSVolumeRecommendationsResponse": "aws:GetEBSVolumeRecommendationsResponse",
+    "SavingsOpportunity": "aws:SavingsOpportunity",
+    "DescribeRecommendationExportJobsRequest": "aws:DescribeRecommendationExportJobsRequest",
+    "UpdateEnrollmentStatusRequest": "aws:UpdateEnrollmentStatusRequest",
+    "ContainerConfiguration": "aws:ContainerConfiguration",
+    "GetEnrollmentStatusRequest": "aws:GetEnrollmentStatusRequest",
+    "DescribeRecommendationExportJobsResponse": "aws:DescribeRecommendationExportJobsResponse",
+    "ExportEBSVolumeRecommendationsRequest": "aws:ExportEBSVolumeRecommendationsRequest",
+    "DeleteRecommendationPreferencesResponse": "aws:DeleteRecommendationPreferencesResponse",
+    "LambdaFunctionUtilizationMetric": "aws:LambdaFunctionUtilizationMetric",
+    "GetAutoScalingGroupRecommendationsResponse": "aws:GetAutoScalingGroupRecommendationsResponse",
+    "ExportLambdaFunctionRecommendationsResponse": "aws:ExportLambdaFunctionRecommendationsResponse",
+    "MemorySizeConfiguration": "aws:MemorySizeConfiguration",
+    "ExportAutoScalingGroupRecommendationsRequest": "aws:ExportAutoScalingGroupRecommendationsRequest",
+    "GetEnrollmentStatusResponse": "aws:GetEnrollmentStatusResponse",
+    "Scope": "aws:Scope",
+    "GetRecommendationSummariesRequest": "aws:GetRecommendationSummariesRequest",
+    "InstanceRecommendationOption": "aws:InstanceRecommendationOption",
+    "AutoScalingGroupConfiguration": "aws:AutoScalingGroupConfiguration",
+    "ProjectedMetric": "aws:ProjectedMetric",
+    "GetRecommendationPreferencesRequest": "aws:GetRecommendationPreferencesRequest",
+    "ECSServiceRecommendationFilter": "aws:ECSServiceRecommendationFilter",
+    "ECSServiceRecommendation": "aws:ECSServiceRecommendation",
+    "GetEffectiveRecommendationPreferencesRequest": "aws:GetEffectiveRecommendationPreferencesRequest",
+    "ExportEC2InstanceRecommendationsRequest": "aws:ExportEC2InstanceRecommendationsRequest",
+    "ExportDestination": "aws:ExportDestination",
+    "EstimatedMonthlySavings": "aws:EstimatedMonthlySavings",
+    "GetEC2InstanceRecommendationsResponse": "aws:GetEC2InstanceRecommendationsResponse",
+    "GetLambdaFunctionRecommendationsRequest": "aws:GetLambdaFunctionRecommendationsRequest",
+    "RecommendationPreferencesDetail": "aws:RecommendationPreferencesDetail",
+    "ECSServiceUtilizationMetric": "aws:ECSServiceUtilizationMetric",
+    "S3DestinationConfig": "aws:S3DestinationConfig",
+    "GetEffectiveRecommendationPreferencesResponse": "aws:GetEffectiveRecommendationPreferencesResponse",
+    "AutoScalingGroupRecommendation": "aws:AutoScalingGroupRecommendation",
+    "EffectiveRecommendationPreferences": "aws:EffectiveRecommendationPreferences",
+    "RecommendationExportJob": "aws:RecommendationExportJob",
+    "GetECSServiceRecommendationProjectedMetricsRequest": "aws:GetECSServiceRecommendationProjectedMetricsRequest",
+    "GetAutoScalingGroupRecommendationsRequest": "aws:GetAutoScalingGroupRecommendationsRequest",
+    "ECSServiceRecommendationOption": "aws:ECSServiceRecommendationOption",
+    "ReasonCodeSummary": "aws:ReasonCodeSummary",
+    "ServiceConfiguration": "aws:ServiceConfiguration",
+    "UtilizationMetric": "aws:UtilizationMetric",
+    "RecommendationPreferences": "aws:RecommendationPreferences",
+    "CurrentPerformanceRiskRatings": "aws:CurrentPerformanceRiskRatings",
+    "VolumeRecommendation": "aws:VolumeRecommendation",
+    "GetRecommendationSummariesResponse": "aws:GetRecommendationSummariesResponse",
+    "ExternalMetricStatus": "aws:ExternalMetricStatus",
+    "GetEC2InstanceRecommendationsRequest": "aws:GetEC2InstanceRecommendationsRequest",
+    "DeleteRecommendationPreferencesRequest": "aws:DeleteRecommendationPreferencesRequest",
+    "LambdaFunctionRecommendation": "aws:LambdaFunctionRecommendation",
+    "GetRecommendationPreferencesResponse": "aws:GetRecommendationPreferencesResponse",
+    "GetECSServiceRecommendationsRequest": "aws:GetECSServiceRecommendationsRequest",
+    "Tag": "aws:Tag",
+    "Filter": "aws:Filter",
+    "GetECSServiceRecommendationsResponse": "aws:GetECSServiceRecommendationsResponse",
+    "ECSServiceRecommendedOptionProjectedMetric": "aws:ECSServiceRecommendedOptionProjectedMetric",
+    "LambdaFunctionMemoryProjectedMetric": "aws:LambdaFunctionMemoryProjectedMetric",
+    "EBSUtilizationMetric": "aws:EBSUtilizationMetric",
+    "ExportEBSVolumeRecommendationsResponse": "aws:ExportEBSVolumeRecommendationsResponse",
+    "ExternalMetricsPreference": "aws:ExternalMetricsPreference",
+    "ECSServiceProjectedMetric": "aws:ECSServiceProjectedMetric",
+    "LambdaFunctionRecommendationFilter": "aws:LambdaFunctionRecommendationFilter",
+    "PutRecommendationPreferencesRequest": "aws:PutRecommendationPreferencesRequest",
+    "GetEC2RecommendationProjectedMetricsRequest": "aws:GetEC2RecommendationProjectedMetricsRequest",
+    "GetEnrollmentStatusesForOrganizationResponse": "aws:GetEnrollmentStatusesForOrganizationResponse",
+    "Summary": "aws:Summary",
+    "UpdateEnrollmentStatusResponse": "aws:UpdateEnrollmentStatusResponse",
+    "GetEC2RecommendationProjectedMetricsResponse": "aws:GetEC2RecommendationProjectedMetricsResponse",
+    "ExportAutoScalingGroupRecommendationsResponse": "aws:ExportAutoScalingGroupRecommendationsResponse",
+    "VolumeConfiguration": "aws:VolumeConfiguration",
+    "ExportECSServiceRecommendationsResponse": "aws:ExportECSServiceRecommendationsResponse",
+    "instanceArn": {
+      "@id": "aws:instanceArn",
+      "@type": "xsd:string"
+    },
+    "accountId": {
+      "@id": "aws:accountId",
+      "@type": "xsd:string"
+    },
+    "instanceName": {
+      "@id": "aws:instanceName",
+      "@type": "xsd:string"
+    },
+    "currentInstanceType": {
+      "@id": "aws:currentInstanceType",
+      "@type": "xsd:string"
+    },
+    "finding": {
+      "@id": "aws:finding",
+      "@type": "xsd:string"
+    },
+    "findingReasonCodes": {
+      "@id": "aws:findingReasonCodes",
+      "@type": "xsd:string"
+    },
+    "utilizationMetrics": {
+      "@id": "aws:utilizationMetrics",
+      "@type": "xsd:string"
+    },
+    "lookBackPeriodInDays": {
+      "@id": "aws:lookBackPeriodInDays",
+      "@type": "xsd:string"
+    },
+    "recommendationOptions": {
+      "@id": "aws:recommendationOptions",
+      "@type": "xsd:string"
+    },
+    "recommendationSources": {
+      "@id": "aws:recommendationSources",
+      "@type": "xsd:string"
+    },
+    "lastRefreshTimestamp": {
+      "@id": "aws:lastRefreshTimestamp",
+      "@type": "xsd:string"
+    },
+    "currentPerformanceRisk": {
+      "@id": "aws:currentPerformanceRisk",
+      "@type": "xsd:string"
+    },
+    "effectiveRecommendationPreferences": {
+      "@id": "aws:effectiveRecommendationPreferences",
+      "@type": "xsd:string"
+    },
+    "inferredWorkloadTypes": {
+      "@id": "aws:inferredWorkloadTypes",
+      "@type": "xsd:string"
+    },
+    "instanceState": {
+      "@id": "aws:instanceState",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "aws:tags",
+      "@type": "xsd:string"
+    },
+    "externalMetricStatus": {
+      "@id": "aws:externalMetricStatus",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "statistic": {
+      "@id": "aws:statistic",
+      "@type": "xsd:string"
+    },
+    "lowerBoundValue": {
+      "@id": "aws:lowerBoundValue",
+      "@type": "xsd:string"
+    },
+    "upperBoundValue": {
+      "@id": "aws:upperBoundValue",
+      "@type": "xsd:string"
+    },
+    "estimatedMonthlySavings": {
+      "@id": "aws:estimatedMonthlySavings",
+      "@type": "xsd:string"
+    },
+    "volumeArns": {
+      "@id": "aws:volumeArns",
+      "@type": "xsd:string"
+    },
+    "nextToken": {
+      "@id": "aws:nextToken",
+      "@type": "xsd:string"
+    },
+    "maxResults": {
+      "@id": "aws:maxResults",
+      "@type": "xsd:string"
+    },
+    "filters": {
+      "@id": "aws:filters",
+      "@type": "xsd:string"
+    },
+    "accountIds": {
+      "@id": "aws:accountIds",
+      "@type": "xsd:string"
+    },
+    "values": {
+      "@id": "aws:values",
+      "@type": "xsd:string"
+    },
+    "bucket": {
+      "@id": "aws:bucket",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "aws:key",
+      "@type": "xsd:string"
+    },
+    "metadataKey": {
+      "@id": "aws:metadataKey",
+      "@type": "xsd:string"
+    },
+    "rank": {
+      "@id": "aws:rank",
+      "@type": "xsd:string"
+    },
+    "memorySize": {
+      "@id": "aws:memorySize",
+      "@type": "xsd:string"
+    },
+    "projectedUtilizationMetrics": {
+      "@id": "aws:projectedUtilizationMetrics",
+      "@type": "xsd:string"
+    },
+    "savingsOpportunity": {
+      "@id": "aws:savingsOpportunity",
+      "@type": "xsd:string"
+    },
+    "recommendationSourceArn": {
+      "@id": "aws:recommendationSourceArn",
+      "@type": "xsd:string"
+    },
+    "recommendationSourceType": {
+      "@id": "aws:recommendationSourceType",
+      "@type": "xsd:string"
+    },
+    "jobId": {
+      "@id": "aws:jobId",
+      "@type": "xsd:string"
+    },
+    "s3Destination": {
+      "@id": "aws:s3Destination",
+      "@type": "xsd:string"
+    },
+    "summaries": {
+      "@id": "aws:summaries",
+      "@type": "xsd:string"
+    },
+    "recommendationResourceType": {
+      "@id": "aws:recommendationResourceType",
+      "@type": "xsd:string"
+    },
+    "currentPerformanceRiskRatings": {
+      "@id": "aws:currentPerformanceRiskRatings",
+      "@type": "xsd:string"
+    },
+    "inferredWorkloadSavings": {
+      "@id": "aws:inferredWorkloadSavings",
+      "@type": "xsd:string"
+    },
+    "lambdaFunctionRecommendations": {
+      "@id": "aws:lambdaFunctionRecommendations",
+      "@type": "xsd:string"
+    },
+    "configuration": {
+      "@id": "aws:configuration",
+      "@type": "xsd:string"
+    },
+    "performanceRisk": {
+      "@id": "aws:performanceRisk",
+      "@type": "xsd:string"
+    },
+    "migrationEffort": {
+      "@id": "aws:migrationEffort",
+      "@type": "xsd:string"
+    },
+    "recommendedInstanceType": {
+      "@id": "aws:recommendedInstanceType",
+      "@type": "xsd:string"
+    },
+    "projectedMetrics": {
+      "@id": "aws:projectedMetrics",
+      "@type": "xsd:string"
+    },
+    "fieldsToExport": {
+      "@id": "aws:fieldsToExport",
+      "@type": "xsd:string"
+    },
+    "s3DestinationConfig": {
+      "@id": "aws:s3DestinationConfig",
+      "@type": "xsd:string"
+    },
+    "fileFormat": {
+      "@id": "aws:fileFormat",
+      "@type": "xsd:string"
+    },
+    "includeMemberAccounts": {
+      "@id": "aws:includeMemberAccounts",
+      "@type": "xsd:string"
+    },
+    "recommendedOptionProjectedMetrics": {
+      "@id": "aws:recommendedOptionProjectedMetrics",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "aws:status",
+      "@type": "xsd:string"
+    },
+    "statusReason": {
+      "@id": "aws:statusReason",
+      "@type": "xsd:string"
+    },
+    "lastUpdatedTimestamp": {
+      "@id": "aws:lastUpdatedTimestamp",
+      "@type": "xsd:string"
+    },
+    "containerName": {
+      "@id": "aws:containerName",
+      "@type": "xsd:string"
+    },
+    "memorySizeConfiguration": {
+      "@id": "aws:memorySizeConfiguration",
+      "@type": "xsd:string"
+    },
+    "cpu": {
+      "@id": "aws:cpu",
+      "@type": "xsd:string"
+    },
+    "volumeRecommendations": {
+      "@id": "aws:volumeRecommendations",
+      "@type": "xsd:string"
+    },
+    "errors": {
+      "@id": "aws:errors",
+      "@type": "xsd:string"
+    },
+    "savingsOpportunityPercentage": {
+      "@id": "aws:savingsOpportunityPercentage",
+      "@type": "xsd:string"
+    },
+    "jobIds": {
+      "@id": "aws:jobIds",
+      "@type": "xsd:string"
+    },
+    "recommendationExportJobs": {
+      "@id": "aws:recommendationExportJobs",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "aws:value",
+      "@type": "xsd:string"
+    },
+    "autoScalingGroupRecommendations": {
+      "@id": "aws:autoScalingGroupRecommendations",
+      "@type": "xsd:string"
+    },
+    "memory": {
+      "@id": "aws:memory",
+      "@type": "xsd:string"
+    },
+    "memoryReservation": {
+      "@id": "aws:memoryReservation",
+      "@type": "xsd:string"
+    },
+    "recommendationPreferences": {
+      "@id": "aws:recommendationPreferences",
+      "@type": "xsd:string"
+    },
+    "memberAccountsEnrolled": {
+      "@id": "aws:memberAccountsEnrolled",
+      "@type": "xsd:string"
+    },
+    "numberOfMemberAccountsOptedIn": {
+      "@id": "aws:numberOfMemberAccountsOptedIn",
+      "@type": "xsd:string"
+    },
+    "instanceType": {
+      "@id": "aws:instanceType",
+      "@type": "xsd:string"
+    },
+    "platformDifferences": {
+      "@id": "aws:platformDifferences",
+      "@type": "xsd:string"
+    },
+    "desiredCapacity": {
+      "@id": "aws:desiredCapacity",
+      "@type": "xsd:string"
+    },
+    "minSize": {
+      "@id": "aws:minSize",
+      "@type": "xsd:string"
+    },
+    "maxSize": {
+      "@id": "aws:maxSize",
+      "@type": "xsd:string"
+    },
+    "timestamps": {
+      "@id": "aws:timestamps",
+      "@type": "xsd:string"
+    },
+    "resourceType": {
+      "@id": "aws:resourceType",
+      "@type": "xsd:string"
+    },
+    "scope": {
+      "@id": "aws:scope",
+      "@type": "xsd:string"
+    },
+    "serviceArn": {
+      "@id": "aws:serviceArn",
+      "@type": "xsd:string"
+    },
+    "currentServiceConfiguration": {
+      "@id": "aws:currentServiceConfiguration",
+      "@type": "xsd:string"
+    },
+    "lookbackPeriodInDays": {
+      "@id": "aws:lookbackPeriodInDays",
+      "@type": "xsd:string"
+    },
+    "launchType": {
+      "@id": "aws:launchType",
+      "@type": "xsd:string"
+    },
+    "serviceRecommendationOptions": {
+      "@id": "aws:serviceRecommendationOptions",
+      "@type": "xsd:string"
+    },
+    "resourceArn": {
+      "@id": "aws:resourceArn",
+      "@type": "xsd:string"
+    },
+    "s3": {
+      "@id": "aws:s3",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "aws:currency",
+      "@type": "xsd:string"
+    },
+    "instanceRecommendations": {
+      "@id": "aws:instanceRecommendations",
+      "@type": "xsd:string"
+    },
+    "functionArns": {
+      "@id": "aws:functionArns",
+      "@type": "xsd:string"
+    },
+    "enhancedInfrastructureMetrics": {
+      "@id": "aws:enhancedInfrastructureMetrics",
+      "@type": "xsd:string"
+    },
+    "externalMetricsPreference": {
+      "@id": "aws:externalMetricsPreference",
+      "@type": "xsd:string"
+    },
+    "keyPrefix": {
+      "@id": "aws:keyPrefix",
+      "@type": "xsd:string"
+    },
+    "autoScalingGroupArn": {
+      "@id": "aws:autoScalingGroupArn",
+      "@type": "xsd:string"
+    },
+    "autoScalingGroupName": {
+      "@id": "aws:autoScalingGroupName",
+      "@type": "xsd:string"
+    },
+    "currentConfiguration": {
+      "@id": "aws:currentConfiguration",
+      "@type": "xsd:string"
+    },
+    "cpuVendorArchitectures": {
+      "@id": "aws:cpuVendorArchitectures",
+      "@type": "xsd:string"
+    },
+    "destination": {
+      "@id": "aws:destination",
+      "@type": "xsd:string"
+    },
+    "creationTimestamp": {
+      "@id": "aws:creationTimestamp",
+      "@type": "xsd:string"
+    },
+    "failureReason": {
+      "@id": "aws:failureReason",
+      "@type": "xsd:string"
+    },
+    "stat": {
+      "@id": "aws:stat",
+      "@type": "xsd:string"
+    },
+    "period": {
+      "@id": "aws:period",
+      "@type": "xsd:string"
+    },
+    "startTime": {
+      "@id": "aws:startTime",
+      "@type": "xsd:string"
+    },
+    "endTime": {
+      "@id": "aws:endTime",
+      "@type": "xsd:string"
+    },
+    "autoScalingGroupArns": {
+      "@id": "aws:autoScalingGroupArns",
+      "@type": "xsd:string"
+    },
+    "containerRecommendations": {
+      "@id": "aws:containerRecommendations",
+      "@type": "xsd:string"
+    },
+    "containerConfigurations": {
+      "@id": "aws:containerConfigurations",
+      "@type": "xsd:string"
+    },
+    "autoScalingConfiguration": {
+      "@id": "aws:autoScalingConfiguration",
+      "@type": "xsd:string"
+    },
+    "taskDefinitionArn": {
+      "@id": "aws:taskDefinitionArn",
+      "@type": "xsd:string"
+    },
+    "high": {
+      "@id": "aws:high",
+      "@type": "xsd:string"
+    },
+    "medium": {
+      "@id": "aws:medium",
+      "@type": "xsd:string"
+    },
+    "low": {
+      "@id": "aws:low",
+      "@type": "xsd:string"
+    },
+    "veryLow": {
+      "@id": "aws:veryLow",
+      "@type": "xsd:string"
+    },
+    "volumeArn": {
+      "@id": "aws:volumeArn",
+      "@type": "xsd:string"
+    },
+    "volumeRecommendationOptions": {
+      "@id": "aws:volumeRecommendationOptions",
+      "@type": "xsd:string"
+    },
+    "recommendationSummaries": {
+      "@id": "aws:recommendationSummaries",
+      "@type": "xsd:string"
+    },
+    "statusCode": {
+      "@id": "aws:statusCode",
+      "@type": "xsd:string"
+    },
+    "instanceArns": {
+      "@id": "aws:instanceArns",
+      "@type": "xsd:string"
+    },
+    "recommendationPreferenceNames": {
+      "@id": "aws:recommendationPreferenceNames",
+      "@type": "xsd:string"
+    },
+    "functionArn": {
+      "@id": "aws:functionArn",
+      "@type": "xsd:string"
+    },
+    "functionVersion": {
+      "@id": "aws:functionVersion",
+      "@type": "xsd:string"
+    },
+    "currentMemorySize": {
+      "@id": "aws:currentMemorySize",
+      "@type": "xsd:string"
+    },
+    "numberOfInvocations": {
+      "@id": "aws:numberOfInvocations",
+      "@type": "xsd:string"
+    },
+    "memorySizeRecommendationOptions": {
+      "@id": "aws:memorySizeRecommendationOptions",
+      "@type": "xsd:string"
+    },
+    "recommendationPreferencesDetails": {
+      "@id": "aws:recommendationPreferencesDetails",
+      "@type": "xsd:string"
+    },
+    "serviceArns": {
+      "@id": "aws:serviceArns",
+      "@type": "xsd:string"
+    },
+    "ecsServiceRecommendations": {
+      "@id": "aws:ecsServiceRecommendations",
+      "@type": "xsd:string"
+    },
+    "recommendedCpuUnits": {
+      "@id": "aws:recommendedCpuUnits",
+      "@type": "xsd:string"
+    },
+    "recommendedMemorySize": {
+      "@id": "aws:recommendedMemorySize",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "aws:source",
+      "@type": "xsd:string"
+    },
+    "upperBoundValues": {
+      "@id": "aws:upperBoundValues",
+      "@type": "xsd:string"
+    },
+    "lowerBoundValues": {
+      "@id": "aws:lowerBoundValues",
+      "@type": "xsd:string"
+    },
+    "accountEnrollmentStatuses": {
+      "@id": "aws:accountEnrollmentStatuses",
+      "@type": "xsd:string"
+    },
+    "reasonCodeSummaries": {
+      "@id": "aws:reasonCodeSummaries",
+      "@type": "xsd:string"
+    },
+    "volumeType": {
+      "@id": "aws:volumeType",
+      "@type": "xsd:string"
+    },
+    "volumeSize": {
+      "@id": "aws:volumeSize",
+      "@type": "xsd:string"
+    },
+    "volumeBaselineIOPS": {
+      "@id": "aws:volumeBaselineIOPS",
+      "@type": "xsd:string"
+    },
+    "volumeBurstIOPS": {
+      "@id": "aws:volumeBurstIOPS",
+      "@type": "xsd:string"
+    },
+    "volumeBaselineThroughput": {
+      "@id": "aws:volumeBaselineThroughput",
+      "@type": "xsd:string"
+    },
+    "volumeBurstThroughput": {
+      "@id": "aws:volumeBurstThroughput",
+      "@type": "xsd:string"
+    },
+    "rootVolume": {
+      "@id": "aws:rootVolume",
+      "@type": "xsd:string"
+    }
+  }
+}

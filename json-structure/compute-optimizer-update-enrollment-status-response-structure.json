@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-update-enrollment-status-response-structure.json",
+  "name": "UpdateEnrollmentStatusResponse",
+  "description": "UpdateEnrollmentStatusResponse schema",
+  "type": "object",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Status"
+        },
+        {
+          "description": "The enrollment status of the account."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StatusReason"
+        },
+        {
+          "description": "The reason for the enrollment status of the account. For example, an account might show a status of <code>Pending</code> because member accounts of an organization require more time to be enrolled in the service."
+        }
+      ]
+    }
+  }
+}

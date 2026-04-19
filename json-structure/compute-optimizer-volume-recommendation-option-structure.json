@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-volume-recommendation-option-structure.json",
+  "name": "VolumeRecommendationOption",
+  "description": "Describes a recommendation option for an Amazon Elastic Block Store (Amazon EBS) instance.",
+  "type": "object",
+  "properties": {
+    "configuration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VolumeConfiguration"
+        },
+        {
+          "description": "An array of objects that describe a volume configuration."
+        }
+      ]
+    },
+    "performanceRisk": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PerformanceRisk"
+        },
+        {
+          "description": "<p>The performance risk of the volume recommendation option.</p> <p>Performance risk is the likelihood of the recommended volume type meeting the performance requirement of your workload.</p> <p>The value ranges from <code>0</code> - <code>4</code>, with <code>0</code> meaning that the recommended resource is predicted to always provide enough hardware capability. The higher the performance risk is, the more likely you should validate whether the recommendation will meet the performance requirements of your workload before migrating your resource.</p>"
+        }
+      ]
+    },
+    "rank": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Rank"
+        },
+        {
+          "description": "<p>The rank of the volume recommendation option.</p> <p>The top recommendation option is ranked as <code>1</code>.</p>"
+        }
+      ]
+    },
+    "savingsOpportunity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SavingsOpportunity"
+        },
+        {
+          "description": "An object that describes the savings opportunity for the EBS volume recommendation option. Savings opportunity includes the estimated monthly savings amount and percentage."
+        }
+      ]
+    }
+  }
+}

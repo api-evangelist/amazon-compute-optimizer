@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-estimated-monthly-savings-schema.json",
+  "title": "EstimatedMonthlySavings",
+  "description": "<p>Describes the estimated monthly savings amount possible, based on On-Demand instance pricing, by adopting Compute Optimizer recommendations for a given resource.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-ec2-recommendations.html#ec2-savings-calculation\">Estimated monthly savings and savings opportunities</a> in the <i>Compute Optimizer User Guide</i>.</p>",
+  "type": "object",
+  "properties": {
+    "currency": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Currency"
+        },
+        {
+          "description": "The currency of the estimated monthly savings."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Value"
+        },
+        {
+          "description": "The value of the estimated monthly savings."
+        }
+      ]
+    }
+  }
+}

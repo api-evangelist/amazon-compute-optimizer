@@ -1,0 +1,9 @@
+{
+  "jobId": "example-string",
+  "destination": "example-string",
+  "resourceType": "ec2",
+  "status": "Active",
+  "creationTimestamp": "example-string",
+  "lastUpdatedTimestamp": "example-string",
+  "failureReason": "example-string"
+}

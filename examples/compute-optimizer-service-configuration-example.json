@@ -1,0 +1,7 @@
+{
+  "memory": "example-string",
+  "cpu": "example-string",
+  "containerConfigurations": "example-string",
+  "autoScalingConfiguration": "example-string",
+  "taskDefinitionArn": "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0"
+}

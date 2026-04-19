@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-exportable-ecs-service-field-schema.json",
+  "title": "ExportableECSServiceField",
+  "description": "ExportableECSServiceField schema",
+  "type": "string",
+  "enum": [
+    "AccountId",
+    "ServiceArn",
+    "LookbackPeriodInDays",
+    "LastRefreshTimestamp",
+    "LaunchType",
+    "CurrentPerformanceRisk",
+    "CurrentServiceConfigurationMemory",
+    "CurrentServiceConfigurationCpu",
+    "CurrentServiceConfigurationTaskDefinitionArn",
+    "CurrentServiceConfigurationAutoScalingConfiguration",
+    "CurrentServiceContainerConfigurations",
+    "UtilizationMetricsCpuMaximum",
+    "UtilizationMetricsMemoryMaximum",
+    "Finding",
+    "FindingReasonCodes",
+    "RecommendationOptionsMemory",
+    "RecommendationOptionsCpu",
+    "RecommendationOptionsSavingsOpportunityPercentage",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsValue",
+    "RecommendationOptionsContainerRecommendations",
+    "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+    "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+    "Tags"
+  ]
+}

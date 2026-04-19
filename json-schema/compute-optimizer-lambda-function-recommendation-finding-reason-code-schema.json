@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-lambda-function-recommendation-finding-reason-code-schema.json",
+  "title": "LambdaFunctionRecommendationFindingReasonCode",
+  "description": "LambdaFunctionRecommendationFindingReasonCode schema",
+  "type": "string",
+  "enum": [
+    "MemoryOverprovisioned",
+    "MemoryUnderprovisioned",
+    "InsufficientData",
+    "Inconclusive"
+  ]
+}

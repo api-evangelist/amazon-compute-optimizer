@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-currency-schema.json",
+  "title": "Currency",
+  "description": "Currency schema",
+  "type": "string",
+  "enum": [
+    "USD",
+    "CNY"
+  ]
+}

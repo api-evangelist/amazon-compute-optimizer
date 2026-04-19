@@ -1,0 +1,5 @@
+{
+  "recommendedInstanceType": "ec2",
+  "rank": "example-string",
+  "projectedMetrics": "example-string"
+}

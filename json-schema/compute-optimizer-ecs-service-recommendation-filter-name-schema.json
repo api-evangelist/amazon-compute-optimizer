@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-ecs-service-recommendation-filter-name-schema.json",
+  "title": "ECSServiceRecommendationFilterName",
+  "description": "ECSServiceRecommendationFilterName schema",
+  "type": "string",
+  "enum": [
+    "Finding",
+    "FindingReasonCode"
+  ]
+}

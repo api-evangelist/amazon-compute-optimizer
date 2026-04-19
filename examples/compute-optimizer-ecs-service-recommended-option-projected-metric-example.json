@@ -1,0 +1,5 @@
+{
+  "recommendedCpuUnits": "example-string",
+  "recommendedMemorySize": "example-string",
+  "projectedMetrics": "example-string"
+}

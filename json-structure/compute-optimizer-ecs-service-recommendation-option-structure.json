@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-ecs-service-recommendation-option-structure.json",
+  "name": "ECSServiceRecommendationOption",
+  "description": " Describes the recommendation options for an Amazon ECS service. ",
+  "type": "object",
+  "properties": {
+    "memory": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableMemory"
+        },
+        {
+          "description": " The memory size of the Amazon ECS service recommendation option. "
+        }
+      ]
+    },
+    "cpu": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableCpu"
+        },
+        {
+          "description": " The CPU size of the Amazon ECS service recommendation option. "
+        }
+      ]
+    },
+    "savingsOpportunity": {
+      "$ref": "#/components/schemas/SavingsOpportunity"
+    },
+    "projectedUtilizationMetrics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ECSServiceProjectedUtilizationMetrics"
+        },
+        {
+          "description": " An array of objects that describe the projected utilization metrics of the Amazon ECS service recommendation option. "
+        }
+      ]
+    },
+    "containerRecommendations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerRecommendations"
+        },
+        {
+          "description": " The CPU and memory size recommendations for the containers within the task of your Amazon ECS service. "
+        }
+      ]
+    }
+  }
+}

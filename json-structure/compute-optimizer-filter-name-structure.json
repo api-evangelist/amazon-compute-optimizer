@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-filter-name-structure.json",
+  "name": "FilterName",
+  "description": "FilterName schema",
+  "type": "string",
+  "enum": [
+    "Finding",
+    "FindingReasonCodes",
+    "RecommendationSourceType",
+    "InferredWorkloadTypes"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-recommendation-source-schema.json",
+  "title": "RecommendationSource",
+  "description": "Describes the source of a recommendation, such as an Amazon EC2 instance or Auto Scaling group.",
+  "type": "object",
+  "properties": {
+    "recommendationSourceArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecommendationSourceArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the recommendation source."
+        }
+      ]
+    },
+    "recommendationSourceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecommendationSourceType"
+        },
+        {
+          "description": "The resource type of the recommendation source."
+        }
+      ]
+    }
+  }
+}

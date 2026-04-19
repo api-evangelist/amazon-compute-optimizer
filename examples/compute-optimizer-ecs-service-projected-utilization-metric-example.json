@@ -1,0 +1,6 @@
+{
+  "name": "example-name",
+  "statistic": "example-string",
+  "lowerBoundValue": "example-string",
+  "upperBoundValue": "example-string"
+}

@@ -1,16 +1,136 @@
 aid: amazon-compute-optimizer
 name: Amazon Compute Optimizer
 description: >-
-  Amazon Compute Optimizer provides API capabilities.
+  Amazon Compute Optimizer analyzes the configuration and utilization metrics of
+  your AWS resources and provides recommendations to help you identify optimal
+  AWS resource configurations. It uses machine learning to analyze historical
+  utilization metrics and generates rightsizing recommendations for EC2 instances,
+  Auto Scaling groups, EBS volumes, Lambda functions, ECS services on Fargate,
+  and RDS instances to help reduce costs and improve performance.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags: []
+tags:
+  - AWS
+  - Cost Optimization
+  - FinOps
+  - Machine Learning
+  - Resource Recommendations
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-03-16'
+modified: '2026-04-19'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - name: Amazon Compute Optimizer API
+    description: >-
+      The Amazon Compute Optimizer API provides 21 operations for analyzing
+      resource utilization and generating rightsizing recommendations for EC2
+      instances, Auto Scaling groups, EBS volumes, Lambda functions, ECS services,
+      and RDS instances. Includes enrollment management and recommendation export
+      capabilities.
+    humanURL: https://aws.amazon.com/compute-optimizer/
+    baseURL: https://compute-optimizer.amazonaws.com
+    tags:
+      - AWS
+      - Cost Optimization
+      - FinOps
+      - Machine Learning
+      - Resource Recommendations
+    properties:
+      - type: Documentation
+        url: https://docs.aws.amazon.com/compute-optimizer/latest/ug/
+      - type: OpenAPI
+        url: openapi/amazon-compute-optimizer-openapi.yml
+      - type: APIReference
+        url: https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/
+      - type: Pricing
+        url: https://aws.amazon.com/compute-optimizer/pricing/
+      - type: GettingStarted
+        url: https://docs.aws.amazon.com/compute-optimizer/latest/ug/getting-started.html
+      - type: FAQ
+        url: https://aws.amazon.com/compute-optimizer/faqs/
+      - type: JSONSchema
+        url: json-schema/compute-optimizer-instance-recommendation-schema.json
+      - type: JSONStructure
+        url: json-structure/compute-optimizer-instance-recommendation-structure.json
+      - type: JSON-LD
+        url: json-ld/amazon-compute-optimizer-context.jsonld
+common:
+  - type: Portal
+    url: https://aws.amazon.com/
+  - type: Website
+    url: https://aws.amazon.com/compute-optimizer/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/compute-optimizer/
+  - type: TermsOfService
+    url: https://aws.amazon.com/service-terms/
+  - type: PrivacyPolicy
+    url: https://aws.amazon.com/privacy/
+  - type: Support
+    url: https://aws.amazon.com/premiumsupport/
+  - type: Blog
+    url: https://aws.amazon.com/blogs/aws/
+  - type: GitHubOrganization
+    url: https://github.com/aws
+  - type: Console
+    url: https://console.aws.amazon.com/compute-optimizer/
+  - type: SignUp
+    url: https://signin.aws.amazon.com/signup?request_type=register
+  - type: Login
+    url: https://aws.amazon.com/console/
+  - type: StatusPage
+    url: https://health.aws.amazon.com/health/status
+  - type: Contact
+    url: https://aws.amazon.com/contact-us/
+  - type: SpectralRules
+    url: rules/amazon-compute-optimizer-spectral-rules.yml
+  - type: NaftikoCapability
+    url: capabilities/resource-optimization.yaml
+  - type: Vocabulary
+    url: vocabulary/amazon-compute-optimizer-vocabulary.yaml
+  - type: Features
+    data:
+      - name: EC2 Instance Recommendations
+        description: Get rightsizing recommendations for over-provisioned or under-provisioned EC2 instances based on utilization metrics.
+      - name: Auto Scaling Group Recommendations
+        description: Optimize Auto Scaling group configurations for cost and performance based on historical usage patterns.
+      - name: EBS Volume Recommendations
+        description: Identify EBS volumes that can be downsized or converted to a different volume type for cost savings.
+      - name: Lambda Function Recommendations
+        description: Optimize Lambda function memory settings based on actual invocation utilization.
+      - name: ECS Service Recommendations
+        description: Rightsize ECS services running on AWS Fargate for CPU and memory efficiency.
+      - name: RDS Instance Recommendations
+        description: Get rightsizing recommendations for RDS database instances and clusters.
+      - name: Savings Opportunity Estimation
+        description: Estimate the potential cost savings from implementing rightsizing recommendations.
+      - name: Organization-Wide Analysis
+        description: Analyze recommendations across all accounts in an AWS Organization.
+  - type: UseCases
+    data:
+      - name: Cost Reduction
+        description: Identify and eliminate over-provisioned AWS resources to reduce monthly cloud spending.
+      - name: Performance Optimization
+        description: Detect under-provisioned resources that may be causing performance issues and get upgrade recommendations.
+      - name: FinOps Reporting
+        description: Generate cross-account optimization reports to support FinOps practices and showback/chargeback processes.
+      - name: Migration Planning
+        description: Use recommendations to rightsize resources before or after migrating workloads to AWS.
+      - name: Continuous Optimization
+        description: Integrate recommendations into CI/CD pipelines to continuously monitor and optimize resource provisioning.
+  - type: Integrations
+    data:
+      - name: AWS Cost Explorer
+        description: Correlate Compute Optimizer recommendations with Cost Explorer data for accurate savings projections.
+      - name: AWS Organizations
+        description: Enroll and analyze recommendations across all accounts in an AWS Organization.
+      - name: Amazon CloudWatch
+        description: Compute Optimizer uses CloudWatch utilization metrics to generate its ML-based recommendations.
+      - name: AWS Trusted Advisor
+        description: Complementary service that also provides rightsizing recommendations alongside Compute Optimizer.
+      - name: AWS Systems Manager
+        description: Use Systems Manager to implement EC2 instance type changes recommended by Compute Optimizer.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+    url: https://apievangelist.com

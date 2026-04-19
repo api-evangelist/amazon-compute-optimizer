@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-ecs-service-metric-name-structure.json",
+  "name": "ECSServiceMetricName",
+  "description": "ECSServiceMetricName schema",
+  "type": "string",
+  "enum": [
+    "Cpu",
+    "Memory"
+  ]
+}

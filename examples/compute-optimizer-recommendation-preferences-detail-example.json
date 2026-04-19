@@ -1,0 +1,7 @@
+{
+  "scope": "example-string",
+  "resourceType": "ec2",
+  "enhancedInfrastructureMetrics": "example-string",
+  "inferredWorkloadTypes": "ec2",
+  "externalMetricsPreference": "example-string"
+}

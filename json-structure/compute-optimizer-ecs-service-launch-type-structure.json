@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-ecs-service-launch-type-structure.json",
+  "name": "ECSServiceLaunchType",
+  "description": "ECSServiceLaunchType schema",
+  "type": "string",
+  "enum": [
+    "EC2",
+    "Fargate"
+  ]
+}

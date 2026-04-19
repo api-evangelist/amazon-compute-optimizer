@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-export-ec2-instance-recommendations-response-structure.json",
+  "name": "ExportEC2InstanceRecommendationsResponse",
+  "description": "ExportEC2InstanceRecommendationsResponse schema",
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "<p>The identification number of the export job.</p> <p>Use the <a>DescribeRecommendationExportJobs</a> action, and specify the job ID to view the status of an export job.</p>"
+        }
+      ]
+    },
+    "s3Destination": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Destination"
+        },
+        {
+          "description": "An object that describes the destination Amazon S3 bucket of a recommendations export file."
+        }
+      ]
+    }
+  }
+}

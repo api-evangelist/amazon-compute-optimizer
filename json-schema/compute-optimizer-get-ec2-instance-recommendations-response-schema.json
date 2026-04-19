@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-get-ec2-instance-recommendations-response-schema.json",
+  "title": "GetEC2InstanceRecommendationsResponse",
+  "description": "GetEC2InstanceRecommendationsResponse schema",
+  "type": "object",
+  "properties": {
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "<p>The token to use to advance to the next page of instance recommendations.</p> <p>This value is null when there are no more pages of instance recommendations to return.</p>"
+        }
+      ]
+    },
+    "instanceRecommendations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceRecommendations"
+        },
+        {
+          "description": "An array of objects that describe instance recommendations."
+        }
+      ]
+    },
+    "errors": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GetRecommendationErrors"
+        },
+        {
+          "description": "<p>An array of objects that describe errors of the request.</p> <p>For example, an error is returned if you request recommendations for an instance of an unsupported instance family.</p>"
+        }
+      ]
+    }
+  }
+}

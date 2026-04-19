@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-auto-scaling-configuration-structure.json",
+  "name": "AutoScalingConfiguration",
+  "description": "AutoScalingConfiguration schema",
+  "type": "string",
+  "enum": [
+    "TargetTrackingScalingCpu",
+    "TargetTrackingScalingMemory"
+  ]
+}

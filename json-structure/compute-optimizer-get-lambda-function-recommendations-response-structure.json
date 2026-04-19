@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-get-lambda-function-recommendations-response-structure.json",
+  "name": "GetLambdaFunctionRecommendationsResponse",
+  "description": "GetLambdaFunctionRecommendationsResponse schema",
+  "type": "object",
+  "properties": {
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "<p>The token to use to advance to the next page of function recommendations.</p> <p>This value is null when there are no more pages of function recommendations to return.</p>"
+        }
+      ]
+    },
+    "lambdaFunctionRecommendations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LambdaFunctionRecommendations"
+        },
+        {
+          "description": "An array of objects that describe function recommendations."
+        }
+      ]
+    }
+  }
+}

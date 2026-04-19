@@ -1,0 +1,5 @@
+{
+  "resourceType": "ec2",
+  "scope": "example-string",
+  "recommendationPreferenceNames": "example-name"
+}

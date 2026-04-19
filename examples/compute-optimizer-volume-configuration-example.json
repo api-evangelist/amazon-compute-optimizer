@@ -1,0 +1,9 @@
+{
+  "volumeType": "ec2",
+  "volumeSize": "example-string",
+  "volumeBaselineIOPS": "example-string",
+  "volumeBurstIOPS": "example-string",
+  "volumeBaselineThroughput": "example-string",
+  "volumeBurstThroughput": "example-string",
+  "rootVolume": "example-string"
+}

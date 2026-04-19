@@ -1,0 +1,6 @@
+{
+  "desiredCapacity": "example-string",
+  "minSize": "example-string",
+  "maxSize": "example-string",
+  "instanceType": "ec2"
+}

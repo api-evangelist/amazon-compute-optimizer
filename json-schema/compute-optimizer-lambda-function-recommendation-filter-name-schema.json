@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-lambda-function-recommendation-filter-name-schema.json",
+  "title": "LambdaFunctionRecommendationFilterName",
+  "description": "LambdaFunctionRecommendationFilterName schema",
+  "type": "string",
+  "enum": [
+    "Finding",
+    "FindingReasonCode"
+  ]
+}

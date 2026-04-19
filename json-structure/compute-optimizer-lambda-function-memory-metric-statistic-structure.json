@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-lambda-function-memory-metric-statistic-structure.json",
+  "name": "LambdaFunctionMemoryMetricStatistic",
+  "description": "LambdaFunctionMemoryMetricStatistic schema",
+  "type": "string",
+  "enum": [
+    "LowerBound",
+    "UpperBound",
+    "Expected"
+  ]
+}

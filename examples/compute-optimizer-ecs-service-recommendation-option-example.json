@@ -1,0 +1,7 @@
+{
+  "memory": "example-string",
+  "cpu": "example-string",
+  "savingsOpportunity": "example-string",
+  "projectedUtilizationMetrics": "example-string",
+  "containerRecommendations": "example-string"
+}

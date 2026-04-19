@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-recommendation-export-job-structure.json",
+  "name": "RecommendationExportJob",
+  "description": "<p>Describes a recommendation export job.</p> <p>Use the <a>DescribeRecommendationExportJobs</a> action to view your recommendation export jobs.</p> <p>Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions to request an export of your recommendations.</p>",
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "The identification number of the export job."
+        }
+      ]
+    },
+    "destination": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExportDestination"
+        },
+        {
+          "description": "An object that describes the destination of the export file."
+        }
+      ]
+    },
+    "resourceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceType"
+        },
+        {
+          "description": "The resource type of the exported recommendations."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobStatus"
+        },
+        {
+          "description": "The status of the export job."
+        }
+      ]
+    },
+    "creationTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreationTimestamp"
+        },
+        {
+          "description": "The timestamp of when the export job was created."
+        }
+      ]
+    },
+    "lastUpdatedTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastUpdatedTimestamp"
+        },
+        {
+          "description": "The timestamp of when the export job was last updated."
+        }
+      ]
+    },
+    "failureReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FailureReason"
+        },
+        {
+          "description": "The reason for an export job failure."
+        }
+      ]
+    }
+  }
+}

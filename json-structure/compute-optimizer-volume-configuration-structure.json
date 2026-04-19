@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-volume-configuration-structure.json",
+  "name": "VolumeConfiguration",
+  "description": "Describes the configuration of an Amazon Elastic Block Store (Amazon EBS) volume.",
+  "type": "object",
+  "properties": {
+    "volumeType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VolumeType"
+        },
+        {
+          "description": "<p>The volume type.</p> <p>This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic volumes.</p>"
+        }
+      ]
+    },
+    "volumeSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VolumeSize"
+        },
+        {
+          "description": "The size of the volume, in GiB."
+        }
+      ]
+    },
+    "volumeBaselineIOPS": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VolumeBaselineIOPS"
+        },
+        {
+          "description": "The baseline IOPS of the volume."
+        }
+      ]
+    },
+    "volumeBurstIOPS": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VolumeBurstIOPS"
+        },
+        {
+          "description": "The burst IOPS of the volume."
+        }
+      ]
+    },
+    "volumeBaselineThroughput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VolumeBaselineThroughput"
+        },
+        {
+          "description": "The baseline throughput of the volume."
+        }
+      ]
+    },
+    "volumeBurstThroughput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VolumeBurstThroughput"
+        },
+        {
+          "description": "The burst throughput of the volume."
+        }
+      ]
+    },
+    "rootVolume": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RootVolume"
+        },
+        {
+          "description": " Contains the image used to boot the instance during launch. "
+        }
+      ]
+    }
+  }
+}

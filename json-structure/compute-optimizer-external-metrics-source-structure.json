@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-external-metrics-source-structure.json",
+  "name": "ExternalMetricsSource",
+  "description": "ExternalMetricsSource schema",
+  "type": "string",
+  "enum": [
+    "Datadog",
+    "Dynatrace",
+    "NewRelic",
+    "Instana"
+  ]
+}

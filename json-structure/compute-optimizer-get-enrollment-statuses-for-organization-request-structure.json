@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-get-enrollment-statuses-for-organization-request-structure.json",
+  "name": "GetEnrollmentStatusesForOrganizationRequest",
+  "description": "GetEnrollmentStatusesForOrganizationRequest schema",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnrollmentFilters"
+        },
+        {
+          "description": "An array of objects to specify a filter that returns a more specific list of account enrollment statuses."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token to advance to the next page of account enrollment statuses."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxResults"
+        },
+        {
+          "description": "<p>The maximum number of account enrollment statuses to return with a single request. You can specify up to 100 statuses to return with each request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>"
+        }
+      ]
+    }
+  }
+}

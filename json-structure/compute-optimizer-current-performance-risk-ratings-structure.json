@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-current-performance-risk-ratings-structure.json",
+  "name": "CurrentPerformanceRiskRatings",
+  "description": "<p>Describes the performance risk ratings for a given resource type.</p> <p>Resources with a <code>high</code> or <code>medium</code> rating are at risk of not meeting the performance needs of their workloads, while resources with a <code>low</code> rating are performing well in their workloads.</p>",
+  "type": "object",
+  "properties": {
+    "high": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/High"
+        },
+        {
+          "description": "A count of the applicable resource types with a high performance risk rating."
+        }
+      ]
+    },
+    "medium": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Medium"
+        },
+        {
+          "description": "A count of the applicable resource types with a medium performance risk rating."
+        }
+      ]
+    },
+    "low": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Low"
+        },
+        {
+          "description": "A count of the applicable resource types with a low performance risk rating."
+        }
+      ]
+    },
+    "veryLow": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VeryLow"
+        },
+        {
+          "description": "A count of the applicable resource types with a very low performance risk rating."
+        }
+      ]
+    }
+  }
+}

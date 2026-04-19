@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-instance-state-schema.json",
+  "title": "InstanceState",
+  "description": "InstanceState schema",
+  "type": "string",
+  "enum": [
+    "pending",
+    "running",
+    "shutting-down",
+    "terminated",
+    "stopping",
+    "stopped"
+  ]
+}

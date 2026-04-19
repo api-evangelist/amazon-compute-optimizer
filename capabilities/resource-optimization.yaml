@@ -1,0 +1,222 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon Compute Optimizer Resource Optimization"
+  description: "Workflow capability for AWS resource rightsizing and cost optimization recommendations across EC2 instances, Auto Scaling groups, EBS volumes, Lambda functions, ECS services, and RDS instances. Used by cloud architects and FinOps engineers to identify over-provisioned resources and reduce costs."
+  tags:
+    - Amazon
+    - AWS
+    - Cost Optimization
+    - Resource Recommendations
+    - FinOps
+    - EC2
+    - Machine Learning
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+
+capability:
+  consumes:
+    - import: compute-optimizer
+      location: ./shared/compute-optimizer.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: resource-optimization-api
+      description: "Unified REST API for Amazon Compute Optimizer resource rightsizing recommendations."
+      resources:
+        - path: /v1/recommendations/ec2
+          name: ec2-recommendations
+          description: "EC2 instance rightsizing recommendations."
+          operations:
+            - method: GET
+              name: get-ec2-recommendations
+              description: "Get rightsizing recommendations for EC2 instances."
+              call: "compute-optimizer.get-ec2-instance-recommendations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/recommendations/auto-scaling
+          name: asg-recommendations
+          description: "Auto Scaling group recommendations."
+          operations:
+            - method: GET
+              name: get-asg-recommendations
+              description: "Get rightsizing recommendations for Auto Scaling groups."
+              call: "compute-optimizer.get-auto-scaling-group-recommendations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/recommendations/ebs
+          name: ebs-recommendations
+          description: "EBS volume recommendations."
+          operations:
+            - method: GET
+              name: get-ebs-recommendations
+              description: "Get rightsizing recommendations for EBS volumes."
+              call: "compute-optimizer.get-ebs-volume-recommendations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/recommendations/lambda
+          name: lambda-recommendations
+          description: "Lambda function recommendations."
+          operations:
+            - method: GET
+              name: get-lambda-recommendations
+              description: "Get rightsizing recommendations for Lambda functions."
+              call: "compute-optimizer.get-lambda-function-recommendations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/recommendations/ecs
+          name: ecs-recommendations
+          description: "ECS service recommendations."
+          operations:
+            - method: GET
+              name: get-ecs-recommendations
+              description: "Get rightsizing recommendations for ECS services."
+              call: "compute-optimizer.get-ecs-service-recommendations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/recommendations/rds
+          name: rds-recommendations
+          description: "RDS database recommendations."
+          operations:
+            - method: GET
+              name: get-rds-recommendations
+              description: "Get rightsizing recommendations for RDS databases."
+              call: "compute-optimizer.get-rds-database-recommendations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/recommendations/summary
+          name: recommendation-summary
+          description: "Optimization findings summary."
+          operations:
+            - method: GET
+              name: get-summary
+              description: "Get optimization findings summary across all resource types."
+              call: "compute-optimizer.get-recommendation-summaries"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/enrollment
+          name: enrollment
+          description: "Enrollment status management."
+          operations:
+            - method: GET
+              name: get-enrollment
+              description: "Get enrollment status."
+              call: "compute-optimizer.get-enrollment-status"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: resource-optimization-mcp
+      transport: http
+      description: "MCP server for AI-assisted Amazon Compute Optimizer resource rightsizing and cost analysis."
+      tools:
+        - name: get-ec2-recommendations
+          description: "Get rightsizing recommendations for Amazon EC2 instances to reduce costs."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "compute-optimizer.get-ec2-instance-recommendations"
+          with:
+            account_ids: "tools.account_ids"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-asg-recommendations
+          description: "Get rightsizing recommendations for Auto Scaling groups."
+          hints:
+            readOnly: true
+          call: "compute-optimizer.get-auto-scaling-group-recommendations"
+          with:
+            account_ids: "tools.account_ids"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-ebs-recommendations
+          description: "Get rightsizing recommendations for Amazon EBS volumes."
+          hints:
+            readOnly: true
+          call: "compute-optimizer.get-ebs-volume-recommendations"
+          with:
+            account_ids: "tools.account_ids"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-lambda-recommendations
+          description: "Get rightsizing recommendations for AWS Lambda functions."
+          hints:
+            readOnly: true
+          call: "compute-optimizer.get-lambda-function-recommendations"
+          with:
+            account_ids: "tools.account_ids"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-ecs-recommendations
+          description: "Get rightsizing recommendations for Amazon ECS services."
+          hints:
+            readOnly: true
+          call: "compute-optimizer.get-ecs-service-recommendations"
+          with:
+            service_arns: "tools.service_arns"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-rds-recommendations
+          description: "Get rightsizing recommendations for Amazon RDS database instances and clusters."
+          hints:
+            readOnly: true
+          call: "compute-optimizer.get-rds-database-recommendations"
+          with:
+            account_ids: "tools.account_ids"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-optimization-summary
+          description: "Get a summary of optimization findings across all supported resource types in the account."
+          hints:
+            readOnly: true
+          call: "compute-optimizer.get-recommendation-summaries"
+          with:
+            account_ids: "tools.account_ids"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-enrollment-status
+          description: "Check if the account is enrolled in Amazon Compute Optimizer."
+          hints:
+            readOnly: true
+          call: "compute-optimizer.get-enrollment-status"
+          outputParameters:
+            - type: object
+              mapping: "$."

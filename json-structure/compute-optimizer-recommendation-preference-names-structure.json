@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-recommendation-preference-names-structure.json",
+  "name": "RecommendationPreferenceNames",
+  "description": "RecommendationPreferenceNames schema",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/RecommendationPreferenceName"
+  }
+}

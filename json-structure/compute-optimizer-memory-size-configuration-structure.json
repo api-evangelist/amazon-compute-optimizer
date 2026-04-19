@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-memory-size-configuration-structure.json",
+  "name": "MemorySizeConfiguration",
+  "description": " The memory size configurations of a container. ",
+  "type": "object",
+  "properties": {
+    "memory": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableMemory"
+        },
+        {
+          "description": " The amount of memory in the container. "
+        }
+      ]
+    },
+    "memoryReservation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableMemoryReservation"
+        },
+        {
+          "description": " The limit of memory reserve for the container. "
+        }
+      ]
+    }
+  }
+}

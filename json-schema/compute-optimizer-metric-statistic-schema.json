@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-metric-statistic-schema.json",
+  "title": "MetricStatistic",
+  "description": "MetricStatistic schema",
+  "type": "string",
+  "enum": [
+    "Maximum",
+    "Average"
+  ]
+}

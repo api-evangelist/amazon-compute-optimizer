@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-instance-recommendation-finding-reason-code-schema.json",
+  "title": "InstanceRecommendationFindingReasonCode",
+  "description": "InstanceRecommendationFindingReasonCode schema",
+  "type": "string",
+  "enum": [
+    "CPUOverprovisioned",
+    "CPUUnderprovisioned",
+    "MemoryOverprovisioned",
+    "MemoryUnderprovisioned",
+    "EBSThroughputOverprovisioned",
+    "EBSThroughputUnderprovisioned",
+    "EBSIOPSOverprovisioned",
+    "EBSIOPSUnderprovisioned",
+    "NetworkBandwidthOverprovisioned",
+    "NetworkBandwidthUnderprovisioned",
+    "NetworkPPSOverprovisioned",
+    "NetworkPPSUnderprovisioned",
+    "DiskIOPSOverprovisioned",
+    "DiskIOPSUnderprovisioned",
+    "DiskThroughputOverprovisioned",
+    "DiskThroughputUnderprovisioned"
+  ]
+}

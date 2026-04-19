@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-lambda-function-metric-name-structure.json",
+  "name": "LambdaFunctionMetricName",
+  "description": "LambdaFunctionMetricName schema",
+  "type": "string",
+  "enum": [
+    "Duration",
+    "Memory"
+  ]
+}

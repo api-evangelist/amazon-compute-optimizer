@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-recommended-option-projected-metric-structure.json",
+  "name": "RecommendedOptionProjectedMetric",
+  "description": "<p>Describes a projected utilization metric of a recommendation option.</p> <note> <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization metrics returned when you run the <a>GetEC2RecommendationProjectedMetrics</a> action. Additionally, the <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note>",
+  "type": "object",
+  "properties": {
+    "recommendedInstanceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecommendedInstanceType"
+        },
+        {
+          "description": "The recommended instance type."
+        }
+      ]
+    },
+    "rank": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Rank"
+        },
+        {
+          "description": "<p>The rank of the recommendation option projected metric.</p> <p>The top recommendation option is ranked as <code>1</code>.</p> <p>The projected metric rank correlates to the recommendation option rank. For example, the projected metric ranked as <code>1</code> is related to the recommendation option that is also ranked as <code>1</code> in the same response.</p>"
+        }
+      ]
+    },
+    "projectedMetrics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProjectedMetrics"
+        },
+        {
+          "description": "An array of objects that describe a projected utilization metric."
+        }
+      ]
+    }
+  }
+}

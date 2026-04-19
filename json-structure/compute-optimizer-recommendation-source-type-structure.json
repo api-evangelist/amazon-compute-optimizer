@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-recommendation-source-type-structure.json",
+  "name": "RecommendationSourceType",
+  "description": "RecommendationSourceType schema",
+  "type": "string",
+  "enum": [
+    "Ec2Instance",
+    "AutoScalingGroup",
+    "EbsVolume",
+    "LambdaFunction",
+    "EcsService"
+  ]
+}

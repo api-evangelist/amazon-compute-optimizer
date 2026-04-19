@@ -1,0 +1,14 @@
+{
+  "accountId": "example-string",
+  "autoScalingGroupArn": "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+  "autoScalingGroupName": "example-name",
+  "finding": "example-string",
+  "utilizationMetrics": "example-string",
+  "lookBackPeriodInDays": "example-string",
+  "currentConfiguration": "example-string",
+  "recommendationOptions": "example-string",
+  "lastRefreshTimestamp": "example-string",
+  "currentPerformanceRisk": "example-string",
+  "effectiveRecommendationPreferences": "example-string",
+  "inferredWorkloadTypes": "ec2"
+}

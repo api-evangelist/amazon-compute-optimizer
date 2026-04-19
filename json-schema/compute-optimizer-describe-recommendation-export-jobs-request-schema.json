@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-describe-recommendation-export-jobs-request-schema.json",
+  "title": "DescribeRecommendationExportJobsRequest",
+  "description": "DescribeRecommendationExportJobsRequest schema",
+  "type": "object",
+  "properties": {
+    "jobIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobIds"
+        },
+        {
+          "description": "<p>The identification numbers of the export jobs to return.</p> <p>An export job ID is returned when you create an export using the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions.</p> <p>All export jobs created in the last seven days are returned if this parameter is omitted.</p>"
+        }
+      ]
+    },
+    "filters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobFilters"
+        },
+        {
+          "description": "An array of objects to specify a filter that returns a more specific list of export jobs."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token to advance to the next page of export jobs."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxResults"
+        },
+        {
+          "description": "<p>The maximum number of export jobs to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>"
+        }
+      ]
+    }
+  }
+}

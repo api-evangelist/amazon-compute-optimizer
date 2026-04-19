@@ -1,0 +1,7 @@
+{
+  "status": "Active",
+  "statusReason": "Active",
+  "memberAccountsEnrolled": "example-string",
+  "lastUpdatedTimestamp": "example-string",
+  "numberOfMemberAccountsOptedIn": "example-string"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-ecs-service-recommended-option-projected-metric-structure.json",
+  "name": "ECSServiceRecommendedOptionProjectedMetric",
+  "description": "<p> Describes the projected metrics of an Amazon ECS service recommendation option. </p> <p>To determine the performance difference between your current Amazon ECS service and the recommended option, compare the metric data of your service against its projected metric data.</p>",
+  "type": "object",
+  "properties": {
+    "recommendedCpuUnits": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CpuSize"
+        },
+        {
+          "description": " The recommended CPU size for the Amazon ECS service. "
+        }
+      ]
+    },
+    "recommendedMemorySize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MemorySize"
+        },
+        {
+          "description": " The recommended memory size for the Amazon ECS service. "
+        }
+      ]
+    },
+    "projectedMetrics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ECSServiceProjectedMetrics"
+        },
+        {
+          "description": " An array of objects that describe the projected metric. "
+        }
+      ]
+    }
+  }
+}

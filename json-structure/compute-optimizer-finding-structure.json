@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-finding-structure.json",
+  "name": "Finding",
+  "description": "Finding schema",
+  "type": "string",
+  "enum": [
+    "Underprovisioned",
+    "Overprovisioned",
+    "Optimized",
+    "NotOptimized"
+  ]
+}

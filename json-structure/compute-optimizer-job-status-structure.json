@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-job-status-structure.json",
+  "name": "JobStatus",
+  "description": "JobStatus schema",
+  "type": "string",
+  "enum": [
+    "Queued",
+    "InProgress",
+    "Complete",
+    "Failed"
+  ]
+}

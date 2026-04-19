@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-ebs-finding-structure.json",
+  "name": "EBSFinding",
+  "description": "EBSFinding schema",
+  "type": "string",
+  "enum": [
+    "Optimized",
+    "NotOptimized"
+  ]
+}

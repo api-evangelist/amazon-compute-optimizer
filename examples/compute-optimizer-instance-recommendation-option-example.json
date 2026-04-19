@@ -1,0 +1,9 @@
+{
+  "instanceType": "ec2",
+  "projectedUtilizationMetrics": "example-string",
+  "platformDifferences": "example-string",
+  "performanceRisk": "example-string",
+  "rank": "example-string",
+  "savingsOpportunity": "example-string",
+  "migrationEffort": "example-string"
+}

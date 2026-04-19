@@ -1,0 +1,6 @@
+{
+  "resourceType": "ec2",
+  "scope": "example-string",
+  "nextToken": "example-string",
+  "maxResults": "example-string"
+}

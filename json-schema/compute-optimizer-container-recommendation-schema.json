@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-container-recommendation-schema.json",
+  "title": "ContainerRecommendation",
+  "description": " The CPU and memory recommendations for a container within the tasks of your Amazon ECS service. ",
+  "type": "object",
+  "properties": {
+    "containerName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerName"
+        },
+        {
+          "description": " The name of the container. "
+        }
+      ]
+    },
+    "memorySizeConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MemorySizeConfiguration"
+        },
+        {
+          "description": " The recommended memory size configurations for the container. "
+        }
+      ]
+    },
+    "cpu": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableCpu"
+        },
+        {
+          "description": " The recommended number of CPU units reserved for the container. "
+        }
+      ]
+    }
+  }
+}

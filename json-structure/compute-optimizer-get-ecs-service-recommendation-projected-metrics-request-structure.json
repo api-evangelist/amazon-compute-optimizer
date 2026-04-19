@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-get-ecs-service-recommendation-projected-metrics-request-structure.json",
+  "name": "GetECSServiceRecommendationProjectedMetricsRequest",
+  "description": "GetECSServiceRecommendationProjectedMetricsRequest schema",
+  "type": "object",
+  "properties": {
+    "serviceArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ServiceArn"
+        },
+        {
+          "description": "<p> The ARN that identifies the Amazon ECS service. </p> <p> The following is the format of the ARN: </p> <p> <code>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</code> </p>"
+        }
+      ]
+    },
+    "stat": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricStatistic"
+        },
+        {
+          "description": " The statistic of the projected metrics. "
+        }
+      ]
+    },
+    "period": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Period"
+        },
+        {
+          "description": " The granularity, in seconds, of the projected metrics data points. "
+        }
+      ]
+    },
+    "startTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": " The timestamp of the first projected metrics data point to return. "
+        }
+      ]
+    },
+    "endTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": " The timestamp of the last projected metrics data point to return. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "serviceArn",
+    "stat",
+    "period",
+    "startTime",
+    "endTime"
+  ]
+}

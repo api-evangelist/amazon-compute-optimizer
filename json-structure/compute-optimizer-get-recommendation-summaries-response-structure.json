@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-get-recommendation-summaries-response-structure.json",
+  "name": "GetRecommendationSummariesResponse",
+  "description": "GetRecommendationSummariesResponse schema",
+  "type": "object",
+  "properties": {
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "<p>The token to use to advance to the next page of recommendation summaries.</p> <p>This value is null when there are no more pages of recommendation summaries to return.</p>"
+        }
+      ]
+    },
+    "recommendationSummaries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecommendationSummaries"
+        },
+        {
+          "description": "An array of objects that summarize a recommendation."
+        }
+      ]
+    }
+  }
+}

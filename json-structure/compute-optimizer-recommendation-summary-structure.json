@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-recommendation-summary-structure.json",
+  "name": "RecommendationSummary",
+  "description": "A summary of a recommendation.",
+  "type": "object",
+  "properties": {
+    "summaries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Summaries"
+        },
+        {
+          "description": "An array of objects that describe a recommendation summary."
+        }
+      ]
+    },
+    "recommendationResourceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecommendationSourceType"
+        },
+        {
+          "description": "The resource type that the recommendation summary applies to."
+        }
+      ]
+    },
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccountId"
+        },
+        {
+          "description": "The Amazon Web Services account ID of the recommendation summary."
+        }
+      ]
+    },
+    "savingsOpportunity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SavingsOpportunity"
+        },
+        {
+          "description": "An object that describes the savings opportunity for a given resource type. Savings opportunity includes the estimated monthly savings amount and percentage."
+        }
+      ]
+    },
+    "currentPerformanceRiskRatings": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CurrentPerformanceRiskRatings"
+        },
+        {
+          "description": "An object that describes the performance risk ratings for a given resource type."
+        }
+      ]
+    },
+    "inferredWorkloadSavings": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InferredWorkloadSavings"
+        },
+        {
+          "description": " An array of objects that describes the estimated monthly saving amounts for the instances running on the specified <code>inferredWorkloadTypes</code>. The array contains the top three savings opportunites for the instances running inferred workload types. "
+        }
+      ]
+    }
+  }
+}

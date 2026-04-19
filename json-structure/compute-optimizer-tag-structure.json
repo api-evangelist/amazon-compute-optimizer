@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-tag-structure.json",
+  "name": "Tag",
+  "description": " A list of tag key and value pairs that you define. ",
+  "type": "object",
+  "properties": {
+    "key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagKey"
+        },
+        {
+          "description": " One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values. "
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagValue"
+        },
+        {
+          "description": " One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null. "
+        }
+      ]
+    }
+  }
+}

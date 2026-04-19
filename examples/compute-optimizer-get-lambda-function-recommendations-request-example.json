@@ -1,0 +1,7 @@
+{
+  "functionArns": "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+  "accountIds": "example-string",
+  "filters": "example-string",
+  "nextToken": "example-string",
+  "maxResults": "example-string"
+}

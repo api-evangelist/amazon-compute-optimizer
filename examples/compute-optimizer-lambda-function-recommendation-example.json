@@ -1,0 +1,15 @@
+{
+  "functionArn": "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+  "functionVersion": "example-string",
+  "accountId": "example-string",
+  "currentMemorySize": "example-string",
+  "numberOfInvocations": "example-string",
+  "utilizationMetrics": "example-string",
+  "lookbackPeriodInDays": "example-string",
+  "lastRefreshTimestamp": "example-string",
+  "finding": "example-string",
+  "findingReasonCodes": "example-string",
+  "memorySizeRecommendationOptions": "example-string",
+  "currentPerformanceRisk": "example-string",
+  "tags": "example-string"
+}

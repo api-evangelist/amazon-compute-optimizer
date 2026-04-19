@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-reason-code-summary-schema.json",
+  "title": "ReasonCodeSummary",
+  "description": "A summary of a finding reason code.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingReasonCode"
+        },
+        {
+          "description": "The name of the finding reason code."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SummaryValue"
+        },
+        {
+          "description": "The value of the finding reason code summary."
+        }
+      ]
+    }
+  }
+}

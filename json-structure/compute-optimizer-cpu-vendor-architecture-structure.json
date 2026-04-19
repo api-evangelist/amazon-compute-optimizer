@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-cpu-vendor-architecture-structure.json",
+  "name": "CpuVendorArchitecture",
+  "description": "CpuVendorArchitecture schema",
+  "type": "string",
+  "enum": [
+    "AWS_ARM64",
+    "CURRENT"
+  ]
+}

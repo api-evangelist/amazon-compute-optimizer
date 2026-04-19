@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-current-performance-risk-structure.json",
+  "name": "CurrentPerformanceRisk",
+  "description": "CurrentPerformanceRisk schema",
+  "type": "string",
+  "enum": [
+    "VeryLow",
+    "Low",
+    "Medium",
+    "High"
+  ]
+}

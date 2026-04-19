@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-export-ecs-service-recommendations-response-schema.json",
+  "title": "ExportECSServiceRecommendationsResponse",
+  "description": "ExportECSServiceRecommendationsResponse schema",
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "<p> The identification number of the export job. </p> <p>To view the status of an export job, use the <a>DescribeRecommendationExportJobs</a> action and specify the job ID. </p>"
+        }
+      ]
+    },
+    "s3Destination": {
+      "$ref": "#/components/schemas/S3Destination"
+    }
+  }
+}

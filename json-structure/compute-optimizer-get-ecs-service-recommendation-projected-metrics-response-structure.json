@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-get-ecs-service-recommendation-projected-metrics-response-structure.json",
+  "name": "GetECSServiceRecommendationProjectedMetricsResponse",
+  "description": "GetECSServiceRecommendationProjectedMetricsResponse schema",
+  "type": "object",
+  "properties": {
+    "recommendedOptionProjectedMetrics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ECSServiceRecommendedOptionProjectedMetrics"
+        },
+        {
+          "description": " An array of objects that describes the projected metrics. "
+        }
+      ]
+    }
+  }
+}

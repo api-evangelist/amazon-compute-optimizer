@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-volume-baseline-iops-structure.json",
+  "name": "VolumeBaselineIOPS",
+  "description": "VolumeBaselineIOPS schema",
+  "type": "integer"
+}

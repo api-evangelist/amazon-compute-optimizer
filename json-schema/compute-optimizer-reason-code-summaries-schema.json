@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-reason-code-summaries-schema.json",
+  "title": "ReasonCodeSummaries",
+  "description": "ReasonCodeSummaries schema",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/ReasonCodeSummary"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-delete-recommendation-preferences-response-structure.json",
+  "name": "DeleteRecommendationPreferencesResponse",
+  "description": "DeleteRecommendationPreferencesResponse schema",
+  "type": "object",
+  "properties": {}
+}

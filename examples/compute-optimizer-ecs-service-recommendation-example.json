@@ -1,0 +1,14 @@
+{
+  "serviceArn": "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+  "accountId": "example-string",
+  "currentServiceConfiguration": "example-string",
+  "utilizationMetrics": "example-string",
+  "lookbackPeriodInDays": "example-string",
+  "launchType": "ec2",
+  "lastRefreshTimestamp": "example-string",
+  "finding": "example-string",
+  "findingReasonCodes": "example-string",
+  "serviceRecommendationOptions": "example-string",
+  "currentPerformanceRisk": "example-string",
+  "tags": "example-string"
+}

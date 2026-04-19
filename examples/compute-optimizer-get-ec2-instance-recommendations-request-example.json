@@ -1,0 +1,8 @@
+{
+  "instanceArns": "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+  "nextToken": "example-string",
+  "maxResults": "example-string",
+  "filters": "example-string",
+  "accountIds": "example-string",
+  "recommendationPreferences": "example-string"
+}

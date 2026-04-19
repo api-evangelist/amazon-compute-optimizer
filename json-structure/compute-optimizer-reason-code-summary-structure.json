@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-reason-code-summary-structure.json",
+  "name": "ReasonCodeSummary",
+  "description": "A summary of a finding reason code.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FindingReasonCode"
+        },
+        {
+          "description": "The name of the finding reason code."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SummaryValue"
+        },
+        {
+          "description": "The value of the finding reason code summary."
+        }
+      ]
+    }
+  }
+}

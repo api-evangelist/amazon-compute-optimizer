@@ -1,0 +1,219 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon Compute Optimizer API"
+  description: "Shared per-API capability definition for Amazon Compute Optimizer covering resource recommendation analysis for EC2 instances, Auto Scaling groups, EBS volumes, Lambda functions, ECS services, and RDS instances."
+  tags:
+    - Amazon
+    - AWS
+    - Cost Optimization
+    - Resource Recommendations
+    - EC2
+    - Machine Learning
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+
+capability:
+  consumes:
+    - type: http
+      namespace: compute-optimizer
+      baseUri: https://compute-optimizer.{region}.amazonaws.com
+      description: "Amazon Compute Optimizer API for resource rightsizing recommendations."
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "{{AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: recommendations
+          path: /
+          description: "Resource recommendation operations."
+          operations:
+            - name: get-ec2-instance-recommendations
+              method: POST
+              description: "Returns Amazon EC2 instance recommendations."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  accountIds: "{{tools.account_ids}}"
+
+            - name: get-auto-scaling-group-recommendations
+              method: POST
+              description: "Returns Auto Scaling group recommendations."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  accountIds: "{{tools.account_ids}}"
+
+            - name: get-ebs-volume-recommendations
+              method: POST
+              description: "Returns Amazon EBS volume recommendations."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  accountIds: "{{tools.account_ids}}"
+
+            - name: get-lambda-function-recommendations
+              method: POST
+              description: "Returns AWS Lambda function recommendations."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  accountIds: "{{tools.account_ids}}"
+
+            - name: get-ecs-service-recommendations
+              method: POST
+              description: "Returns Amazon ECS service recommendations."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  serviceArns: "{{tools.service_arns}}"
+
+            - name: get-rds-database-recommendations
+              method: POST
+              description: "Returns Amazon RDS instance and cluster recommendations."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  accountIds: "{{tools.account_ids}}"
+
+        - name: enrollment
+          path: /
+          description: "Enrollment status and configuration."
+          operations:
+            - name: get-enrollment-status
+              method: POST
+              description: "Returns the enrollment status of an account."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: update-enrollment-status
+              method: POST
+              description: "Updates the enrollment status of an account to the Compute Optimizer service."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  status: "{{tools.status}}"
+
+        - name: summaries
+          path: /
+          description: "Recommendation summary operations."
+          operations:
+            - name: get-recommendation-summaries
+              method: POST
+              description: "Returns the optimization findings for an account."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  accountIds: "{{tools.account_ids}}"
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: compute-optimizer-rest
+      resources:
+        - path: /v1/recommendations/ec2
+          name: ec2-recommendations
+          description: "EC2 instance recommendations."
+          operations:
+            - method: GET
+              name: get-ec2-recommendations
+              description: "Get EC2 instance rightsizing recommendations."
+              call: "compute-optimizer.get-ec2-instance-recommendations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/recommendations/summary
+          name: recommendation-summary
+          description: "Optimization summary."
+          operations:
+            - method: GET
+              name: get-summary
+              description: "Get optimization findings summary."
+              call: "compute-optimizer.get-recommendation-summaries"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: compute-optimizer-mcp
+      transport: http
+      tools:
+        - name: get-ec2-recommendations
+          description: "Get Amazon EC2 instance rightsizing recommendations."
+          hints:
+            readOnly: true
+          call: "compute-optimizer.get-ec2-instance-recommendations"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-asg-recommendations
+          description: "Get Auto Scaling group rightsizing recommendations."
+          hints:
+            readOnly: true
+          call: "compute-optimizer.get-auto-scaling-group-recommendations"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-summary
+          description: "Get optimization findings summary across resource types."
+          hints:
+            readOnly: true
+          call: "compute-optimizer.get-recommendation-summaries"
+          outputParameters:
+            - type: object
+              mapping: "$."

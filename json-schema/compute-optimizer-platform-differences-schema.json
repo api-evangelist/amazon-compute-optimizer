@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-platform-differences-schema.json",
+  "title": "PlatformDifferences",
+  "description": "PlatformDifferences schema",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/PlatformDifference"
+  }
+}

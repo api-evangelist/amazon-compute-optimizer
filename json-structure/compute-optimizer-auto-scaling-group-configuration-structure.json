@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-auto-scaling-group-configuration-structure.json",
+  "name": "AutoScalingGroupConfiguration",
+  "description": "Describes the configuration of an Auto Scaling group.",
+  "type": "object",
+  "properties": {
+    "desiredCapacity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DesiredCapacity"
+        },
+        {
+          "description": "The desired capacity, or number of instances, for the Auto Scaling group."
+        }
+      ]
+    },
+    "minSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MinSize"
+        },
+        {
+          "description": "The minimum size, or minimum number of instances, for the Auto Scaling group."
+        }
+      ]
+    },
+    "maxSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxSize"
+        },
+        {
+          "description": "The maximum size, or maximum number of instances, for the Auto Scaling group."
+        }
+      ]
+    },
+    "instanceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceType"
+        },
+        {
+          "description": "The instance type for the Auto Scaling group."
+        }
+      ]
+    }
+  }
+}

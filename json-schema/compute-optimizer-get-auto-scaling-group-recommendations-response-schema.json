@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-get-auto-scaling-group-recommendations-response-schema.json",
+  "title": "GetAutoScalingGroupRecommendationsResponse",
+  "description": "GetAutoScalingGroupRecommendationsResponse schema",
+  "type": "object",
+  "properties": {
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "<p>The token to use to advance to the next page of Auto Scaling group recommendations.</p> <p>This value is null when there are no more pages of Auto Scaling group recommendations to return.</p>"
+        }
+      ]
+    },
+    "autoScalingGroupRecommendations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AutoScalingGroupRecommendations"
+        },
+        {
+          "description": "An array of objects that describe Auto Scaling group recommendations."
+        }
+      ]
+    },
+    "errors": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GetRecommendationErrors"
+        },
+        {
+          "description": "<p>An array of objects that describe errors of the request.</p> <p>For example, an error is returned if you request recommendations for an unsupported Auto Scaling group.</p>"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-lambda-function-memory-projected-metric-schema.json",
+  "title": "LambdaFunctionMemoryProjectedMetric",
+  "description": "Describes a projected utilization metric of an Lambda function recommendation option.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LambdaFunctionMemoryMetricName"
+        },
+        {
+          "description": "The name of the projected utilization metric."
+        }
+      ]
+    },
+    "statistic": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LambdaFunctionMemoryMetricStatistic"
+        },
+        {
+          "description": "The statistic of the projected utilization metric."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricValue"
+        },
+        {
+          "description": "The values of the projected utilization metrics."
+        }
+      ]
+    }
+  }
+}

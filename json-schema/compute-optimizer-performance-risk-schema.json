@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-performance-risk-schema.json",
+  "title": "PerformanceRisk",
+  "description": "PerformanceRisk schema",
+  "type": "number",
+  "format": "double",
+  "minimum": 0,
+  "maximum": 4
+}

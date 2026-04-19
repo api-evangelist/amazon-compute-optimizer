@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-resource-type-schema.json",
+  "title": "ResourceType",
+  "description": "ResourceType schema",
+  "type": "string",
+  "enum": [
+    "Ec2Instance",
+    "AutoScalingGroup",
+    "EbsVolume",
+    "LambdaFunction",
+    "NotApplicable",
+    "EcsService"
+  ]
+}

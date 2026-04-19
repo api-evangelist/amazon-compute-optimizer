@@ -1,0 +1,5 @@
+{
+  "containerName": "example-name",
+  "memorySizeConfiguration": "example-string",
+  "cpu": "example-string"
+}

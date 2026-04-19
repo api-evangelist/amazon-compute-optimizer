@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-describe-recommendation-export-jobs-response-structure.json",
+  "name": "DescribeRecommendationExportJobsResponse",
+  "description": "DescribeRecommendationExportJobsResponse schema",
+  "type": "object",
+  "properties": {
+    "recommendationExportJobs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecommendationExportJobs"
+        },
+        {
+          "description": "An array of objects that describe recommendation export jobs."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "<p>The token to use to advance to the next page of export jobs.</p> <p>This value is null when there are no more pages of export jobs to return.</p>"
+        }
+      ]
+    }
+  }
+}

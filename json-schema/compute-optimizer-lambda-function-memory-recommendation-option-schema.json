@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-schema/compute-optimizer-lambda-function-memory-recommendation-option-schema.json",
+  "title": "LambdaFunctionMemoryRecommendationOption",
+  "description": "Describes a recommendation option for an Lambda function.",
+  "type": "object",
+  "properties": {
+    "rank": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Rank"
+        },
+        {
+          "description": "<p>The rank of the function recommendation option.</p> <p>The top recommendation option is ranked as <code>1</code>.</p>"
+        }
+      ]
+    },
+    "memorySize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MemorySize"
+        },
+        {
+          "description": "The memory size, in MB, of the function recommendation option."
+        }
+      ]
+    },
+    "projectedUtilizationMetrics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LambdaFunctionMemoryProjectedMetrics"
+        },
+        {
+          "description": "An array of objects that describe the projected utilization metrics of the function recommendation option."
+        }
+      ]
+    },
+    "savingsOpportunity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SavingsOpportunity"
+        },
+        {
+          "description": "An object that describes the savings opportunity for the Lambda function recommendation option. Savings opportunity includes the estimated monthly savings amount and percentage."
+        }
+      ]
+    }
+  }
+}

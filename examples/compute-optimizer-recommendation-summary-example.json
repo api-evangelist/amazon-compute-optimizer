@@ -1,0 +1,8 @@
+{
+  "summaries": "example-string",
+  "recommendationResourceType": "ec2",
+  "accountId": "example-string",
+  "savingsOpportunity": "example-string",
+  "currentPerformanceRiskRatings": "example-string",
+  "inferredWorkloadSavings": "example-string"
+}

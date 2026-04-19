@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/json-structure/compute-optimizer-platform-difference-structure.json",
+  "name": "PlatformDifference",
+  "description": "PlatformDifference schema",
+  "type": "string",
+  "enum": [
+    "Hypervisor",
+    "NetworkInterface",
+    "StorageInterface",
+    "InstanceStoreAvailability",
+    "VirtualizationType",
+    "Architecture"
+  ]
+}
