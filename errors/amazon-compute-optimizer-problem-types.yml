@@ -1,0 +1,59 @@
+generated: '2026-06-20'
+method: derived
+format: aws-json
+source: openapi/amazon-compute-optimizer-openapi.yml (error responses) + docs.aws.amazon.com/compute-optimizer/latest/APIReference/CommonErrors.html
+description: >-
+  Error catalog derived from the exception schemas referenced by the OpenAPI
+  operation responses. Compute Optimizer does not use RFC 9457
+  application/problem+json; it returns the AWS JSON error shape - a typed
+  exception object with a "message" field, identified by an X-Amzn-ErrorType /
+  __type discriminator. The OpenAPI models these with synthetic 48x status
+  codes; the aws_http_status column reflects the status AWS actually returns.
+problems:
+  - type: AccessDeniedException
+    aws_http_status: 403
+    title: Access denied
+    detail: The caller does not have sufficient permissions to perform this action.
+    remediation: Attach an IAM policy granting the required compute-optimizer:* action.
+  - type: InternalServerException
+    aws_http_status: 500
+    title: Internal server error
+    detail: An internal error has occurred. Try your call again.
+    remediation: Retry with exponential backoff; if persistent, contact AWS Support.
+  - type: InvalidParameterValueException
+    aws_http_status: 400
+    title: Invalid parameter value
+    detail: A request parameter has an invalid value.
+    remediation: Correct the offending parameter value and retry.
+  - type: MissingAuthenticationToken
+    aws_http_status: 403
+    title: Missing authentication token
+    detail: The request must contain a valid (registered) AWS access key ID.
+    remediation: Sign the request with valid AWS SigV4 credentials.
+  - type: OptInRequiredException
+    aws_http_status: 400
+    title: Opt-in required
+    detail: The account is not opted in to AWS Compute Optimizer.
+    remediation: Call UpdateEnrollmentStatus to enroll the account before requesting recommendations.
+  - type: ResourceNotFoundException
+    aws_http_status: 404
+    title: Resource not found
+    detail: A resource that is required for the action does not exist.
+    remediation: Verify the resource ARN/identifier exists and is in an analyzed state.
+  - type: ServiceUnavailableException
+    aws_http_status: 500
+    title: Service unavailable
+    detail: The request has failed due to a temporary failure of the server.
+    remediation: Retry with exponential backoff.
+  - type: ThrottlingException
+    aws_http_status: 429
+    title: Throttling
+    detail: The request was denied due to request throttling.
+    remediation: Reduce request rate and retry with exponential backoff.
+  - type: LimitExceededException
+    aws_http_status: 400
+    title: Limit exceeded
+    detail: >-
+      The request exceeds a limit of the service (e.g. a concurrent export job
+      is already running). Applies to the Export* operations.
+    remediation: Wait for the in-progress operation to finish or request a limit increase.

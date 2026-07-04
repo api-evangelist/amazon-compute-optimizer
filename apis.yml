@@ -18,7 +18,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-06-20'
 specificationVersion: '0.19'
 apis:
   - name: Amazon Compute Optimizer API
@@ -55,6 +55,18 @@ apis:
         url: json-structure/compute-optimizer-instance-recommendation-structure.json
       - type: JSON-LD
         url: json-ld/amazon-compute-optimizer-context.jsonld
+      - type: Overlay
+        url: overlays/amazon-compute-optimizer-openapi-overlay.yaml
+      - type: ErrorCatalog
+        url: errors/amazon-compute-optimizer-problem-types.yml
+      - type: Conformance
+        url: conformance/amazon-compute-optimizer-conformance.yml
+      - type: MCPServer
+        url: mcp/amazon-compute-optimizer-mcp.yml
+      - type: LLMsTxt
+        url: llms/amazon-compute-optimizer-llms.txt
+      - type: Lifecycle
+        url: lifecycle/amazon-compute-optimizer-lifecycle.yml
 common:
   - type: Portal
     url: https://aws.amazon.com/
@@ -88,6 +100,12 @@ common:
     url: capabilities/resource-optimization.yaml
   - type: Vocabulary
     url: vocabulary/amazon-compute-optimizer-vocabulary.yaml
+  - type: Packages
+    url: packages/amazon-compute-optimizer-packages.yml
+  - type: WellKnown
+    url: well-known/amazon-compute-optimizer-well-known.yml
+  - type: SecurityTxt
+    url: well-known/amazon-compute-optimizer-security.txt
   - type: Features
     data:
       - name: EC2 Instance Recommendations

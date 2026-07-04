@@ -1,0 +1,43 @@
+generated: '2026-06-20'
+method: searched
+status: published
+source: https://awslabs.github.io/mcp/servers/billing-cost-management-mcp-server
+description: >-
+  AWS does not publish a dedicated Compute Optimizer MCP server. The official
+  AWS Labs "Billing and Cost Management" MCP server surfaces Compute Optimizer
+  rightsizing recommendations (EC2, Auto Scaling groups, EBS, ECS on Fargate,
+  Lambda, RDS, and idle resources) alongside Cost Explorer, Cost Optimization
+  Hub, and pricing tools. It is an open-source, locally run stdio server.
+server:
+  name: awslabs.billing-cost-management-mcp-server
+  vendor: Amazon Web Services (AWS Labs)
+  transport: stdio
+  install: uvx awslabs.billing-cost-management-mcp-server@latest
+  repo: https://github.com/awslabs/mcp/tree/main/src/billing-cost-management-mcp-server
+  docs: https://awslabs.github.io/mcp/servers/billing-cost-management-mcp-server
+  auth: AWS credentials (SigV4) via the standard AWS credential chain
+tools:
+  - name: get_ec2_instance_recommendations
+    description: Return Amazon EC2 instance rightsizing recommendations.
+    source_operation: openapi/amazon-compute-optimizer-openapi.yml#GetEC2InstanceRecommendations
+  - name: get_auto_scaling_group_recommendations
+    description: Return Auto Scaling group recommendations.
+    source_operation: openapi/amazon-compute-optimizer-openapi.yml#GetAutoScalingGroupRecommendations
+  - name: get_ebs_volume_recommendations
+    description: Return Amazon EBS volume recommendations.
+    source_operation: openapi/amazon-compute-optimizer-openapi.yml#GetEBSVolumeRecommendations
+  - name: get_ecs_service_recommendations
+    description: Return Amazon ECS service (Fargate) recommendations.
+    source_operation: openapi/amazon-compute-optimizer-openapi.yml#GetECSServiceRecommendations
+  - name: get_lambda_function_recommendations
+    description: Return AWS Lambda function recommendations.
+    source_operation: openapi/amazon-compute-optimizer-openapi.yml#GetLambdaFunctionRecommendations
+  - name: get_rds_database_recommendations
+    description: Return Amazon Aurora and RDS database recommendations.
+    source_operation: docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetRDSDatabaseRecommendations.html
+  - name: get_idle_recommendations
+    description: Return idle resource recommendations.
+    source_operation: docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetIdleRecommendations.html
+  - name: get_enrollment_status
+    description: Return the Compute Optimizer enrollment (opt-in) status of the account.
+    source_operation: openapi/amazon-compute-optimizer-openapi.yml#GetEnrollmentStatus

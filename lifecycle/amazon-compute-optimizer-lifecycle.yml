@@ -1,0 +1,36 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  openapi/amazon-compute-optimizer-openapi.yml +
+  https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/ +
+  https://health.aws.amazon.com/health/status
+description: >-
+  Versioning and operational lifecycle for the AWS Compute Optimizer API. Like
+  most AWS services, the API version is a fixed date-based identifier baked into
+  the service model; new capabilities are added as new operations rather than a
+  new version number. AWS uses SDK deprecation/end-of-support rather than
+  per-operation Sunset/Deprecation HTTP headers.
+versioning:
+  scheme: date-based-model-version
+  current: '2019-11-01'
+  docs: https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/
+  notes: >-
+    Backward-compatible additive changes; new resource types (RDS, idle,
+    license recommendations) were added as new operations under the same
+    2019-11-01 API version.
+deprecation:
+  policy_url: https://docs.aws.amazon.com/sdkref/latest/guide/version-locking.html
+  sunset_header: false
+  deprecation_header: false
+  notes: >-
+    No RFC 8594 Sunset/Deprecation response headers are documented for this API;
+    deprecation is communicated through AWS SDK end-of-support notices.
+sla:
+  url: https://aws.amazon.com/compute-optimizer/faqs/
+  uptime_target: null
+  notes: >-
+    AWS does not publish a dedicated SLA for Compute Optimizer; the
+    recommendation-generation feature is offered at no additional charge (usage
+    of enhanced infrastructure metrics and export storage may incur cost).
+status_page: https://health.aws.amazon.com/health/status
+deprecated_operations: []

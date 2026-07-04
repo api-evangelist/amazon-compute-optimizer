@@ -1,0 +1,32 @@
+generated: '2026-06-20'
+method: searched
+source: probed /.well-known/ on the AWS corporate host and the Compute Optimizer API host
+description: >-
+  Results of probing the /.well-known/ discovery surface. A real RFC 9116
+  security.txt is published organization-wide at aws.amazon.com. The Compute
+  Optimizer regional API endpoint (AWS SigV4 / JSON protocol) does not expose
+  any /.well-known/ documents. The 301 responses on aws.amazon.com are generic
+  marketing redirects, not discovery documents.
+hosts:
+  - host: https://aws.amazon.com
+    documents:
+      - path: /.well-known/security.txt          # RFC 9116
+        status: 200
+        file: amazon-compute-optimizer-security.txt
+      - path: /.well-known/openid-configuration   # OIDC discovery
+        status: 301
+        note: redirect to generic AWS page, not an OIDC document
+      - path: /.well-known/ai-plugin.json
+        status: 301
+        note: redirect to generic AWS page, not a plugin manifest
+      - path: /.well-known/api-catalog             # RFC 9727
+        status: 301
+        note: redirect to generic AWS page, not an API catalog
+  - host: https://compute-optimizer.us-east-1.amazonaws.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server  # RFC 8414
+        status: 404

@@ -1,0 +1,42 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Amazon Compute Optimizer
+  version: 1.0.0
+extends: openapi/amazon-compute-optimizer-openapi.yml
+x-provenance:
+  generated: '2026-06-20'
+  method: generated
+  source: apis.yml + repo artifacts
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-slug: amazon-compute-optimizer
+      x-apievangelist-humanURL: https://aws.amazon.com/compute-optimizer/
+      x-apievangelist-category: FinOps / Cost Optimization
+      x-apievangelist-auth: AWS Signature Version 4 (SigV4)
+      x-apievangelist-pagination: token-based (nextToken / maxResults)
+      x-apievangelist-artifacts:
+        packages: packages/amazon-compute-optimizer-packages.yml
+        mcp: mcp/amazon-compute-optimizer-mcp.yml
+        llms: llms/amazon-compute-optimizer-llms.txt
+        errors: errors/amazon-compute-optimizer-problem-types.yml
+        conformance: conformance/amazon-compute-optimizer-conformance.yml
+        lifecycle: lifecycle/amazon-compute-optimizer-lifecycle.yml
+  - target: $.externalDocs
+    update:
+      description: AWS Compute Optimizer API Reference
+      url: https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/
+  - target: $.info
+    update:
+      x-apievangelist-tags:
+        - AWS
+        - Cost Optimization
+        - FinOps
+        - Machine Learning
+        - Resource Recommendations
+      x-apievangelist-note: >-
+        Recommendation reads are token-paginated; export operations are
+        asynchronous and deliver results to an Amazon S3 bucket. The harvested
+        OpenAPI models 21 operations; the live service additionally exposes RDS,
+        idle-resource, and license recommendation operations (see the verbatim
+        llms.txt).

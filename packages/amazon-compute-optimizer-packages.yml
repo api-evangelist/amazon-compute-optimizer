@@ -1,0 +1,54 @@
+generated: '2026-06-20'
+method: searched
+source: https://aws.amazon.com/developer/tools/
+description: >-
+  First-party AWS SDK client libraries that expose the AWS Compute Optimizer
+  API. Compute Optimizer is a standard AWS service, so it is included as a
+  client/module within each language's official AWS SDK rather than shipped as a
+  standalone package. Presence of each package was verified against the public
+  registry.
+packages:
+  - language: javascript
+    registry: npm
+    name: "@aws-sdk/client-compute-optimizer"
+    url: https://www.npmjs.com/package/@aws-sdk/client-compute-optimizer
+    install: npm install @aws-sdk/client-compute-optimizer
+    official: true
+    notes: AWS SDK for JavaScript v3 modular client. Verified 200 on npm registry.
+  - language: javascript
+    registry: npm
+    name: aws-sdk
+    url: https://www.npmjs.com/package/aws-sdk
+    install: npm install aws-sdk
+    official: true
+    notes: AWS SDK for JavaScript v2 (monolithic; ComputeOptimizer client included). Verified 200 on npm registry.
+  - language: python
+    registry: pypi
+    name: boto3
+    url: https://pypi.org/project/boto3/
+    install: pip install boto3
+    official: true
+    notes: >-
+      AWS SDK for Python. Access via boto3.client('compute-optimizer').
+      Low-level bindings ship in botocore. Verified 200 on PyPI.
+  - language: java
+    registry: maven-central
+    name: software.amazon.awssdk:computeoptimizer
+    url: https://central.sonatype.com/artifact/software.amazon.awssdk/computeoptimizer
+    install: "implementation 'software.amazon.awssdk:computeoptimizer'"
+    official: true
+    notes: AWS SDK for Java v2 service module. Verified on Maven Central (latest 2.46.7).
+  - language: dotnet
+    registry: nuget
+    name: AWSSDK.ComputeOptimizer
+    url: https://www.nuget.org/packages/AWSSDK.ComputeOptimizer
+    install: dotnet add package AWSSDK.ComputeOptimizer
+    official: true
+    notes: AWS SDK for .NET service package. Verified 200 on NuGet registration API.
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/aws/aws-sdk-go-v2/service/computeoptimizer
+    url: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/computeoptimizer
+    install: go get github.com/aws/aws-sdk-go-v2/service/computeoptimizer
+    official: true
+    notes: AWS SDK for Go v2 service client. Verified 200 on pkg.go.dev.
