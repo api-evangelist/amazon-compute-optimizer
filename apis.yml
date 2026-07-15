@@ -68,6 +68,8 @@ apis:
       - type: Lifecycle
         url: lifecycle/amazon-compute-optimizer-lifecycle.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-compute-optimizer-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-compute-optimizer-trust-center.yml
   - type: VulnerabilityDisclosure
