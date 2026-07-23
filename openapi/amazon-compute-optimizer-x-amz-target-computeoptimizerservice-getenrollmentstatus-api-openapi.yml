@@ -1,0 +1,337 @@
+openapi: 3.0.0
+info:
+  version: '2019-11-01'
+  x-release: v4
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEnrollmentStatus API'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: compute-optimizer
+  x-aws-signingName: compute-optimizer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: https://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: http://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+- url: https://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=ComputeOptimizerService.GetEnrollmentStatus'
+paths:
+  /#X-Amz-Target=ComputeOptimizerService.GetEnrollmentStatus:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: GetEnrollmentStatus
+      description: <p>Returns the enrollment (opt in) status of an account to the Compute Optimizer service.</p> <p>If the account is the management account of an organization, this action also confirms the enrollment status of member accounts of the organization. Use the <a>GetEnrollmentStatusesForOrganization</a> action to get detailed information about the enrollment status of member accounts of an organization.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetEnrollmentStatusResponse'
+              examples:
+                GetEnrollmentStatus200Example:
+                  summary: Default GetEnrollmentStatus 200
+                  x-microcks-default: true
+                  value:
+                    status: example
+                    statusReason: example
+                    memberAccountsEnrolled: example
+                    lastUpdatedTimestamp: example
+                    numberOfMemberAccountsOptedIn: example
+        '480':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+              examples:
+                GetEnrollmentStatus480Example:
+                  summary: Default GetEnrollmentStatus 480
+                  x-microcks-default: true
+                  value: example
+        '481':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+              examples:
+                GetEnrollmentStatus481Example:
+                  summary: Default GetEnrollmentStatus 481
+                  x-microcks-default: true
+                  value: example
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                GetEnrollmentStatus482Example:
+                  summary: Default GetEnrollmentStatus 482
+                  x-microcks-default: true
+                  value: example
+        '483':
+          description: InvalidParameterValueException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterValueException'
+              examples:
+                GetEnrollmentStatus483Example:
+                  summary: Default GetEnrollmentStatus 483
+                  x-microcks-default: true
+                  value: example
+        '484':
+          description: MissingAuthenticationToken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MissingAuthenticationToken'
+              examples:
+                GetEnrollmentStatus484Example:
+                  summary: Default GetEnrollmentStatus 484
+                  x-microcks-default: true
+                  value: example
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+              examples:
+                GetEnrollmentStatus485Example:
+                  summary: Default GetEnrollmentStatus 485
+                  x-microcks-default: true
+                  value: example
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetEnrollmentStatusRequest'
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - ComputeOptimizerService.GetEnrollmentStatus
+      summary: Amazon Compute Optimizer Get Enrollment Status
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#X Amz Target=ComputeOptimizerService.GetEnrollmentStatus'
+components:
+  schemas:
+    GetEnrollmentStatusRequest:
+      type: object
+      title: GetEnrollmentStatusRequest
+      properties: {}
+    InternalServerException: {}
+    LastUpdatedTimestamp:
+      type: string
+      format: date-time
+    ThrottlingException: {}
+    ServiceUnavailableException: {}
+    Status:
+      type: string
+      enum:
+      - Active
+      - Inactive
+      - Pending
+      - Failed
+    NumberOfMemberAccountsOptedIn:
+      type: integer
+    MissingAuthenticationToken: {}
+    MemberAccountsEnrolled:
+      type: boolean
+    InvalidParameterValueException: {}
+    AccessDeniedException: {}
+    GetEnrollmentStatusResponse:
+      type: object
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/Status'
+          - description: The enrollment status of the account.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/StatusReason'
+          - description: <p>The reason for the enrollment status of the account.</p> <p>For example, an account might show a status of <code>Pending</code> because member accounts of an organization require more time to be enrolled in the service.</p>
+        memberAccountsEnrolled:
+          allOf:
+          - $ref: '#/components/schemas/MemberAccountsEnrolled'
+          - description: Confirms the enrollment status of member accounts of the organization, if the account is a management account of an organization.
+        lastUpdatedTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTimestamp'
+          - description: The Unix epoch timestamp, in seconds, of when the account enrollment status was last updated.
+        numberOfMemberAccountsOptedIn:
+          allOf:
+          - $ref: '#/components/schemas/NumberOfMemberAccountsOptedIn'
+          - description: The count of organization member accounts that are opted in to the service, if your account is an organization management account.
+    StatusReason:
+      type: string
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/compute-optimizer/
+x-hasEquivalentPaths: true

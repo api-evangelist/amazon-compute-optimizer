@@ -1,0 +1,540 @@
+openapi: 3.0.0
+info:
+  version: '2019-11-01'
+  x-release: v4
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetRecommendationSummaries API'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: compute-optimizer
+  x-aws-signingName: compute-optimizer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: https://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: http://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+- url: https://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=ComputeOptimizerService.GetRecommendationSummaries'
+paths:
+  /#X-Amz-Target=ComputeOptimizerService.GetRecommendationSummaries:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: GetRecommendationSummaries
+      description: <p>Returns the optimization findings for an account.</p> <p>It returns the number of:</p> <ul> <li> <p>Amazon EC2 instances in an account that are <code>Underprovisioned</code>, <code>Overprovisioned</code>, or <code>Optimized</code>.</p> </li> <li> <p>Auto Scaling groups in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.</p> </li> <li> <p>Amazon EBS volumes in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.</p> </li> <li> <p>Lambda functions in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.</p> </li> <li> <p>Amazon ECS services in an account that are <code>Underprovisioned</code>, <code>Overprovisioned</code>, or <code>Optimized</code>.</p> </li> </ul>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRecommendationSummariesResponse'
+              examples:
+                GetRecommendationSummaries200Example:
+                  summary: Default GetRecommendationSummaries 200
+                  x-microcks-default: true
+                  value:
+                    nextToken: example
+                    recommendationSummaries: example
+        '480':
+          description: OptInRequiredException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptInRequiredException'
+              examples:
+                GetRecommendationSummaries480Example:
+                  summary: Default GetRecommendationSummaries 480
+                  x-microcks-default: true
+                  value: example
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+              examples:
+                GetRecommendationSummaries481Example:
+                  summary: Default GetRecommendationSummaries 481
+                  x-microcks-default: true
+                  value: example
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+              examples:
+                GetRecommendationSummaries482Example:
+                  summary: Default GetRecommendationSummaries 482
+                  x-microcks-default: true
+                  value: example
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                GetRecommendationSummaries483Example:
+                  summary: Default GetRecommendationSummaries 483
+                  x-microcks-default: true
+                  value: example
+        '484':
+          description: InvalidParameterValueException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterValueException'
+              examples:
+                GetRecommendationSummaries484Example:
+                  summary: Default GetRecommendationSummaries 484
+                  x-microcks-default: true
+                  value: example
+        '485':
+          description: MissingAuthenticationToken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MissingAuthenticationToken'
+              examples:
+                GetRecommendationSummaries485Example:
+                  summary: Default GetRecommendationSummaries 485
+                  x-microcks-default: true
+                  value: example
+        '486':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+              examples:
+                GetRecommendationSummaries486Example:
+                  summary: Default GetRecommendationSummaries 486
+                  x-microcks-default: true
+                  value: example
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetRecommendationSummariesRequest'
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - ComputeOptimizerService.GetRecommendationSummaries
+      summary: Amazon Compute Optimizer Get Recommendation Summaries
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#X Amz Target=ComputeOptimizerService.GetRecommendationSummaries'
+components:
+  schemas:
+    InferredWorkloadTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/InferredWorkloadType'
+    ReasonCodeSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReasonCodeSummary'
+    Summary:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/Finding'
+          - description: The finding classification of the recommendation.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/SummaryValue'
+          - description: The value of the recommendation summary.
+        reasonCodeSummaries:
+          allOf:
+          - $ref: '#/components/schemas/ReasonCodeSummaries'
+          - description: An array of objects that summarize a finding reason code.
+      description: The summary of a recommendation.
+    InternalServerException: {}
+    VeryLow:
+      type: integer
+    ThrottlingException: {}
+    ServiceUnavailableException: {}
+    AccountId:
+      type: string
+    Currency:
+      type: string
+      enum:
+      - USD
+      - CNY
+    RecommendationSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecommendationSummary'
+    Summaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/Summary'
+    MissingAuthenticationToken: {}
+    Finding:
+      type: string
+      enum:
+      - Underprovisioned
+      - Overprovisioned
+      - Optimized
+      - NotOptimized
+    InferredWorkloadType:
+      type: string
+      enum:
+      - AmazonEmr
+      - ApacheCassandra
+      - ApacheHadoop
+      - Memcached
+      - Nginx
+      - PostgreSql
+      - Redis
+      - Kafka
+      - SQLServer
+    AccountIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccountId'
+    RecommendationSummary:
+      type: object
+      properties:
+        summaries:
+          allOf:
+          - $ref: '#/components/schemas/Summaries'
+          - description: An array of objects that describe a recommendation summary.
+        recommendationResourceType:
+          allOf:
+          - $ref: '#/components/schemas/RecommendationSourceType'
+          - description: The resource type that the recommendation summary applies to.
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/AccountId'
+          - description: The Amazon Web Services account ID of the recommendation summary.
+        savingsOpportunity:
+          allOf:
+          - $ref: '#/components/schemas/SavingsOpportunity'
+          - description: An object that describes the savings opportunity for a given resource type. Savings opportunity includes the estimated monthly savings amount and percentage.
+        currentPerformanceRiskRatings:
+          allOf:
+          - $ref: '#/components/schemas/CurrentPerformanceRiskRatings'
+          - description: An object that describes the performance risk ratings for a given resource type.
+        inferredWorkloadSavings:
+          allOf:
+          - $ref: '#/components/schemas/InferredWorkloadSavings'
+          - description: ' An array of objects that describes the estimated monthly saving amounts for the instances running on the specified <code>inferredWorkloadTypes</code>. The array contains the top three savings opportunites for the instances running inferred workload types. '
+      description: A summary of a recommendation.
+    GetRecommendationSummariesResponse:
+      type: object
+      properties:
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: <p>The token to use to advance to the next page of recommendation summaries.</p> <p>This value is null when there are no more pages of recommendation summaries to return.</p>
+        recommendationSummaries:
+          allOf:
+          - $ref: '#/components/schemas/RecommendationSummaries'
+          - description: An array of objects that summarize a recommendation.
+    GetRecommendationSummariesRequest:
+      type: object
+      title: GetRecommendationSummariesRequest
+      properties:
+        accountIds:
+          allOf:
+          - $ref: '#/components/schemas/AccountIds'
+          - description: <p>The ID of the Amazon Web Services account for which to return recommendation summaries.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to return recommendation summaries.</p> <p>Only one account ID can be specified per request.</p>
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to advance to the next page of recommendation summaries.
+        maxResults:
+          allOf:
+          - $ref: '#/components/schemas/MaxResults'
+          - description: <p>The maximum number of recommendation summaries to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
+    OptInRequiredException: {}
+    MaxResults:
+      type: integer
+      minimum: 0
+      maximum: 1000
+    SavingsOpportunity:
+      type: object
+      properties:
+        savingsOpportunityPercentage:
+          allOf:
+          - $ref: '#/components/schemas/SavingsOpportunityPercentage'
+          - description: The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer recommendations for a given resource.
+        estimatedMonthlySavings:
+          allOf:
+          - $ref: '#/components/schemas/EstimatedMonthlySavings'
+          - description: An object that describes the estimated monthly savings amount possible by adopting Compute Optimizer recommendations for a given resource. This is based on the On-Demand instance pricing..
+      description: <p>Describes the savings opportunity for recommendations of a given resource type or for the recommendation option of an individual resource.</p> <p>Savings opportunity represents the estimated monthly savings you can achieve by implementing a given Compute Optimizer recommendation.</p> <important> <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as activate <b>Receive Amazon EC2 resource recommendations</b> in the Cost Explorer preferences page. That creates a connection between Cost Explorer and Compute Optimizer. With this connection, Cost Explorer generates savings estimates considering the price of existing resources, the price of recommended resources, and historical usage data. Estimated monthly savings reflects the projected dollar savings associated with each of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost with Rightsizing Recommendations</a> in the <i>Cost Management User Guide</i>.</p> </important>
+    Value:
+      type: number
+      format: double
+    InvalidParameterValueException: {}
+    RecommendationSourceType:
+      type: string
+      enum:
+      - Ec2Instance
+      - AutoScalingGroup
+      - EbsVolume
+      - LambdaFunction
+      - EcsService
+    High:
+      type: integer
+    EstimatedMonthlySavings:
+      type: object
+      properties:
+        currency:
+          allOf:
+          - $ref: '#/components/schemas/Currency'
+          - description: The currency of the estimated monthly savings.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/Value'
+          - description: The value of the estimated monthly savings.
+      description: <p>Describes the estimated monthly savings amount possible, based on On-Demand instance pricing, by adopting Compute Optimizer recommendations for a given resource.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-ec2-recommendations.html#ec2-savings-calculation">Estimated monthly savings and savings opportunities</a> in the <i>Compute Optimizer User Guide</i>.</p>
+    CurrentPerformanceRiskRatings:
+      type: object
+      properties:
+        high:
+          allOf:
+          - $ref: '#/components/schemas/High'
+          - description: A count of the applicable resource types with a high performance risk rating.
+        medium:
+          allOf:
+          - $ref: '#/components/schemas/Medium'
+          - description: A count of the applicable resource types with a medium performance risk rating.
+        low:
+          allOf:
+          - $ref: '#/components/schemas/Low'
+          - description: A count of the applicable resource types with a low performance risk rating.
+        veryLow:
+          allOf:
+          - $ref: '#/components/schemas/VeryLow'
+          - description: A count of the applicable resource types with a very low performance risk rating.
+      description: <p>Describes the performance risk ratings for a given resource type.</p> <p>Resources with a <code>high</code> or <code>medium</code> rating are at risk of not meeting the performance needs of their workloads, while resources with a <code>low</code> rating are performing well in their workloads.</p>
+    SavingsOpportunityPercentage:
+      type: number
+      format: double
+    AccessDeniedException: {}
+    InferredWorkloadSavings:
+      type: array
+      items:
+        $ref: '#/components/schemas/InferredWorkloadSaving'
+    NextToken:
+      type: string
+    SummaryValue:
+      type: number
+      format: double
+    FindingReasonCode:
+      type: string
+      enum:
+      - MemoryOverprovisioned
+      - MemoryUnderprovisioned
+    Medium:
+      type: integer
+    ReasonCodeSummary:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/FindingReasonCode'
+          - description: The name of the finding reason code.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/SummaryValue'
+          - description: The value of the finding reason code summary.
+      description: A summary of a finding reason code.
+    Low:
+      type: integer
+    InferredWorkloadSaving:
+      type: object
+      properties:
+        inferredWorkloadTypes:
+          allOf:
+          - $ref: '#/components/schemas/InferredWorkloadTypes'
+          - description: <p>The applications that might be running on the instance as inferred by Compute Optimizer.</p> <p>Compute Optimizer can infer if one of the following applications might be running on the instance:</p> <ul> <li> <p> <code>AmazonEmr</code> - Infers that Amazon EMR might be running on the instance.</p> </li> <li> <p> <code>ApacheCassandra</code> - Infers that Apache Cassandra might be running on the instance.</p> </li> <li> <p> <code>ApacheHadoop</code> - Infers that Apache Hadoop might be running on the instance.</p> </li> <li> <p> <code>Memcached</code> - Infers that Memcached might be running on the instance.</p> </li> <li> <p> <code>NGINX</code> - Infers that NGINX might be running on the instance.</p> </li> <li> <p> <code>PostgreSql</code> - Infers that PostgreSQL might be running on the instance.</p> </li> <li> <p> <code>Redis</code> - Infers that Redis might be running on the instance.</p> </li> <li> <p> <code>Kafka</code> - Infers that Kafka might be running on the instance.</p> </li> <li> <p> <code>SQLServer</code> - Infers that SQLServer might be running on the instance.</p> </li> </ul>
+        estimatedMonthlySavings:
+          allOf:
+          - $ref: '#/components/schemas/EstimatedMonthlySavings'
+          - description: An object that describes the estimated monthly savings amount possible by adopting Compute Optimizer recommendations for a given resource. This is based on the On-Demand instance pricing.
+      description: ' The estimated monthly savings after you adjust the configurations of your instances running on the inferred workload types to the recommended configurations. If the <code>inferredWorkloadTypes</code> list contains multiple entries, then the savings are the sum of the monthly savings from instances that run the exact combination of the inferred workload types. '
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/compute-optimizer/
+x-hasEquivalentPaths: true

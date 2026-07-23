@@ -1,0 +1,463 @@
+openapi: 3.0.0
+info:
+  version: '2019-11-01'
+  x-release: v4
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.ExportECSServiceRecommendations API'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: compute-optimizer
+  x-aws-signingName: compute-optimizer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: https://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: http://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+- url: https://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=ComputeOptimizerService.ExportECSServiceRecommendations'
+paths:
+  /#X-Amz-Target=ComputeOptimizerService.ExportECSServiceRecommendations:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ExportECSServiceRecommendations
+      description: <p> Exports optimization recommendations for Amazon ECS services on Fargate. </p> <p>Recommendations are exported in a CSV file, and its metadata in a JSON file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>You can only have one Amazon ECS service export job in progress per Amazon Web Services Region.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportECSServiceRecommendationsResponse'
+              examples:
+                ExportECSServiceRecommendations200Example:
+                  summary: Default ExportECSServiceRecommendations 200
+                  x-microcks-default: true
+                  value:
+                    jobId: example
+                    s3Destination:
+                      bucket: {}
+                      key: {}
+                      metadataKey: {}
+        '480':
+          description: OptInRequiredException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptInRequiredException'
+              examples:
+                ExportECSServiceRecommendations480Example:
+                  summary: Default ExportECSServiceRecommendations 480
+                  x-microcks-default: true
+                  value: example
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+              examples:
+                ExportECSServiceRecommendations481Example:
+                  summary: Default ExportECSServiceRecommendations 481
+                  x-microcks-default: true
+                  value: example
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+              examples:
+                ExportECSServiceRecommendations482Example:
+                  summary: Default ExportECSServiceRecommendations 482
+                  x-microcks-default: true
+                  value: example
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                ExportECSServiceRecommendations483Example:
+                  summary: Default ExportECSServiceRecommendations 483
+                  x-microcks-default: true
+                  value: example
+        '484':
+          description: InvalidParameterValueException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterValueException'
+              examples:
+                ExportECSServiceRecommendations484Example:
+                  summary: Default ExportECSServiceRecommendations 484
+                  x-microcks-default: true
+                  value: example
+        '485':
+          description: MissingAuthenticationToken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MissingAuthenticationToken'
+              examples:
+                ExportECSServiceRecommendations485Example:
+                  summary: Default ExportECSServiceRecommendations 485
+                  x-microcks-default: true
+                  value: example
+        '486':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+              examples:
+                ExportECSServiceRecommendations486Example:
+                  summary: Default ExportECSServiceRecommendations 486
+                  x-microcks-default: true
+                  value: example
+        '487':
+          description: LimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LimitExceededException'
+              examples:
+                ExportECSServiceRecommendations487Example:
+                  summary: Default ExportECSServiceRecommendations 487
+                  x-microcks-default: true
+                  value: example
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportECSServiceRecommendationsRequest'
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - ComputeOptimizerService.ExportECSServiceRecommendations
+      summary: Amazon Compute Optimizer Export E C S Service Recommendations
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#X Amz Target=ComputeOptimizerService.ExportECSServiceRecommendations'
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    ExportECSServiceRecommendationsRequest:
+      type: object
+      required:
+      - s3DestinationConfig
+      title: ExportECSServiceRecommendationsRequest
+      properties:
+        accountIds:
+          allOf:
+          - $ref: '#/components/schemas/AccountIds'
+          - description: <p> The Amazon Web Services account IDs for the export Amazon ECS service recommendations. </p> <p>If your account is the management account or the delegated administrator of an organization, use this parameter to specify the member account you want to export recommendations to.</p> <p>This parameter can't be specified together with the include member accounts parameter. The parameters are mutually exclusive.</p> <p>If this parameter or the include member accounts parameter is omitted, the recommendations for member accounts aren't included in the export.</p> <p>You can specify multiple account IDs per request.</p>
+        filters:
+          allOf:
+          - $ref: '#/components/schemas/ECSServiceRecommendationFilters'
+          - description: ' An array of objects to specify a filter that exports a more specific set of Amazon ECS service recommendations. '
+        fieldsToExport:
+          allOf:
+          - $ref: '#/components/schemas/ExportableECSServiceFields'
+          - description: The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User Guide</i>.
+        s3DestinationConfig:
+          $ref: '#/components/schemas/S3DestinationConfig'
+        fileFormat:
+          allOf:
+          - $ref: '#/components/schemas/FileFormat'
+          - description: <p> The format of the export file. </p> <p>The CSV file is the only export file format currently supported.</p>
+        includeMemberAccounts:
+          allOf:
+          - $ref: '#/components/schemas/IncludeMemberAccounts'
+          - description: <p>If your account is the management account or the delegated administrator of an organization, this parameter indicates whether to include recommendations for resources in all member accounts of the organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>If this parameter is omitted, recommendations for member accounts of the organization aren't included in the export file.</p> <p>If this parameter or the account ID parameter is omitted, recommendations for member accounts aren't included in the export.</p>
+    MetadataKey:
+      type: string
+    IncludeMemberAccounts:
+      type: boolean
+    InternalServerException: {}
+    ECSServiceRecommendationFilter:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ECSServiceRecommendationFilterName'
+          - description: <p> The name of the filter. </p> <p> Specify <code>Finding</code> to return recommendations with a specific finding classification. </p> <p> Specify <code>FindingReasonCode</code> to return recommendations with a specific finding reason code. </p> <p>You can filter your Amazon ECS service recommendations by <code>tag:key</code> and <code>tag-key</code> tags.</p> <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your Amazon ECS service recommendations. Use the tag key in the filter name and the tag value as the filter value. For example, to find all Amazon ECS service recommendations that have a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> <p>A <code>tag-key</code> is the key of a tag assigned to your Amazon ECS service recommendations. Use this filter to find all of your Amazon ECS service recommendations that have a tag with a specific key. This doesn’t consider the tag value. For example, you can find your Amazon ECS service recommendations with a tag key value of <code>Owner</code> or without any tag keys assigned.</p>
+        values:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: <p> The value of the filter. </p> <p>The valid values for this parameter are as follows:</p> <ul> <li> <p>If you specify the <code>name</code> parameter as <code>Finding</code>, specify <code>Optimized</code>, <code>NotOptimized</code>, or <code>Unavailable</code>.</p> </li> <li> <p>If you specify the <code>name</code> parameter as <code>FindingReasonCode</code>, specify <code>CPUUnderprovisioned</code>, <code>CPUOverprovisioned</code>, <code>MemoryUnderprovisioned</code>, or <code>MemoryOverprovisioned</code>.</p> </li> </ul>
+      description: ' Describes a filter that returns a more specific list of Amazon ECS service recommendations. Use this filter with the <a>GetECSServiceRecommendations</a> action. '
+    ECSServiceRecommendationFilters:
+      type: array
+      items:
+        $ref: '#/components/schemas/ECSServiceRecommendationFilter'
+    ThrottlingException: {}
+    S3DestinationConfig:
+      type: object
+      properties:
+        bucket:
+          allOf:
+          - $ref: '#/components/schemas/DestinationBucket'
+          - description: The name of the Amazon S3 bucket to use as the destination for an export job.
+        keyPrefix:
+          allOf:
+          - $ref: '#/components/schemas/DestinationKeyPrefix'
+          - description: The Amazon S3 bucket prefix for an export job.
+      description: <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for a recommendations export job.</p> <p>You must create the destination Amazon S3 bucket for your recommendations export before you create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the export file to it. If you plan to specify an object prefix when you create the export job, you must include the object prefix in the policy that you add to the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</p>
+    ServiceUnavailableException: {}
+    AccountId:
+      type: string
+    LimitExceededException: {}
+    DestinationBucket:
+      type: string
+    MissingAuthenticationToken: {}
+    ExportECSServiceRecommendationsResponse:
+      type: object
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: <p> The identification number of the export job. </p> <p>To view the status of an export job, use the <a>DescribeRecommendationExportJobs</a> action and specify the job ID. </p>
+        s3Destination:
+          $ref: '#/components/schemas/S3Destination'
+    JobId:
+      type: string
+    AccountIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccountId'
+    DestinationKeyPrefix:
+      type: string
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+    OptInRequiredException: {}
+    InvalidParameterValueException: {}
+    FileFormat:
+      type: string
+      enum:
+      - Csv
+    S3Destination:
+      type: object
+      properties:
+        bucket:
+          allOf:
+          - $ref: '#/components/schemas/DestinationBucket'
+          - description: The name of the Amazon S3 bucket used as the destination of an export file.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/DestinationKey'
+          - description: <p>The Amazon S3 bucket key of an export file.</p> <p>The key uniquely identifies the object, or export file, in the S3 bucket.</p>
+        metadataKey:
+          allOf:
+          - $ref: '#/components/schemas/MetadataKey'
+          - description: <p>The Amazon S3 bucket key of a metadata file.</p> <p>The key uniquely identifies the object, or metadata file, in the S3 bucket.</p>
+      description: Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a recommendations export file, and its associated metadata file.
+    AccessDeniedException: {}
+    DestinationKey:
+      type: string
+    FilterValue:
+      type: string
+    ExportableECSServiceField:
+      type: string
+      enum:
+      - AccountId
+      - ServiceArn
+      - LookbackPeriodInDays
+      - LastRefreshTimestamp
+      - LaunchType
+      - CurrentPerformanceRisk
+      - CurrentServiceConfigurationMemory
+      - CurrentServiceConfigurationCpu
+      - CurrentServiceConfigurationTaskDefinitionArn
+      - CurrentServiceConfigurationAutoScalingConfiguration
+      - CurrentServiceContainerConfigurations
+      - UtilizationMetricsCpuMaximum
+      - UtilizationMetricsMemoryMaximum
+      - Finding
+      - FindingReasonCodes
+      - RecommendationOptionsMemory
+      - RecommendationOptionsCpu
+      - RecommendationOptionsSavingsOpportunityPercentage
+      - RecommendationOptionsEstimatedMonthlySavingsCurrency
+      - RecommendationOptionsEstimatedMonthlySavingsValue
+      - RecommendationOptionsContainerRecommendations
+      - RecommendationOptionsProjectedUtilizationMetricsCpuMaximum
+      - RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum
+      - Tags
+    ECSServiceRecommendationFilterName:
+      type: string
+      enum:
+      - Finding
+      - FindingReasonCode
+    ExportableECSServiceFields:
+      type: array
+      items:
+        $ref: '#/components/schemas/ExportableECSServiceField'
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/compute-optimizer/
+x-hasEquivalentPaths: true

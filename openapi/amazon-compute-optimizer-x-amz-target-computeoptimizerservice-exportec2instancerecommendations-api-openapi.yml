@@ -1,0 +1,520 @@
+openapi: 3.0.0
+info:
+  version: '2019-11-01'
+  x-release: v4
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.ExportEC2InstanceRecommendations API'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: compute-optimizer
+  x-aws-signingName: compute-optimizer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: https://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: http://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+- url: https://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=ComputeOptimizerService.ExportEC2InstanceRecommendations'
+paths:
+  /#X-Amz-Target=ComputeOptimizerService.ExportEC2InstanceRecommendations:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ExportEC2InstanceRecommendations
+      description: <p>Exports optimization recommendations for Amazon EC2 instances.</p> <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>You can have only one Amazon EC2 instance export job in progress per Amazon Web Services Region.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportEC2InstanceRecommendationsResponse'
+              examples:
+                ExportEC2InstanceRecommendations200Example:
+                  summary: Default ExportEC2InstanceRecommendations 200
+                  x-microcks-default: true
+                  value:
+                    jobId: example
+                    s3Destination: example
+        '480':
+          description: OptInRequiredException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptInRequiredException'
+              examples:
+                ExportEC2InstanceRecommendations480Example:
+                  summary: Default ExportEC2InstanceRecommendations 480
+                  x-microcks-default: true
+                  value: example
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+              examples:
+                ExportEC2InstanceRecommendations481Example:
+                  summary: Default ExportEC2InstanceRecommendations 481
+                  x-microcks-default: true
+                  value: example
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+              examples:
+                ExportEC2InstanceRecommendations482Example:
+                  summary: Default ExportEC2InstanceRecommendations 482
+                  x-microcks-default: true
+                  value: example
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                ExportEC2InstanceRecommendations483Example:
+                  summary: Default ExportEC2InstanceRecommendations 483
+                  x-microcks-default: true
+                  value: example
+        '484':
+          description: InvalidParameterValueException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterValueException'
+              examples:
+                ExportEC2InstanceRecommendations484Example:
+                  summary: Default ExportEC2InstanceRecommendations 484
+                  x-microcks-default: true
+                  value: example
+        '485':
+          description: MissingAuthenticationToken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MissingAuthenticationToken'
+              examples:
+                ExportEC2InstanceRecommendations485Example:
+                  summary: Default ExportEC2InstanceRecommendations 485
+                  x-microcks-default: true
+                  value: example
+        '486':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+              examples:
+                ExportEC2InstanceRecommendations486Example:
+                  summary: Default ExportEC2InstanceRecommendations 486
+                  x-microcks-default: true
+                  value: example
+        '487':
+          description: LimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LimitExceededException'
+              examples:
+                ExportEC2InstanceRecommendations487Example:
+                  summary: Default ExportEC2InstanceRecommendations 487
+                  x-microcks-default: true
+                  value: example
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportEC2InstanceRecommendationsRequest'
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - ComputeOptimizerService.ExportEC2InstanceRecommendations
+      summary: Amazon Compute Optimizer Export E C2 Instance Recommendations
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#X Amz Target=ComputeOptimizerService.ExportEC2InstanceRecommendations'
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    MetadataKey:
+      type: string
+    ExportEC2InstanceRecommendationsRequest:
+      type: object
+      required:
+      - s3DestinationConfig
+      title: ExportEC2InstanceRecommendationsRequest
+      properties:
+        accountIds:
+          allOf:
+          - $ref: '#/components/schemas/AccountIds'
+          - description: <p>The IDs of the Amazon Web Services accounts for which to export instance recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to export recommendations.</p> <p>This parameter cannot be specified together with the include member accounts parameter. The parameters are mutually exclusive.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the include member accounts parameter, is omitted.</p> <p>You can specify multiple account IDs per request.</p>
+        filters:
+          allOf:
+          - $ref: '#/components/schemas/Filters'
+          - description: An array of objects to specify a filter that exports a more specific set of instance recommendations.
+        fieldsToExport:
+          allOf:
+          - $ref: '#/components/schemas/ExportableInstanceFields'
+          - description: The recommendations data to include in the export file. For more information about the fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User Guide</i>.
+        s3DestinationConfig:
+          allOf:
+          - $ref: '#/components/schemas/S3DestinationConfig'
+          - description: <p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for the export job.</p> <p>You must create the destination Amazon S3 bucket for your recommendations export before you create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the S3 bucket, ensure that it has the required permissions policy to allow Compute Optimizer to write the export file to it. If you plan to specify an object prefix when you create the export job, you must include the object prefix in the policy that you add to the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</p>
+        fileFormat:
+          allOf:
+          - $ref: '#/components/schemas/FileFormat'
+          - description: <p>The format of the export file.</p> <p>The only export file format currently supported is <code>Csv</code>.</p>
+        includeMemberAccounts:
+          allOf:
+          - $ref: '#/components/schemas/IncludeMemberAccounts'
+          - description: <p>Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization.</p> <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for Compute Optimizer must be enabled in the organization account. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>Recommendations for member accounts of the organization are not included in the export file if this parameter is omitted.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the account IDs parameter, is omitted.</p>
+        recommendationPreferences:
+          allOf:
+          - $ref: '#/components/schemas/RecommendationPreferences'
+          - description: An object to specify the preferences for the Amazon EC2 instance recommendations to export.
+    IncludeMemberAccounts:
+      type: boolean
+    InternalServerException: {}
+    ThrottlingException: {}
+    S3DestinationConfig:
+      type: object
+      properties:
+        bucket:
+          allOf:
+          - $ref: '#/components/schemas/DestinationBucket'
+          - description: The name of the Amazon S3 bucket to use as the destination for an export job.
+        keyPrefix:
+          allOf:
+          - $ref: '#/components/schemas/DestinationKeyPrefix'
+          - description: The Amazon S3 bucket prefix for an export job.
+      description: <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for a recommendations export job.</p> <p>You must create the destination Amazon S3 bucket for your recommendations export before you create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the export file to it. If you plan to specify an object prefix when you create the export job, you must include the object prefix in the policy that you add to the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</p>
+    ServiceUnavailableException: {}
+    AccountId:
+      type: string
+    LimitExceededException: {}
+    DestinationBucket:
+      type: string
+    MissingAuthenticationToken: {}
+    CpuVendorArchitectures:
+      type: array
+      items:
+        $ref: '#/components/schemas/CpuVendorArchitecture'
+    JobId:
+      type: string
+    Filter:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/FilterName'
+          - description: <p>The name of the filter.</p> <p>Specify <code>Finding</code> to return recommendations with a specific finding classification. For example, <code>Underprovisioned</code>.</p> <p>Specify <code>RecommendationSourceType</code> to return recommendations of a specific resource type. For example, <code>Ec2Instance</code>.</p> <p>Specify <code>FindingReasonCodes</code> to return recommendations with a specific finding reason code. For example, <code>CPUUnderprovisioned</code>.</p> <p>Specify <code>InferredWorkloadTypes</code> to return recommendations of a specific inferred workload. For example, <code>Redis</code>.</p> <p>You can filter your EC2 instance recommendations by <code>tag:key</code> and <code>tag-key</code> tags.</p> <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your recommendations. Use the tag key in the filter name and the tag value as the filter value. For example, to find all recommendations that have a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> <p>A <code>tag-key</code> is the key of a tag assigned to your recommendations. Use this filter to find all of your recommendations that have a tag with a specific key. This doesn’t consider the tag value. For example, you can find your recommendations with a tag key value of <code>Owner</code> or without any tag keys assigned.</p>
+        values:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: <p>The value of the filter.</p> <p>The valid values for this parameter are as follows, depending on what you specify for the <code>name</code> parameter and the resource type that you wish to filter results for:</p> <ul> <li> <p>Specify <code>Optimized</code> or <code>NotOptimized</code> if you specify the <code>name</code> parameter as <code>Finding</code> and you want to filter results for Auto Scaling groups.</p> </li> <li> <p>Specify <code>Underprovisioned</code>, <code>Overprovisioned</code>, or <code>Optimized</code> if you specify the <code>name</code> parameter as <code>Finding</code> and you want to filter results for EC2 instances.</p> </li> <li> <p>Specify <code>Ec2Instance</code> or <code>AutoScalingGroup</code> if you specify the <code>name</code> parameter as <code>RecommendationSourceType</code>.</p> </li> <li> <p>Specify one of the following options if you specify the <code>name</code> parameter as <code>FindingReasonCodes</code>:</p> <ul> <li> <p> <b> <code>CPUOverprovisioned</code> </b> — The instance’s CPU configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>CPUUnderprovisioned</code> </b> — The instance’s CPU configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better CPU performance.</p> </li> <li> <p> <b> <code>MemoryOverprovisioned</code> </b> — The instance’s memory configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>MemoryUnderprovisioned</code> </b> — The instance’s memory configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better memory performance.</p> </li> <li> <p> <b> <code>EBSThroughputOverprovisioned</code> </b> — The instance’s EBS throughput configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>EBSThroughputUnderprovisioned</code> </b> — The instance’s EBS throughput configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better EBS throughput performance.</p> </li> <li> <p> <b> <code>EBSIOPSOverprovisioned</code> </b> — The instance’s EBS IOPS configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>EBSIOPSUnderprovisioned</code> </b> — The instance’s EBS IOPS configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better EBS IOPS performance.</p> </li> <li> <p> <b> <code>NetworkBandwidthOverprovisioned</code> </b> — The instance’s network bandwidth configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>NetworkBandwidthUnderprovisioned</code> </b> — The instance’s network bandwidth configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better network bandwidth performance. This finding reason happens when the <code>NetworkIn</code> or <code>NetworkOut</code> performance of an instance is impacted.</p> </li> <li> <p> <b> <code>NetworkPPSOverprovisioned</code> </b> — The instance’s network PPS (packets per second) configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>NetworkPPSUnderprovisioned</code> </b> — The instance’s network PPS (packets per second) configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better network PPS performance.</p> </li> <li> <p> <b> <code>DiskIOPSOverprovisioned</code> </b> — The instance’s disk IOPS configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>DiskIOPSUnderprovisioned</code> </b> — The instance’s disk IOPS configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better disk IOPS performance.</p> </li> <li> <p> <b> <code>DiskThroughputOverprovisioned</code> </b> — The instance’s disk throughput configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>DiskThroughputUnderprovisioned</code> </b> — The instance’s disk throughput configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better disk throughput performance.</p> </li> </ul> </li> </ul>
+      description: <p>Describes a filter that returns a more specific list of recommendations. Use this filter with the <a>GetAutoScalingGroupRecommendations</a> and <a>GetEC2InstanceRecommendations</a> actions.</p> <p>You can use <code>EBSFilter</code> with the <a>GetEBSVolumeRecommendations</a> action, <code>LambdaFunctionRecommendationFilter</code> with the <a>GetLambdaFunctionRecommendations</a> action, and <code>JobFilter</code> with the <a>DescribeRecommendationExportJobs</a> action.</p>
+    AccountIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccountId'
+    ExportableInstanceFields:
+      type: array
+      items:
+        $ref: '#/components/schemas/ExportableInstanceField'
+    FilterName:
+      type: string
+      enum:
+      - Finding
+      - FindingReasonCodes
+      - RecommendationSourceType
+      - InferredWorkloadTypes
+    DestinationKeyPrefix:
+      type: string
+    CpuVendorArchitecture:
+      type: string
+      enum:
+      - AWS_ARM64
+      - CURRENT
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+    OptInRequiredException: {}
+    Filters:
+      type: array
+      items:
+        $ref: '#/components/schemas/Filter'
+    InvalidParameterValueException: {}
+    FileFormat:
+      type: string
+      enum:
+      - Csv
+    S3Destination:
+      type: object
+      properties:
+        bucket:
+          allOf:
+          - $ref: '#/components/schemas/DestinationBucket'
+          - description: The name of the Amazon S3 bucket used as the destination of an export file.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/DestinationKey'
+          - description: <p>The Amazon S3 bucket key of an export file.</p> <p>The key uniquely identifies the object, or export file, in the S3 bucket.</p>
+        metadataKey:
+          allOf:
+          - $ref: '#/components/schemas/MetadataKey'
+          - description: <p>The Amazon S3 bucket key of a metadata file.</p> <p>The key uniquely identifies the object, or metadata file, in the S3 bucket.</p>
+      description: Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a recommendations export file, and its associated metadata file.
+    ExportableInstanceField:
+      type: string
+      enum:
+      - AccountId
+      - InstanceArn
+      - InstanceName
+      - Finding
+      - FindingReasonCodes
+      - LookbackPeriodInDays
+      - CurrentInstanceType
+      - UtilizationMetricsCpuMaximum
+      - UtilizationMetricsMemoryMaximum
+      - UtilizationMetricsEbsReadOpsPerSecondMaximum
+      - UtilizationMetricsEbsWriteOpsPerSecondMaximum
+      - UtilizationMetricsEbsReadBytesPerSecondMaximum
+      - UtilizationMetricsEbsWriteBytesPerSecondMaximum
+      - UtilizationMetricsDiskReadOpsPerSecondMaximum
+      - UtilizationMetricsDiskWriteOpsPerSecondMaximum
+      - UtilizationMetricsDiskReadBytesPerSecondMaximum
+      - UtilizationMetricsDiskWriteBytesPerSecondMaximum
+      - UtilizationMetricsNetworkInBytesPerSecondMaximum
+      - UtilizationMetricsNetworkOutBytesPerSecondMaximum
+      - UtilizationMetricsNetworkPacketsInPerSecondMaximum
+      - UtilizationMetricsNetworkPacketsOutPerSecondMaximum
+      - CurrentOnDemandPrice
+      - CurrentStandardOneYearNoUpfrontReservedPrice
+      - CurrentStandardThreeYearNoUpfrontReservedPrice
+      - CurrentVCpus
+      - CurrentMemory
+      - CurrentStorage
+      - CurrentNetwork
+      - RecommendationOptionsInstanceType
+      - RecommendationOptionsProjectedUtilizationMetricsCpuMaximum
+      - RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum
+      - RecommendationOptionsPlatformDifferences
+      - RecommendationOptionsPerformanceRisk
+      - RecommendationOptionsVcpus
+      - RecommendationOptionsMemory
+      - RecommendationOptionsStorage
+      - RecommendationOptionsNetwork
+      - RecommendationOptionsOnDemandPrice
+      - RecommendationOptionsStandardOneYearNoUpfrontReservedPrice
+      - RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice
+      - RecommendationsSourcesRecommendationSourceArn
+      - RecommendationsSourcesRecommendationSourceType
+      - LastRefreshTimestamp
+      - CurrentPerformanceRisk
+      - RecommendationOptionsSavingsOpportunityPercentage
+      - RecommendationOptionsEstimatedMonthlySavingsCurrency
+      - RecommendationOptionsEstimatedMonthlySavingsValue
+      - EffectiveRecommendationPreferencesCpuVendorArchitectures
+      - EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics
+      - EffectiveRecommendationPreferencesInferredWorkloadTypes
+      - InferredWorkloadTypes
+      - RecommendationOptionsMigrationEffort
+      - EffectiveRecommendationPreferencesExternalMetricsSource
+      - InstanceState
+      - Tags
+      - ExternalMetricStatusCode
+      - ExternalMetricStatusReason
+    ExportEC2InstanceRecommendationsResponse:
+      type: object
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: <p>The identification number of the export job.</p> <p>Use the <a>DescribeRecommendationExportJobs</a> action, and specify the job ID to view the status of an export job.</p>
+        s3Destination:
+          allOf:
+          - $ref: '#/components/schemas/S3Destination'
+          - description: An object that describes the destination Amazon S3 bucket of a recommendations export file.
+    AccessDeniedException: {}
+    DestinationKey:
+      type: string
+    FilterValue:
+      type: string
+    RecommendationPreferences:
+      type: object
+      properties:
+        cpuVendorArchitectures:
+          allOf:
+          - $ref: '#/components/schemas/CpuVendorArchitectures'
+          - description: <p>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling group recommendations.</p> <p>For example, when you specify <code>AWS_ARM64</code> with:</p> <ul> <li> <p>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a> request, Compute Optimizer returns recommendations that consist of Graviton2 instance types only.</p> </li> <li> <p>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected utilization metrics for Graviton2 instance type recommendations only.</p> </li> <li> <p>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a> request, Compute Optimizer exports recommendations that consist of Graviton2 instance types only.</p> </li> </ul>
+      description: Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, and <a>GetEC2RecommendationProjectedMetrics</a> request.
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/compute-optimizer/
+x-hasEquivalentPaths: true

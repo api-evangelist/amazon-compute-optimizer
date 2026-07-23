@@ -1,0 +1,487 @@
+openapi: 3.0.0
+info:
+  version: '2019-11-01'
+  x-release: v4
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DescribeRecommendationExportJobs API'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: compute-optimizer
+  x-aws-signingName: compute-optimizer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: https://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: http://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+- url: https://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=ComputeOptimizerService.DescribeRecommendationExportJobs'
+paths:
+  /#X-Amz-Target=ComputeOptimizerService.DescribeRecommendationExportJobs:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: DescribeRecommendationExportJobs
+      description: <p>Describes recommendation export jobs created in the last seven days.</p> <p>Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions to request an export of your recommendations. Then use the <a>DescribeRecommendationExportJobs</a> action to view your export jobs.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeRecommendationExportJobsResponse'
+              examples:
+                DescribeRecommendationExportJobs200Example:
+                  summary: Default DescribeRecommendationExportJobs 200
+                  x-microcks-default: true
+                  value:
+                    recommendationExportJobs: example
+                    nextToken: example
+        '480':
+          description: OptInRequiredException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptInRequiredException'
+              examples:
+                DescribeRecommendationExportJobs480Example:
+                  summary: Default DescribeRecommendationExportJobs 480
+                  x-microcks-default: true
+                  value: example
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+              examples:
+                DescribeRecommendationExportJobs481Example:
+                  summary: Default DescribeRecommendationExportJobs 481
+                  x-microcks-default: true
+                  value: example
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+              examples:
+                DescribeRecommendationExportJobs482Example:
+                  summary: Default DescribeRecommendationExportJobs 482
+                  x-microcks-default: true
+                  value: example
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                DescribeRecommendationExportJobs483Example:
+                  summary: Default DescribeRecommendationExportJobs 483
+                  x-microcks-default: true
+                  value: example
+        '484':
+          description: InvalidParameterValueException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterValueException'
+              examples:
+                DescribeRecommendationExportJobs484Example:
+                  summary: Default DescribeRecommendationExportJobs 484
+                  x-microcks-default: true
+                  value: example
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                DescribeRecommendationExportJobs485Example:
+                  summary: Default DescribeRecommendationExportJobs 485
+                  x-microcks-default: true
+                  value: example
+        '486':
+          description: MissingAuthenticationToken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MissingAuthenticationToken'
+              examples:
+                DescribeRecommendationExportJobs486Example:
+                  summary: Default DescribeRecommendationExportJobs 486
+                  x-microcks-default: true
+                  value: example
+        '487':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+              examples:
+                DescribeRecommendationExportJobs487Example:
+                  summary: Default DescribeRecommendationExportJobs 487
+                  x-microcks-default: true
+                  value: example
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DescribeRecommendationExportJobsRequest'
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - ComputeOptimizerService.DescribeRecommendationExportJobs
+      summary: Amazon Compute Optimizer Describe Recommendation Export Jobs
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#X Amz Target=ComputeOptimizerService.DescribeRecommendationExportJobs'
+components:
+  schemas:
+    DescribeRecommendationExportJobsRequest:
+      type: object
+      title: DescribeRecommendationExportJobsRequest
+      properties:
+        jobIds:
+          allOf:
+          - $ref: '#/components/schemas/JobIds'
+          - description: <p>The identification numbers of the export jobs to return.</p> <p>An export job ID is returned when you create an export using the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions.</p> <p>All export jobs created in the last seven days are returned if this parameter is omitted.</p>
+        filters:
+          allOf:
+          - $ref: '#/components/schemas/JobFilters'
+          - description: An array of objects to specify a filter that returns a more specific list of export jobs.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to advance to the next page of export jobs.
+        maxResults:
+          allOf:
+          - $ref: '#/components/schemas/MaxResults'
+          - description: <p>The maximum number of export jobs to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
+    RecommendationExportJob:
+      type: object
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The identification number of the export job.
+        destination:
+          allOf:
+          - $ref: '#/components/schemas/ExportDestination'
+          - description: An object that describes the destination of the export file.
+        resourceType:
+          allOf:
+          - $ref: '#/components/schemas/ResourceType'
+          - description: The resource type of the exported recommendations.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/JobStatus'
+          - description: The status of the export job.
+        creationTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/CreationTimestamp'
+          - description: The timestamp of when the export job was created.
+        lastUpdatedTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTimestamp'
+          - description: The timestamp of when the export job was last updated.
+        failureReason:
+          allOf:
+          - $ref: '#/components/schemas/FailureReason'
+          - description: The reason for an export job failure.
+      description: <p>Describes a recommendation export job.</p> <p>Use the <a>DescribeRecommendationExportJobs</a> action to view your recommendation export jobs.</p> <p>Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions to request an export of your recommendations.</p>
+    MetadataKey:
+      type: string
+    InternalServerException: {}
+    LastUpdatedTimestamp:
+      type: string
+      format: date-time
+    ThrottlingException: {}
+    JobFilters:
+      type: array
+      items:
+        $ref: '#/components/schemas/JobFilter'
+    ServiceUnavailableException: {}
+    CreationTimestamp:
+      type: string
+      format: date-time
+    JobFilter:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/JobFilterName'
+          - description: <p>The name of the filter.</p> <p>Specify <code>ResourceType</code> to return export jobs of a specific resource type (for example, <code>Ec2Instance</code>).</p> <p>Specify <code>JobStatus</code> to return export jobs with a specific status (e.g, <code>Complete</code>).</p>
+        values:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: <p>The value of the filter.</p> <p>The valid values for this parameter are as follows, depending on what you specify for the <code>name</code> parameter:</p> <ul> <li> <p>Specify <code>Ec2Instance</code> or <code>AutoScalingGroup</code> if you specify the <code>name</code> parameter as <code>ResourceType</code>. There is no filter for EBS volumes because volume recommendations cannot be exported at this time.</p> </li> <li> <p>Specify <code>Queued</code>, <code>InProgress</code>, <code>Complete</code>, or <code>Failed</code> if you specify the <code>name</code> parameter as <code>JobStatus</code>.</p> </li> </ul>
+      description: <p>Describes a filter that returns a more specific list of recommendation export jobs. Use this filter with the <a>DescribeRecommendationExportJobs</a> action.</p> <p>You can use <code>EBSFilter</code> with the <a>GetEBSVolumeRecommendations</a> action, <code>LambdaFunctionRecommendationFilter</code> with the <a>GetLambdaFunctionRecommendations</a> action, and <code>Filter</code> with the <a>GetAutoScalingGroupRecommendations</a> and <a>GetEC2InstanceRecommendations</a> actions.</p>
+    FailureReason:
+      type: string
+    DestinationBucket:
+      type: string
+    MissingAuthenticationToken: {}
+    RecommendationExportJobs:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecommendationExportJob'
+    JobId:
+      type: string
+    ExportDestination:
+      type: object
+      properties:
+        s3:
+          allOf:
+          - $ref: '#/components/schemas/S3Destination'
+          - description: An object that describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a recommendations export file, and its associated metadata file.
+      description: Describes the destination of the recommendations export and metadata files.
+    ResourceType:
+      type: string
+      enum:
+      - Ec2Instance
+      - AutoScalingGroup
+      - EbsVolume
+      - LambdaFunction
+      - NotApplicable
+      - EcsService
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+    OptInRequiredException: {}
+    MaxResults:
+      type: integer
+      minimum: 0
+      maximum: 1000
+    InvalidParameterValueException: {}
+    JobFilterName:
+      type: string
+      enum:
+      - ResourceType
+      - JobStatus
+    DescribeRecommendationExportJobsResponse:
+      type: object
+      properties:
+        recommendationExportJobs:
+          allOf:
+          - $ref: '#/components/schemas/RecommendationExportJobs'
+          - description: An array of objects that describe recommendation export jobs.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: <p>The token to use to advance to the next page of export jobs.</p> <p>This value is null when there are no more pages of export jobs to return.</p>
+    S3Destination:
+      type: object
+      properties:
+        bucket:
+          allOf:
+          - $ref: '#/components/schemas/DestinationBucket'
+          - description: The name of the Amazon S3 bucket used as the destination of an export file.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/DestinationKey'
+          - description: <p>The Amazon S3 bucket key of an export file.</p> <p>The key uniquely identifies the object, or export file, in the S3 bucket.</p>
+        metadataKey:
+          allOf:
+          - $ref: '#/components/schemas/MetadataKey'
+          - description: <p>The Amazon S3 bucket key of a metadata file.</p> <p>The key uniquely identifies the object, or metadata file, in the S3 bucket.</p>
+      description: Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a recommendations export file, and its associated metadata file.
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    JobStatus:
+      type: string
+      enum:
+      - Queued
+      - InProgress
+      - Complete
+      - Failed
+    NextToken:
+      type: string
+    DestinationKey:
+      type: string
+    FilterValue:
+      type: string
+    JobIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/JobId'
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/compute-optimizer/
+x-hasEquivalentPaths: true

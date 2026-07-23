@@ -1,0 +1,456 @@
+openapi: 3.0.0
+info:
+  version: '2019-11-01'
+  x-release: v4
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics API'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: compute-optimizer
+  x-aws-signingName: compute-optimizer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: https://compute-optimizer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS Compute Optimizer multi-region endpoint
+- url: http://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+- url: https://compute-optimizer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS Compute Optimizer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics'
+paths:
+  /#X-Amz-Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: GetEC2RecommendationProjectedMetrics
+      description: <p>Returns the projected utilization metrics of Amazon EC2 instance recommendations.</p> <note> <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization metrics returned when you run this action. Additionally, the <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetEC2RecommendationProjectedMetricsResponse'
+              examples:
+                GetEC2RecommendationProjectedMetrics200Example:
+                  summary: Default GetEC2RecommendationProjectedMetrics 200
+                  x-microcks-default: true
+                  value:
+                    recommendedOptionProjectedMetrics: example
+        '480':
+          description: OptInRequiredException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptInRequiredException'
+              examples:
+                GetEC2RecommendationProjectedMetrics480Example:
+                  summary: Default GetEC2RecommendationProjectedMetrics 480
+                  x-microcks-default: true
+                  value: example
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+              examples:
+                GetEC2RecommendationProjectedMetrics481Example:
+                  summary: Default GetEC2RecommendationProjectedMetrics 481
+                  x-microcks-default: true
+                  value: example
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+              examples:
+                GetEC2RecommendationProjectedMetrics482Example:
+                  summary: Default GetEC2RecommendationProjectedMetrics 482
+                  x-microcks-default: true
+                  value: example
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                GetEC2RecommendationProjectedMetrics483Example:
+                  summary: Default GetEC2RecommendationProjectedMetrics 483
+                  x-microcks-default: true
+                  value: example
+        '484':
+          description: InvalidParameterValueException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterValueException'
+              examples:
+                GetEC2RecommendationProjectedMetrics484Example:
+                  summary: Default GetEC2RecommendationProjectedMetrics 484
+                  x-microcks-default: true
+                  value: example
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                GetEC2RecommendationProjectedMetrics485Example:
+                  summary: Default GetEC2RecommendationProjectedMetrics 485
+                  x-microcks-default: true
+                  value: example
+        '486':
+          description: MissingAuthenticationToken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MissingAuthenticationToken'
+              examples:
+                GetEC2RecommendationProjectedMetrics486Example:
+                  summary: Default GetEC2RecommendationProjectedMetrics 486
+                  x-microcks-default: true
+                  value: example
+        '487':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+              examples:
+                GetEC2RecommendationProjectedMetrics487Example:
+                  summary: Default GetEC2RecommendationProjectedMetrics 487
+                  x-microcks-default: true
+                  value: example
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetEC2RecommendationProjectedMetricsRequest'
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - ComputeOptimizerService.GetEC2RecommendationProjectedMetrics
+      summary: Amazon Compute Optimizer Get E C2 Recommendation Projected Metrics
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#X Amz Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics'
+components:
+  schemas:
+    GetEC2RecommendationProjectedMetricsRequest:
+      type: object
+      required:
+      - instanceArn
+      - stat
+      - period
+      - startTime
+      - endTime
+      title: GetEC2RecommendationProjectedMetricsRequest
+      properties:
+        instanceArn:
+          allOf:
+          - $ref: '#/components/schemas/InstanceArn'
+          - description: The Amazon Resource Name (ARN) of the instances for which to return recommendation projected metrics.
+        stat:
+          allOf:
+          - $ref: '#/components/schemas/MetricStatistic'
+          - description: The statistic of the projected metrics.
+        period:
+          allOf:
+          - $ref: '#/components/schemas/Period'
+          - description: The granularity, in seconds, of the projected metrics data points.
+        startTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp of the first projected metrics data point to return.
+        endTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp of the last projected metrics data point to return.
+        recommendationPreferences:
+          allOf:
+          - $ref: '#/components/schemas/RecommendationPreferences'
+          - description: An object to specify the preferences for the Amazon EC2 recommendation projected metrics to return in the response.
+    Period:
+      type: integer
+    InternalServerException: {}
+    MetricValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/MetricValue'
+    ThrottlingException: {}
+    ServiceUnavailableException: {}
+    RecommendedInstanceType:
+      type: string
+    MissingAuthenticationToken: {}
+    MetricValue:
+      type: number
+      format: double
+    RecommendedOptionProjectedMetrics:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecommendedOptionProjectedMetric'
+    CpuVendorArchitectures:
+      type: array
+      items:
+        $ref: '#/components/schemas/CpuVendorArchitecture'
+    MetricName:
+      type: string
+      enum:
+      - Cpu
+      - Memory
+      - EBS_READ_OPS_PER_SECOND
+      - EBS_WRITE_OPS_PER_SECOND
+      - EBS_READ_BYTES_PER_SECOND
+      - EBS_WRITE_BYTES_PER_SECOND
+      - DISK_READ_OPS_PER_SECOND
+      - DISK_WRITE_OPS_PER_SECOND
+      - DISK_READ_BYTES_PER_SECOND
+      - DISK_WRITE_BYTES_PER_SECOND
+      - NETWORK_IN_BYTES_PER_SECOND
+      - NETWORK_OUT_BYTES_PER_SECOND
+      - NETWORK_PACKETS_IN_PER_SECOND
+      - NETWORK_PACKETS_OUT_PER_SECOND
+    GetEC2RecommendationProjectedMetricsResponse:
+      type: object
+      properties:
+        recommendedOptionProjectedMetrics:
+          allOf:
+          - $ref: '#/components/schemas/RecommendedOptionProjectedMetrics'
+          - description: An array of objects that describes projected metrics.
+    RecommendationPreferences:
+      type: object
+      properties:
+        cpuVendorArchitectures:
+          allOf:
+          - $ref: '#/components/schemas/CpuVendorArchitectures'
+          - description: <p>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling group recommendations.</p> <p>For example, when you specify <code>AWS_ARM64</code> with:</p> <ul> <li> <p>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a> request, Compute Optimizer returns recommendations that consist of Graviton2 instance types only.</p> </li> <li> <p>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected utilization metrics for Graviton2 instance type recommendations only.</p> </li> <li> <p>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a> request, Compute Optimizer exports recommendations that consist of Graviton2 instance types only.</p> </li> </ul>
+      description: Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, and <a>GetEC2RecommendationProjectedMetrics</a> request.
+    OptInRequiredException: {}
+    MetricStatistic:
+      type: string
+      enum:
+      - Maximum
+      - Average
+    CpuVendorArchitecture:
+      type: string
+      enum:
+      - AWS_ARM64
+      - CURRENT
+    ProjectedMetric:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/MetricName'
+          - description: '<p>The name of the projected utilization metric.</p> <p>The following projected utilization metrics are returned:</p> <ul> <li> <p> <code>Cpu</code> - The projected percentage of allocated EC2 compute units that would be in use on the recommendation option had you used that resource during the analyzed period. This metric identifies the processing power required to run an application on the recommendation option.</p> <p>Depending on the instance type, tools in your operating system can show a lower percentage than CloudWatch when the instance is not allocated a full processor core.</p> <p>Units: Percent</p> </li> <li> <p> <code>Memory</code> - The percentage of memory that would be in use on the recommendation option had you used that resource during the analyzed period. This metric identifies the amount of memory required to run an application on the recommendation option.</p> <p>Units: Percent</p> <note> <p>The <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note> </li> </ul>'
+        timestamps:
+          allOf:
+          - $ref: '#/components/schemas/Timestamps'
+          - description: The timestamps of the projected utilization metric.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/MetricValues'
+          - description: The values of the projected utilization metrics.
+      description: <p>Describes a projected utilization metric of a recommendation option, such as an Amazon EC2 instance. This represents the projected utilization of a recommendation option had you used that resource during the analyzed period.</p> <p>Compare the utilization metric data of your resource against its projected utilization metric data to determine the performance difference between your current resource and the recommended option.</p> <note> <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization metrics returned when you run the <a>GetEC2RecommendationProjectedMetrics</a> action. Additionally, the <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note>
+    InvalidParameterValueException: {}
+    ResourceNotFoundException: {}
+    ProjectedMetrics:
+      type: array
+      items:
+        $ref: '#/components/schemas/ProjectedMetric'
+    AccessDeniedException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    Timestamps:
+      type: array
+      items:
+        $ref: '#/components/schemas/Timestamp'
+    Rank:
+      type: integer
+    InstanceArn:
+      type: string
+    RecommendedOptionProjectedMetric:
+      type: object
+      properties:
+        recommendedInstanceType:
+          allOf:
+          - $ref: '#/components/schemas/RecommendedInstanceType'
+          - description: The recommended instance type.
+        rank:
+          allOf:
+          - $ref: '#/components/schemas/Rank'
+          - description: <p>The rank of the recommendation option projected metric.</p> <p>The top recommendation option is ranked as <code>1</code>.</p> <p>The projected metric rank correlates to the recommendation option rank. For example, the projected metric ranked as <code>1</code> is related to the recommendation option that is also ranked as <code>1</code> in the same response.</p>
+        projectedMetrics:
+          allOf:
+          - $ref: '#/components/schemas/ProjectedMetrics'
+          - description: An array of objects that describe a projected utilization metric.
+      description: <p>Describes a projected utilization metric of a recommendation option.</p> <note> <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization metrics returned when you run the <a>GetEC2RecommendationProjectedMetrics</a> action. Additionally, the <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note>
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/compute-optimizer/
+x-hasEquivalentPaths: true
