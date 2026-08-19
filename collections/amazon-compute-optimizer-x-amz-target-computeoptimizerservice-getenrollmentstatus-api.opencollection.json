@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEnrollmentStatus API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#X Amz Target=ComputeOptimizerService.GetEnrollmentStatus",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Compute Optimizer Get Enrollment Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://compute-optimizer.{region}.amazonaws.com/#X-Amz-Target=ComputeOptimizerService.GetEnrollmentStatus",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Target",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Returns the enrollment (opt in) status of an account to the Compute Optimizer service.</p> <p>If the account is the management account of an organization, this action also confirms the enrollment status of member accounts of the organization. Use the <a>GetEnrollmentStatusesForOrganization</a> action to get detailed information about the enrollment status of member accounts of an organization.</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

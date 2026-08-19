@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#X Amz Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Compute Optimizer Get E C2 Recommendation Projected Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://compute-optimizer.{region}.amazonaws.com/#X-Amz-Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Target",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Returns the projected utilization metrics of Amazon EC2 instance recommendations.</p> <note> <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected utilization metrics returned when you run this action. Additionally, the <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utiliz"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
