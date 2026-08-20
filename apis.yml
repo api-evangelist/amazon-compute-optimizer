@@ -23,6 +23,12 @@ tags:
   - AWS
   - Cost Optimization
   - FinOps
+  - Machine-Learning
+  - Resource Recommendations
+tags_raw:
+  - AWS
+  - Cost Optimization
+  - FinOps
   - Machine Learning
   - Resource Recommendations
 url: https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/apis.yml
@@ -38,7 +44,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.deleterecommendationpreferences.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences'
     properties:
       - type: OpenAPI
@@ -76,7 +83,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.describerecommendationexportjobs.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.DescribeRecommendationExportJobs'
     properties:
       - type: OpenAPI
@@ -114,7 +122,8 @@ apis:
       — 1 operation(s) for #x amz target=computeoptimizerservice.exportautoscalinggrouprecommendations.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.ExportAutoScalingGroupRecommendations'
     properties:
       - type: OpenAPI
@@ -152,7 +161,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.exportebsvolumerecommendations.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.ExportEBSVolumeRecommendations'
     properties:
       - type: OpenAPI
@@ -190,7 +200,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.exportec2instancerecommendations.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.ExportEC2InstanceRecommendations'
     properties:
       - type: OpenAPI
@@ -228,7 +239,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.exportecsservicerecommendations.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.ExportECSServiceRecommendations'
     properties:
       - type: OpenAPI
@@ -266,7 +278,8 @@ apis:
       1 operation(s) for #x amz target=computeoptimizerservice.exportlambdafunctionrecommendations.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.ExportLambdaFunctionRecommendations'
     properties:
       - type: OpenAPI
@@ -304,7 +317,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.getautoscalinggrouprecommendations.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetAutoScalingGroupRecommendations'
     properties:
       - type: OpenAPI
@@ -342,7 +356,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.getebsvolumerecommendations.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetEBSVolumeRecommendations'
     properties:
       - type: OpenAPI
@@ -380,7 +395,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.getec2instancerecommendations.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetEC2InstanceRecommendations'
     properties:
       - type: OpenAPI
@@ -418,7 +434,8 @@ apis:
       1 operation(s) for #x amz target=computeoptimizerservice.getec2recommendationprojectedmetrics.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics'
     properties:
       - type: OpenAPI
@@ -456,7 +473,8 @@ apis:
       Optimizer — 1 operation(s) for #x amz target=computeoptimizerservice.getecsservicerecommendationprojectedmetrics.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetECSServiceRecommendationProjectedMetrics'
     properties:
       - type: OpenAPI
@@ -494,7 +512,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.getecsservicerecommendations.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetECSServiceRecommendations'
     properties:
       - type: OpenAPI
@@ -532,7 +551,8 @@ apis:
       — 1 operation(s) for #x amz target=computeoptimizerservice.geteffectiverecommendationpreferences.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetEffectiveRecommendationPreferences'
     properties:
       - type: OpenAPI
@@ -606,7 +626,8 @@ apis:
       1 operation(s) for #x amz target=computeoptimizerservice.getenrollmentstatusesfororganization.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetEnrollmentStatusesForOrganization'
     properties:
       - type: OpenAPI
@@ -644,7 +665,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.getlambdafunctionrecommendations.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetLambdaFunctionRecommendations'
     properties:
       - type: OpenAPI
@@ -682,7 +704,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.getrecommendationpreferences.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetRecommendationPreferences'
     properties:
       - type: OpenAPI
@@ -720,7 +743,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.getrecommendationsummaries.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.GetRecommendationSummaries'
     properties:
       - type: OpenAPI
@@ -758,7 +782,8 @@ apis:
       operation(s) for #x amz target=computeoptimizerservice.putrecommendationpreferences.
     humanURL: https://aws.amazon.com/compute-optimizer/
     baseURL: https://compute-optimizer.amazonaws.com
-    tags:
+    tags: []
+    tags_raw:
       - '#X Amz Target=ComputeOptimizerService.PutRecommendationPreferences'
     properties:
       - type: OpenAPI
