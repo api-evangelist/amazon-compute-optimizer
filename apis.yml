@@ -58,7 +58,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences'
+    - '#X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences'
     properties:
       - type: OpenAPI
         url: >-
@@ -97,7 +97,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.DescribeRecommendationExportJobs'
+    - '#X Amz Target=ComputeOptimizerService.DescribeRecommendationExportJobs'
     properties:
       - type: OpenAPI
         url: >-
@@ -136,7 +136,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.ExportAutoScalingGroupRecommendations'
+    - '#X Amz Target=ComputeOptimizerService.ExportAutoScalingGroupRecommendations'
     properties:
       - type: OpenAPI
         url: >-
@@ -175,7 +175,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.ExportEBSVolumeRecommendations'
+    - '#X Amz Target=ComputeOptimizerService.ExportEBSVolumeRecommendations'
     properties:
       - type: OpenAPI
         url: >-
@@ -214,7 +214,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.ExportEC2InstanceRecommendations'
+    - '#X Amz Target=ComputeOptimizerService.ExportEC2InstanceRecommendations'
     properties:
       - type: OpenAPI
         url: >-
@@ -253,7 +253,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.ExportECSServiceRecommendations'
+    - '#X Amz Target=ComputeOptimizerService.ExportECSServiceRecommendations'
     properties:
       - type: OpenAPI
         url: >-
@@ -292,7 +292,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.ExportLambdaFunctionRecommendations'
+    - '#X Amz Target=ComputeOptimizerService.ExportLambdaFunctionRecommendations'
     properties:
       - type: OpenAPI
         url: >-
@@ -331,7 +331,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetAutoScalingGroupRecommendations'
+    - '#X Amz Target=ComputeOptimizerService.GetAutoScalingGroupRecommendations'
     properties:
       - type: OpenAPI
         url: >-
@@ -370,7 +370,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetEBSVolumeRecommendations'
+    - '#X Amz Target=ComputeOptimizerService.GetEBSVolumeRecommendations'
     properties:
       - type: OpenAPI
         url: >-
@@ -409,7 +409,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetEC2InstanceRecommendations'
+    - '#X Amz Target=ComputeOptimizerService.GetEC2InstanceRecommendations'
     properties:
       - type: OpenAPI
         url: >-
@@ -448,7 +448,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics'
+    - '#X Amz Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics'
     properties:
       - type: OpenAPI
         url: >-
@@ -487,7 +487,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetECSServiceRecommendationProjectedMetrics'
+    - '#X Amz Target=ComputeOptimizerService.GetECSServiceRecommendationProjectedMetrics'
     properties:
       - type: OpenAPI
         url: >-
@@ -526,7 +526,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetECSServiceRecommendations'
+    - '#X Amz Target=ComputeOptimizerService.GetECSServiceRecommendations'
     properties:
       - type: OpenAPI
         url: >-
@@ -565,7 +565,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetEffectiveRecommendationPreferences'
+    - '#X Amz Target=ComputeOptimizerService.GetEffectiveRecommendationPreferences'
     properties:
       - type: OpenAPI
         url: >-
@@ -640,7 +640,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetEnrollmentStatusesForOrganization'
+    - '#X Amz Target=ComputeOptimizerService.GetEnrollmentStatusesForOrganization'
     properties:
       - type: OpenAPI
         url: >-
@@ -679,7 +679,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetLambdaFunctionRecommendations'
+    - '#X Amz Target=ComputeOptimizerService.GetLambdaFunctionRecommendations'
     properties:
       - type: OpenAPI
         url: >-
@@ -718,7 +718,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetRecommendationPreferences'
+    - '#X Amz Target=ComputeOptimizerService.GetRecommendationPreferences'
     properties:
       - type: OpenAPI
         url: >-
@@ -757,7 +757,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.GetRecommendationSummaries'
+    - '#X Amz Target=ComputeOptimizerService.GetRecommendationSummaries'
     properties:
       - type: OpenAPI
         url: >-
@@ -796,7 +796,7 @@ apis:
     baseURL: https://compute-optimizer.amazonaws.com
     tags: []
     tags_raw:
-      - '#X Amz Target=ComputeOptimizerService.PutRecommendationPreferences'
+    - '#X Amz Target=ComputeOptimizerService.PutRecommendationPreferences'
     properties:
       - type: OpenAPI
         url: >-
