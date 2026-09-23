@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-11-01'
   x-release: v4
-  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEffectiveRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEffectiveRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEffectiveRecommendationPreferences API'
-  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.…'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: GetEffectiveRecommendationPreferences
-      description: <p>Returns the recommendation preferences that are in effect for a given resource, such as enhanced infrastructure metrics. Considers all applicable preferences that you might have set at the resource, account, and organization level.</p> <p>When you create a recommendation preference, you can set its status to <code>Active</code> or <code>Inactive</code>. Use this action to view the recommendation preferences that are in effect, or <code>Active</code>.</p>
+      description: 'Returns the recommendation preferences that are in effect for a given resource, such as enhanced infrastructure metrics. Considers all applicable preferences that you might have set at the resource, account, and organization level.
+
+
+        When you create a recommendation preference, you can set its status to Active or Inactive. Use this action to view the recommendation preferences that are in effect, or Active.'
       responses:
         '200':
           description: Success
@@ -250,20 +254,20 @@ paths:
       - '#X Amz Target=ComputeOptimizerService.GetEffectiveRecommendationPreferences'
 components:
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -280,14 +284,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -301,18 +305,24 @@ components:
       - Dynatrace
       - NewRelic
       - Instana
-    InternalServerException: {}
-    InvalidParameterValueException: {}
+    ResourceNotFoundException: {}
     MissingAuthenticationToken: {}
-    ExternalMetricsPreference:
+    GetEffectiveRecommendationPreferencesRequest:
       type: object
+      required:
+      - resourceArn
+      title: GetEffectiveRecommendationPreferencesRequest
       properties:
-        source:
+        resourceArn:
           allOf:
-          - $ref: '#/components/schemas/ExternalMetricsSource'
-          - description: ' Contains the source options for external metrics preferences. '
-      description: ' Describes the external metrics preferences for EC2 rightsizing recommendations. '
-    AccessDeniedException: {}
+          - $ref: '#/components/schemas/ResourceArn'
+          - description: The Amazon Resource Name (ARN) of the resource for which to confirm effective recommendation preferences. Only EC2 instance and Auto Scaling group ARNs are currently supported.
+    EnhancedInfrastructureMetrics:
+      type: string
+      enum:
+      - Active
+      - Inactive
+    ThrottlingException: {}
     GetEffectiveRecommendationPreferencesResponse:
       type: object
       properties:
@@ -324,26 +334,20 @@ components:
           allOf:
           - $ref: '#/components/schemas/ExternalMetricsPreference'
           - description: <p>The provider of the external metrics recommendation preference. Considers all applicable preferences that you might have set at the account and organization level.</p> <p>If the preference is applied in the latest recommendation refresh, an object with a valid <code>source</code> value appears in the response. If the preference isn't applied to the recommendations already, then this object doesn't appear in the response.</p> <p>To validate whether the preference is applied to your last generated set of recommendations, review the <code>effectiveRecommendationPreferences</code> value in the response of the <a>GetEC2InstanceRecommendations</a> actions.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html">Enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p>
-    ThrottlingException: {}
-    EnhancedInfrastructureMetrics:
-      type: string
-      enum:
-      - Active
-      - Inactive
-    GetEffectiveRecommendationPreferencesRequest:
-      type: object
-      required:
-      - resourceArn
-      title: GetEffectiveRecommendationPreferencesRequest
-      properties:
-        resourceArn:
-          allOf:
-          - $ref: '#/components/schemas/ResourceArn'
-          - description: The Amazon Resource Name (ARN) of the resource for which to confirm effective recommendation preferences. Only EC2 instance and Auto Scaling group ARNs are currently supported.
-    OptInRequiredException: {}
     ResourceArn:
       type: string
-    ResourceNotFoundException: {}
+    ExternalMetricsPreference:
+      type: object
+      properties:
+        source:
+          allOf:
+          - $ref: '#/components/schemas/ExternalMetricsSource'
+          - description: ' Contains the source options for external metrics preferences. '
+      description: ' Describes the external metrics preferences for EC2 rightsizing recommendations. '
+    InvalidParameterValueException: {}
+    OptInRequiredException: {}
+    AccessDeniedException: {}
+    InternalServerException: {}
   securitySchemes:
     hmac:
       type: apiKey

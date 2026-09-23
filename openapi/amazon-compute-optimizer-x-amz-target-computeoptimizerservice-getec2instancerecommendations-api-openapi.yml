@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-11-01'
   x-release: v4
-  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEC2InstanceRecommendations #X Amz Target=ComputeOptimizerService.GetEC2InstanceRecommendations #X Amz Target=ComputeOptimizerService.GetEC2InstanceRecommendations API'
-  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.…'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: GetEC2InstanceRecommendations
-      description: <p>Returns Amazon EC2 instance recommendations.</p> <p>Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and requirements</a> in the <i>Compute Optimizer User Guide</i>.</p>
+      description: 'Returns Amazon EC2 instance recommendations.
+
+
+        Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a specific set of requirements. For more information, see the Supported resources and requirements in the Compute Optimizer User Guide.'
       responses:
         '200':
           description: Success
@@ -250,7 +254,450 @@ paths:
       tags:
       - '#X Amz Target=ComputeOptimizerService.GetEC2InstanceRecommendations'
 components:
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    MetricName:
+      type: string
+      enum:
+      - Cpu
+      - Memory
+      - EBS_READ_OPS_PER_SECOND
+      - EBS_WRITE_OPS_PER_SECOND
+      - EBS_READ_BYTES_PER_SECOND
+      - EBS_WRITE_BYTES_PER_SECOND
+      - DISK_READ_OPS_PER_SECOND
+      - DISK_WRITE_OPS_PER_SECOND
+      - DISK_READ_BYTES_PER_SECOND
+      - DISK_WRITE_BYTES_PER_SECOND
+      - NETWORK_IN_BYTES_PER_SECOND
+      - NETWORK_OUT_BYTES_PER_SECOND
+      - NETWORK_PACKETS_IN_PER_SECOND
+      - NETWORK_PACKETS_OUT_PER_SECOND
+    InferredWorkloadType:
+      type: string
+      enum:
+      - AmazonEmr
+      - ApacheCassandra
+      - ApacheHadoop
+      - Memcached
+      - Nginx
+      - PostgreSql
+      - Redis
+      - Kafka
+      - SQLServer
+    ExternalMetricsSource:
+      type: string
+      enum:
+      - Datadog
+      - Dynatrace
+      - NewRelic
+      - Instana
+    ResourceNotFoundException: {}
+    Filters:
+      type: array
+      items:
+        $ref: '#/components/schemas/Filter'
+    ProjectedUtilizationMetrics:
+      type: array
+      items:
+        $ref: '#/components/schemas/UtilizationMetric'
+    EffectiveRecommendationPreferences:
+      type: object
+      properties:
+        cpuVendorArchitectures:
+          allOf:
+          - $ref: '#/components/schemas/CpuVendorArchitectures'
+          - description: <p>Describes the CPU vendor and architecture for an instance or Auto Scaling group recommendations.</p> <p>For example, when you specify <code>AWS_ARM64</code> with:</p> <ul> <li> <p>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a> request, Compute Optimizer returns recommendations that consist of Graviton2 instance types only.</p> </li> <li> <p>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected utilization metrics for Graviton2 instance type recommendations only.</p> </li> <li> <p>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a> request, Compute Optimizer exports recommendations that consist of Graviton2 instance types only.</p> </li> </ul>
+        enhancedInfrastructureMetrics:
+          allOf:
+          - $ref: '#/components/schemas/EnhancedInfrastructureMetrics'
+          - description: <p>Describes the activation status of the enhanced infrastructure metrics preference.</p> <p>A status of <code>Active</code> confirms that the preference is applied in the latest recommendation refresh, and a status of <code>Inactive</code> confirms that it's not yet applied to recommendations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p>
+        inferredWorkloadTypes:
+          allOf:
+          - $ref: '#/components/schemas/InferredWorkloadTypesPreference'
+          - description: <p>Describes the activation status of the inferred workload types preference.</p> <p>A status of <code>Active</code> confirms that the preference is applied in the latest recommendation refresh. A status of <code>Inactive</code> confirms that it's not yet applied to recommendations.</p>
+        externalMetricsPreference:
+          allOf:
+          - $ref: '#/components/schemas/ExternalMetricsPreference'
+          - description: <p> An object that describes the external metrics recommendation preference. </p> <p> If the preference is applied in the latest recommendation refresh, an object with a valid <code>source</code> value appears in the response. If the preference isn't applied to the recommendations already, then this object doesn't appear in the response. </p>
+      description: Describes the effective recommendation preferences for a resource.
+    RecommendationOptions:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceRecommendationOption'
+    ExternalMetricStatus:
+      type: object
+      properties:
+        statusCode:
+          allOf:
+          - $ref: '#/components/schemas/ExternalMetricStatusCode'
+          - description: ' The status code for Compute Optimizer''s integration with an external metrics provider. '
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/ExternalMetricStatusReason'
+          - description: ' The reason for Compute Optimizer''s integration status with your external metric provider. '
+      description: ' Describes Compute Optimizer''s integration status with your chosen external metric provider. For example, Datadog. '
+    ThrottlingException: {}
+    Code:
+      type: string
+    GetRecommendationErrors:
+      type: array
+      items:
+        $ref: '#/components/schemas/GetRecommendationError'
+    InstanceArns:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceArn'
+    AccountIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccountId'
+    InstanceArn:
+      type: string
+    InstanceName:
+      type: string
+    CpuVendorArchitecture:
+      type: string
+      enum:
+      - AWS_ARM64
+      - CURRENT
+    EstimatedMonthlySavings:
+      type: object
+      properties:
+        currency:
+          allOf:
+          - $ref: '#/components/schemas/Currency'
+          - description: The currency of the estimated monthly savings.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/Value'
+          - description: The value of the estimated monthly savings.
+      description: <p>Describes the estimated monthly savings amount possible, based on On-Demand instance pricing, by adopting Compute Optimizer recommendations for a given resource.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-ec2-recommendations.html#ec2-savings-calculation">Estimated monthly savings and savings opportunities</a> in the <i>Compute Optimizer User Guide</i>.</p>
+    TagValue:
+      type: string
+    PlatformDifference:
+      type: string
+      enum:
+      - Hypervisor
+      - NetworkInterface
+      - StorageInterface
+      - InstanceStoreAvailability
+      - VirtualizationType
+      - Architecture
+    CurrentPerformanceRisk:
+      type: string
+      enum:
+      - VeryLow
+      - Low
+      - Medium
+      - High
+    InternalServerException: {}
+    MetricStatistic:
+      type: string
+      enum:
+      - Maximum
+      - Average
+    Filter:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/FilterName'
+          - description: <p>The name of the filter.</p> <p>Specify <code>Finding</code> to return recommendations with a specific finding classification. For example, <code>Underprovisioned</code>.</p> <p>Specify <code>RecommendationSourceType</code> to return recommendations of a specific resource type. For example, <code>Ec2Instance</code>.</p> <p>Specify <code>FindingReasonCodes</code> to return recommendations with a specific finding reason code. For example, <code>CPUUnderprovisioned</code>.</p> <p>Specify <code>InferredWorkloadTypes</code> to return recommendations of a specific inferred workload. For example, <code>Redis</code>.</p> <p>You can filter your EC2 instance recommendations by <code>tag:key</code> and <code>tag-key</code> tags.</p> <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your recommendations. Use the tag key in the filter name and the tag value as the filter value. For example, to find all recommendations that have a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> <p>A <code>tag-key</code> is the key of a tag assigned to your recommendations. Use this filter to find all of your recommendations that have a tag with a specific key. This doesn’t consider the tag value. For example, you can find your recommendations with a tag key value of <code>Owner</code> or without any tag keys assigned.</p>
+        values:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: <p>The value of the filter.</p> <p>The valid values for this parameter are as follows, depending on what you specify for the <code>name</code> parameter and the resource type that you wish to filter results for:</p> <ul> <li> <p>Specify <code>Optimized</code> or <code>NotOptimized</code> if you specify the <code>name</code> parameter as <code>Finding</code> and you want to filter results for Auto Scaling groups.</p> </li> <li> <p>Specify <code>Underprovisioned</code>, <code>Overprovisioned</code>, or <code>Optimized</code> if you specify the <code>name</code> parameter as <code>Finding</code> and you want to filter results for EC2 instances.</p> </li> <li> <p>Specify <code>Ec2Instance</code> or <code>AutoScalingGroup</code> if you specify the <code>name</code> parameter as <code>RecommendationSourceType</code>.</p> </li> <li> <p>Specify one of the following options if you specify the <code>name</code> parameter as <code>FindingReasonCodes</code>:</p> <ul> <li> <p> <b> <code>CPUOverprovisioned</code> </b> — The instance’s CPU configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>CPUUnderprovisioned</code> </b> — The instance’s CPU configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better CPU performance.</p> </li> <li> <p> <b> <code>MemoryOverprovisioned</code> </b> — The instance’s memory configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>MemoryUnderprovisioned</code> </b> — The instance’s memory configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better memory performance.</p> </li> <li> <p> <b> <code>EBSThroughputOverprovisioned</code> </b> — The instance’s EBS throughput configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>EBSThroughputUnderprovisioned</code> </b> — The instance’s EBS throughput configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better EBS throughput performance.</p> </li> <li> <p> <b> <code>EBSIOPSOverprovisioned</code> </b> — The instance’s EBS IOPS configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>EBSIOPSUnderprovisioned</code> </b> — The instance’s EBS IOPS configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better EBS IOPS performance.</p> </li> <li> <p> <b> <code>NetworkBandwidthOverprovisioned</code> </b> — The instance’s network bandwidth configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>NetworkBandwidthUnderprovisioned</code> </b> — The instance’s network bandwidth configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better network bandwidth performance. This finding reason happens when the <code>NetworkIn</code> or <code>NetworkOut</code> performance of an instance is impacted.</p> </li> <li> <p> <b> <code>NetworkPPSOverprovisioned</code> </b> — The instance’s network PPS (packets per second) configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>NetworkPPSUnderprovisioned</code> </b> — The instance’s network PPS (packets per second) configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better network PPS performance.</p> </li> <li> <p> <b> <code>DiskIOPSOverprovisioned</code> </b> — The instance’s disk IOPS configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>DiskIOPSUnderprovisioned</code> </b> — The instance’s disk IOPS configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better disk IOPS performance.</p> </li> <li> <p> <b> <code>DiskThroughputOverprovisioned</code> </b> — The instance’s disk throughput configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>DiskThroughputUnderprovisioned</code> </b> — The instance’s disk throughput configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better disk throughput performance.</p> </li> </ul> </li> </ul>
+      description: <p>Describes a filter that returns a more specific list of recommendations. Use this filter with the <a>GetAutoScalingGroupRecommendations</a> and <a>GetEC2InstanceRecommendations</a> actions.</p> <p>You can use <code>EBSFilter</code> with the <a>GetEBSVolumeRecommendations</a> action, <code>LambdaFunctionRecommendationFilter</code> with the <a>GetLambdaFunctionRecommendations</a> action, and <code>JobFilter</code> with the <a>DescribeRecommendationExportJobs</a> action.</p>
+    ServiceUnavailableException: {}
+    PlatformDifferences:
+      type: array
+      items:
+        $ref: '#/components/schemas/PlatformDifference'
+    MaxResults:
+      type: integer
+      minimum: 0
+      maximum: 1000
+    InstanceRecommendationFindingReasonCode:
+      type: string
+      enum:
+      - CPUOverprovisioned
+      - CPUUnderprovisioned
+      - MemoryOverprovisioned
+      - MemoryUnderprovisioned
+      - EBSThroughputOverprovisioned
+      - EBSThroughputUnderprovisioned
+      - EBSIOPSOverprovisioned
+      - EBSIOPSUnderprovisioned
+      - NetworkBandwidthOverprovisioned
+      - NetworkBandwidthUnderprovisioned
+      - NetworkPPSOverprovisioned
+      - NetworkPPSUnderprovisioned
+      - DiskIOPSOverprovisioned
+      - DiskIOPSUnderprovisioned
+      - DiskThroughputOverprovisioned
+      - DiskThroughputUnderprovisioned
+    UtilizationMetrics:
+      type: array
+      items:
+        $ref: '#/components/schemas/UtilizationMetric'
+    NextToken:
+      type: string
+    FilterName:
+      type: string
+      enum:
+      - Finding
+      - FindingReasonCodes
+      - RecommendationSourceType
+      - InferredWorkloadTypes
+    EnhancedInfrastructureMetrics:
+      type: string
+      enum:
+      - Active
+      - Inactive
+    Currency:
+      type: string
+      enum:
+      - USD
+      - CNY
+    SavingsOpportunity:
+      type: object
+      properties:
+        savingsOpportunityPercentage:
+          allOf:
+          - $ref: '#/components/schemas/SavingsOpportunityPercentage'
+          - description: The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer recommendations for a given resource.
+        estimatedMonthlySavings:
+          allOf:
+          - $ref: '#/components/schemas/EstimatedMonthlySavings'
+          - description: An object that describes the estimated monthly savings amount possible by adopting Compute Optimizer recommendations for a given resource. This is based on the On-Demand instance pricing..
+      description: <p>Describes the savings opportunity for recommendations of a given resource type or for the recommendation option of an individual resource.</p> <p>Savings opportunity represents the estimated monthly savings you can achieve by implementing a given Compute Optimizer recommendation.</p> <important> <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as activate <b>Receive Amazon EC2 resource recommendations</b> in the Cost Explorer preferences page. That creates a connection between Cost Explorer and Compute Optimizer. With this connection, Cost Explorer generates savings estimates considering the price of existing resources, the price of recommended resources, and historical usage data. Estimated monthly savings reflects the projected dollar savings associated with each of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost with Rightsizing Recommendations</a> in the <i>Cost Management User Guide</i>.</p> </important>
+    InstanceRecommendations:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceRecommendation'
+    Tag:
+      type: object
+      properties:
+        key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: ' One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values. '
+        value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: ' One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null. '
+      description: ' A list of tag key and value pairs that you define. '
+    CurrentInstanceType:
+      type: string
+    ExternalMetricStatusCode:
+      type: string
+      enum:
+      - NO_EXTERNAL_METRIC_SET
+      - INTEGRATION_SUCCESS
+      - DATADOG_INTEGRATION_ERROR
+      - DYNATRACE_INTEGRATION_ERROR
+      - NEWRELIC_INTEGRATION_ERROR
+      - INSTANA_INTEGRATION_ERROR
+      - INSUFFICIENT_DATADOG_METRICS
+      - INSUFFICIENT_DYNATRACE_METRICS
+      - INSUFFICIENT_NEWRELIC_METRICS
+      - INSUFFICIENT_INSTANA_METRICS
+    GetRecommendationError:
+      type: object
+      properties:
+        identifier:
+          allOf:
+          - $ref: '#/components/schemas/Identifier'
+          - description: The ID of the error.
+        code:
+          allOf:
+          - $ref: '#/components/schemas/Code'
+          - description: The error code.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/Message'
+          - description: The message, or reason, for the error.
+      description: <p>Describes an error experienced when getting recommendations.</p> <p>For example, an error is returned if you request recommendations for an unsupported Auto Scaling group, or if you request recommendations for an instance of an unsupported instance family.</p>
+    PerformanceRisk:
+      type: number
+      format: double
+      minimum: 0
+      maximum: 4
+    InferredWorkloadTypes:
+      type: array
+      items:
+        $ref: '#/components/schemas/InferredWorkloadType'
+    OptInRequiredException: {}
+    RecommendationSource:
+      type: object
+      properties:
+        recommendationSourceArn:
+          allOf:
+          - $ref: '#/components/schemas/RecommendationSourceArn'
+          - description: The Amazon Resource Name (ARN) of the recommendation source.
+        recommendationSourceType:
+          allOf:
+          - $ref: '#/components/schemas/RecommendationSourceType'
+          - description: The resource type of the recommendation source.
+      description: Describes the source of a recommendation, such as an Amazon EC2 instance or Auto Scaling group.
+    UtilizationMetric:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/MetricName'
+          - description: '<p>The name of the utilization metric.</p> <p>The following utilization metrics are available:</p> <ul> <li> <p> <code>Cpu</code> - The percentage of allocated EC2 compute units that are currently in use on the instance. This metric identifies the processing power required to run an application on the instance.</p> <p>Depending on the instance type, tools in your operating system can show a lower percentage than CloudWatch when the instance is not allocated a full processor core.</p> <p>Units: Percent</p> </li> <li> <p> <code>Memory</code> - The percentage of memory that is currently in use on the instance. This metric identifies the amount of memory required to run an application on the instance.</p> <p>Units: Percent</p> <note> <p>The <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note> </li> <li> <p> <code>EBS_READ_OPS_PER_SECOND</code> - The completed read operations from all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Count</p> </li> <li> <p> <code>EBS_WRITE_OPS_PER_SECOND</code> - The completed write operations to all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Count</p> </li> <li> <p> <code>EBS_READ_BYTES_PER_SECOND</code> - The bytes read from all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Bytes</p> </li> <li> <p> <code>EBS_WRITE_BYTES_PER_SECOND</code> - The bytes written to all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Bytes</p> </li> <li> <p> <code>DISK_READ_OPS_PER_SECOND</code> - The completed read operations from all instance store volumes available to the instance in a specified period of time.</p> <p>If there are no instance store volumes, either the value is <code>0</code> or the metric is not reported.</p> </li> <li> <p> <code>DISK_WRITE_OPS_PER_SECOND</code> - The completed write operations from all instance store volumes available to the instance in a specified period of time.</p> <p>If there are no instance store volumes, either the value is <code>0</code> or the metric is not reported.</p> </li> <li> <p> <code>DISK_READ_BYTES_PER_SECOND</code> - The bytes read from all instance store volumes available to the instance. This metric is used to determine the volume of the data the application reads from the disk of the instance. This can be used to determine the speed of the application.</p> <p>If there are no instance store volumes, either the value is <code>0</code> or the metric is not reported.</p> </li> <li> <p> <code>DISK_WRITE_BYTES_PER_SECOND</code> - The bytes written to all instance store volumes available to the instance. This metric is used to determine the volume of the data the application writes onto the disk of the instance. This can be used to determine the speed of the application.</p> <p>If there are no instance store volumes, either the value is <code>0</code> or the metric is not reported.</p> </li> <li> <p> <code>NETWORK_IN_BYTES_PER_SECOND</code> - The number of bytes received by the instance on all network interfaces. This metric identifies the volume of incoming network traffic to a single instance.</p> </li> <li> <p> <code>NETWORK_OUT_BYTES_PER_SECOND</code> - The number of bytes sent out by the instance on all network interfaces. This metric identifies the volume of outgoing network traffic from a single instance.</p> </li> <li> <p> <code>NETWORK_PACKETS_IN_PER_SECOND</code> - The number of packets received by the instance on all network interfaces. This metric identifies the volume of incoming traffic in terms of the number of packets on a single instance.</p> </li> <li> <p> <code>NETWORK_PACKETS_OUT_PER_SECOND</code> - The number of packets sent out by the instance on all network interfaces. This metric identifies the volume of outgoing traffic in terms of the number of packets on a single instance.</p> </li> </ul>'
+        statistic:
+          allOf:
+          - $ref: '#/components/schemas/MetricStatistic'
+          - description: <p>The statistic of the utilization metric.</p> <p>The Compute Optimizer API, Command Line Interface (CLI), and SDKs return utilization metrics using only the <code>Maximum</code> statistic, which is the highest value observed during the specified period.</p> <p>The Compute Optimizer console displays graphs for some utilization metrics using the <code>Average</code> statistic, which is the value of <code>Sum</code> / <code>SampleCount</code> during the specified period. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/viewing-recommendations.html">Viewing resource recommendations</a> in the <i>Compute Optimizer User Guide</i>. You can also get averaged utilization metric data for your resources using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch User Guide</a>.</p>
+        value:
+          allOf:
+          - $ref: '#/components/schemas/MetricValue'
+          - description: The value of the utilization metric.
+      description: <p>Describes a utilization metric of a resource, such as an Amazon EC2 instance.</p> <p>Compare the utilization metric data of your resource against its projected utilization metric data to determine the performance difference between your current resource and the recommended option.</p>
+    MigrationEffort:
+      type: string
+      enum:
+      - VeryLow
+      - Low
+      - Medium
+      - High
+    InstanceState:
+      type: string
+      enum:
+      - pending
+      - running
+      - shutting-down
+      - terminated
+      - stopping
+      - stopped
+    ExternalMetricStatusReason:
+      type: string
+    MissingAuthenticationToken: {}
+    GetEC2InstanceRecommendationsRequest:
+      type: object
+      title: GetEC2InstanceRecommendationsRequest
+      properties:
+        instanceArns:
+          allOf:
+          - $ref: '#/components/schemas/InstanceArns'
+          - description: The Amazon Resource Name (ARN) of the instances for which to return recommendations.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token to advance to the next page of instance recommendations.
+        maxResults:
+          allOf:
+          - $ref: '#/components/schemas/MaxResults'
+          - description: <p>The maximum number of instance recommendations to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
+        filters:
+          allOf:
+          - $ref: '#/components/schemas/Filters'
+          - description: An array of objects to specify a filter that returns a more specific list of instance recommendations.
+        accountIds:
+          allOf:
+          - $ref: '#/components/schemas/AccountIds'
+          - description: <p>The ID of the Amazon Web Services account for which to return instance recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to return instance recommendations.</p> <p>Only one account ID can be specified per request.</p>
+        recommendationPreferences:
+          allOf:
+          - $ref: '#/components/schemas/RecommendationPreferences'
+          - description: An object to specify the preferences for the Amazon EC2 instance recommendations to return in the response.
+    InstanceRecommendationFindingReasonCodes:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceRecommendationFindingReasonCode'
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+    Identifier:
+      type: string
+    LookBackPeriodInDays:
+      type: number
+      format: double
+    GetEC2InstanceRecommendationsResponse:
+      type: object
+      properties:
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: <p>The token to use to advance to the next page of instance recommendations.</p> <p>This value is null when there are no more pages of instance recommendations to return.</p>
+        instanceRecommendations:
+          allOf:
+          - $ref: '#/components/schemas/InstanceRecommendations'
+          - description: An array of objects that describe instance recommendations.
+        errors:
+          allOf:
+          - $ref: '#/components/schemas/GetRecommendationErrors'
+          - description: <p>An array of objects that describe errors of the request.</p> <p>For example, an error is returned if you request recommendations for an instance of an unsupported instance family.</p>
+    MetricValue:
+      type: number
+      format: double
+    LastRefreshTimestamp:
+      type: string
+      format: date-time
+    Message:
+      type: string
+    AccessDeniedException: {}
+    Rank:
+      type: integer
+    RecommendationSourceType:
+      type: string
+      enum:
+      - Ec2Instance
+      - AutoScalingGroup
+      - EbsVolume
+      - LambdaFunction
+      - EcsService
+    InferredWorkloadTypesPreference:
+      type: string
+      enum:
+      - Active
+      - Inactive
     InstanceRecommendationOption:
       type: object
       properties:
@@ -283,217 +730,17 @@ components:
           - $ref: '#/components/schemas/MigrationEffort'
           - description: <p>The level of effort required to migrate from the current instance type to the recommended instance type.</p> <p>For example, the migration effort is <code>Low</code> if Amazon EMR is the inferred workload type and an Amazon Web Services Graviton instance type is recommended. The migration effort is <code>Medium</code> if a workload type couldn't be inferred but an Amazon Web Services Graviton instance type is recommended. The migration effort is <code>VeryLow</code> if both the current and recommended instance types are of the same CPU architecture.</p>
       description: Describes a recommendation option for an Amazon EC2 instance.
-    Filter:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/FilterName'
-          - description: <p>The name of the filter.</p> <p>Specify <code>Finding</code> to return recommendations with a specific finding classification. For example, <code>Underprovisioned</code>.</p> <p>Specify <code>RecommendationSourceType</code> to return recommendations of a specific resource type. For example, <code>Ec2Instance</code>.</p> <p>Specify <code>FindingReasonCodes</code> to return recommendations with a specific finding reason code. For example, <code>CPUUnderprovisioned</code>.</p> <p>Specify <code>InferredWorkloadTypes</code> to return recommendations of a specific inferred workload. For example, <code>Redis</code>.</p> <p>You can filter your EC2 instance recommendations by <code>tag:key</code> and <code>tag-key</code> tags.</p> <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your recommendations. Use the tag key in the filter name and the tag value as the filter value. For example, to find all recommendations that have a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> <p>A <code>tag-key</code> is the key of a tag assigned to your recommendations. Use this filter to find all of your recommendations that have a tag with a specific key. This doesn’t consider the tag value. For example, you can find your recommendations with a tag key value of <code>Owner</code> or without any tag keys assigned.</p>
-        values:
-          allOf:
-          - $ref: '#/components/schemas/FilterValues'
-          - description: <p>The value of the filter.</p> <p>The valid values for this parameter are as follows, depending on what you specify for the <code>name</code> parameter and the resource type that you wish to filter results for:</p> <ul> <li> <p>Specify <code>Optimized</code> or <code>NotOptimized</code> if you specify the <code>name</code> parameter as <code>Finding</code> and you want to filter results for Auto Scaling groups.</p> </li> <li> <p>Specify <code>Underprovisioned</code>, <code>Overprovisioned</code>, or <code>Optimized</code> if you specify the <code>name</code> parameter as <code>Finding</code> and you want to filter results for EC2 instances.</p> </li> <li> <p>Specify <code>Ec2Instance</code> or <code>AutoScalingGroup</code> if you specify the <code>name</code> parameter as <code>RecommendationSourceType</code>.</p> </li> <li> <p>Specify one of the following options if you specify the <code>name</code> parameter as <code>FindingReasonCodes</code>:</p> <ul> <li> <p> <b> <code>CPUOverprovisioned</code> </b> — The instance’s CPU configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>CPUUnderprovisioned</code> </b> — The instance’s CPU configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better CPU performance.</p> </li> <li> <p> <b> <code>MemoryOverprovisioned</code> </b> — The instance’s memory configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>MemoryUnderprovisioned</code> </b> — The instance’s memory configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better memory performance.</p> </li> <li> <p> <b> <code>EBSThroughputOverprovisioned</code> </b> — The instance’s EBS throughput configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>EBSThroughputUnderprovisioned</code> </b> — The instance’s EBS throughput configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better EBS throughput performance.</p> </li> <li> <p> <b> <code>EBSIOPSOverprovisioned</code> </b> — The instance’s EBS IOPS configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>EBSIOPSUnderprovisioned</code> </b> — The instance’s EBS IOPS configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better EBS IOPS performance.</p> </li> <li> <p> <b> <code>NetworkBandwidthOverprovisioned</code> </b> — The instance’s network bandwidth configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>NetworkBandwidthUnderprovisioned</code> </b> — The instance’s network bandwidth configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better network bandwidth performance. This finding reason happens when the <code>NetworkIn</code> or <code>NetworkOut</code> performance of an instance is impacted.</p> </li> <li> <p> <b> <code>NetworkPPSOverprovisioned</code> </b> — The instance’s network PPS (packets per second) configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>NetworkPPSUnderprovisioned</code> </b> — The instance’s network PPS (packets per second) configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better network PPS performance.</p> </li> <li> <p> <b> <code>DiskIOPSOverprovisioned</code> </b> — The instance’s disk IOPS configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>DiskIOPSUnderprovisioned</code> </b> — The instance’s disk IOPS configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better disk IOPS performance.</p> </li> <li> <p> <b> <code>DiskThroughputOverprovisioned</code> </b> — The instance’s disk throughput configuration can be sized down while still meeting the performance requirements of your workload.</p> </li> <li> <p> <b> <code>DiskThroughputUnderprovisioned</code> </b> — The instance’s disk throughput configuration doesn't meet the performance requirements of your workload and there is an alternative instance type that provides better disk throughput performance.</p> </li> </ul> </li> </ul>
-      description: <p>Describes a filter that returns a more specific list of recommendations. Use this filter with the <a>GetAutoScalingGroupRecommendations</a> and <a>GetEC2InstanceRecommendations</a> actions.</p> <p>You can use <code>EBSFilter</code> with the <a>GetEBSVolumeRecommendations</a> action, <code>LambdaFunctionRecommendationFilter</code> with the <a>GetLambdaFunctionRecommendations</a> action, and <code>JobFilter</code> with the <a>DescribeRecommendationExportJobs</a> action.</p>
-    ExternalMetricsSource:
-      type: string
-      enum:
-      - Datadog
-      - Dynatrace
-      - NewRelic
-      - Instana
-    PlatformDifference:
-      type: string
-      enum:
-      - Hypervisor
-      - NetworkInterface
-      - StorageInterface
-      - InstanceStoreAvailability
-      - VirtualizationType
-      - Architecture
-    Rank:
-      type: integer
-    SavingsOpportunity:
-      type: object
-      properties:
-        savingsOpportunityPercentage:
-          allOf:
-          - $ref: '#/components/schemas/SavingsOpportunityPercentage'
-          - description: The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer recommendations for a given resource.
-        estimatedMonthlySavings:
-          allOf:
-          - $ref: '#/components/schemas/EstimatedMonthlySavings'
-          - description: An object that describes the estimated monthly savings amount possible by adopting Compute Optimizer recommendations for a given resource. This is based on the On-Demand instance pricing..
-      description: <p>Describes the savings opportunity for recommendations of a given resource type or for the recommendation option of an individual resource.</p> <p>Savings opportunity represents the estimated monthly savings you can achieve by implementing a given Compute Optimizer recommendation.</p> <important> <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as activate <b>Receive Amazon EC2 resource recommendations</b> in the Cost Explorer preferences page. That creates a connection between Cost Explorer and Compute Optimizer. With this connection, Cost Explorer generates savings estimates considering the price of existing resources, the price of recommended resources, and historical usage data. Estimated monthly savings reflects the projected dollar savings associated with each of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost with Rightsizing Recommendations</a> in the <i>Cost Management User Guide</i>.</p> </important>
-    MissingAuthenticationToken: {}
-    Identifier:
-      type: string
-    Filters:
+    CpuVendorArchitectures:
       type: array
       items:
-        $ref: '#/components/schemas/Filter'
-    GetRecommendationError:
-      type: object
-      properties:
-        identifier:
-          allOf:
-          - $ref: '#/components/schemas/Identifier'
-          - description: The ID of the error.
-        code:
-          allOf:
-          - $ref: '#/components/schemas/Code'
-          - description: The error code.
-        message:
-          allOf:
-          - $ref: '#/components/schemas/Message'
-          - description: The message, or reason, for the error.
-      description: <p>Describes an error experienced when getting recommendations.</p> <p>For example, an error is returned if you request recommendations for an unsupported Auto Scaling group, or if you request recommendations for an instance of an unsupported instance family.</p>
-    GetEC2InstanceRecommendationsResponse:
-      type: object
-      properties:
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: <p>The token to use to advance to the next page of instance recommendations.</p> <p>This value is null when there are no more pages of instance recommendations to return.</p>
-        instanceRecommendations:
-          allOf:
-          - $ref: '#/components/schemas/InstanceRecommendations'
-          - description: An array of objects that describe instance recommendations.
-        errors:
-          allOf:
-          - $ref: '#/components/schemas/GetRecommendationErrors'
-          - description: <p>An array of objects that describe errors of the request.</p> <p>For example, an error is returned if you request recommendations for an instance of an unsupported instance family.</p>
-    ThrottlingException: {}
-    FilterName:
-      type: string
-      enum:
-      - Finding
-      - FindingReasonCodes
-      - RecommendationSourceType
-      - InferredWorkloadTypes
-    EnhancedInfrastructureMetrics:
-      type: string
-      enum:
-      - Active
-      - Inactive
-    Code:
-      type: string
-    Currency:
-      type: string
-      enum:
-      - USD
-      - CNY
-    MigrationEffort:
-      type: string
-      enum:
-      - VeryLow
-      - Low
-      - Medium
-      - High
-    CpuVendorArchitecture:
-      type: string
-      enum:
-      - AWS_ARM64
-      - CURRENT
-    AccountIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/AccountId'
-    InferredWorkloadTypes:
-      type: array
-      items:
-        $ref: '#/components/schemas/InferredWorkloadType'
+        $ref: '#/components/schemas/CpuVendorArchitecture'
     RecommendationSourceArn:
       type: string
-    CurrentInstanceType:
-      type: string
-    Tag:
-      type: object
-      properties:
-        key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: ' One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values. '
-        value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: ' One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null. '
-      description: ' A list of tag key and value pairs that you define. '
-    Message:
-      type: string
-    Tags:
-      type: array
-      items:
-        $ref: '#/components/schemas/Tag'
-    PerformanceRisk:
+    SavingsOpportunityPercentage:
       type: number
       format: double
-      minimum: 0
-      maximum: 4
-    MetricStatistic:
+    FilterValue:
       type: string
-      enum:
-      - Maximum
-      - Average
-    UtilizationMetric:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/MetricName'
-          - description: '<p>The name of the utilization metric.</p> <p>The following utilization metrics are available:</p> <ul> <li> <p> <code>Cpu</code> - The percentage of allocated EC2 compute units that are currently in use on the instance. This metric identifies the processing power required to run an application on the instance.</p> <p>Depending on the instance type, tools in your operating system can show a lower percentage than CloudWatch when the instance is not allocated a full processor core.</p> <p>Units: Percent</p> </li> <li> <p> <code>Memory</code> - The percentage of memory that is currently in use on the instance. This metric identifies the amount of memory required to run an application on the instance.</p> <p>Units: Percent</p> <note> <p>The <code>Memory</code> metric is returned only for resources that have the unified CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p> </note> </li> <li> <p> <code>EBS_READ_OPS_PER_SECOND</code> - The completed read operations from all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Count</p> </li> <li> <p> <code>EBS_WRITE_OPS_PER_SECOND</code> - The completed write operations to all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Count</p> </li> <li> <p> <code>EBS_READ_BYTES_PER_SECOND</code> - The bytes read from all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Bytes</p> </li> <li> <p> <code>EBS_WRITE_BYTES_PER_SECOND</code> - The bytes written to all EBS volumes attached to the instance in a specified period of time.</p> <p>Unit: Bytes</p> </li> <li> <p> <code>DISK_READ_OPS_PER_SECOND</code> - The completed read operations from all instance store volumes available to the instance in a specified period of time.</p> <p>If there are no instance store volumes, either the value is <code>0</code> or the metric is not reported.</p> </li> <li> <p> <code>DISK_WRITE_OPS_PER_SECOND</code> - The completed write operations from all instance store volumes available to the instance in a specified period of time.</p> <p>If there are no instance store volumes, either the value is <code>0</code> or the metric is not reported.</p> </li> <li> <p> <code>DISK_READ_BYTES_PER_SECOND</code> - The bytes read from all instance store volumes available to the instance. This metric is used to determine the volume of the data the application reads from the disk of the instance. This can be used to determine the speed of the application.</p> <p>If there are no instance store volumes, either the value is <code>0</code> or the metric is not reported.</p> </li> <li> <p> <code>DISK_WRITE_BYTES_PER_SECOND</code> - The bytes written to all instance store volumes available to the instance. This metric is used to determine the volume of the data the application writes onto the disk of the instance. This can be used to determine the speed of the application.</p> <p>If there are no instance store volumes, either the value is <code>0</code> or the metric is not reported.</p> </li> <li> <p> <code>NETWORK_IN_BYTES_PER_SECOND</code> - The number of bytes received by the instance on all network interfaces. This metric identifies the volume of incoming network traffic to a single instance.</p> </li> <li> <p> <code>NETWORK_OUT_BYTES_PER_SECOND</code> - The number of bytes sent out by the instance on all network interfaces. This metric identifies the volume of outgoing network traffic from a single instance.</p> </li> <li> <p> <code>NETWORK_PACKETS_IN_PER_SECOND</code> - The number of packets received by the instance on all network interfaces. This metric identifies the volume of incoming traffic in terms of the number of packets on a single instance.</p> </li> <li> <p> <code>NETWORK_PACKETS_OUT_PER_SECOND</code> - The number of packets sent out by the instance on all network interfaces. This metric identifies the volume of outgoing traffic in terms of the number of packets on a single instance.</p> </li> </ul>'
-        statistic:
-          allOf:
-          - $ref: '#/components/schemas/MetricStatistic'
-          - description: <p>The statistic of the utilization metric.</p> <p>The Compute Optimizer API, Command Line Interface (CLI), and SDKs return utilization metrics using only the <code>Maximum</code> statistic, which is the highest value observed during the specified period.</p> <p>The Compute Optimizer console displays graphs for some utilization metrics using the <code>Average</code> statistic, which is the value of <code>Sum</code> / <code>SampleCount</code> during the specified period. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/viewing-recommendations.html">Viewing resource recommendations</a> in the <i>Compute Optimizer User Guide</i>. You can also get averaged utilization metric data for your resources using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch User Guide</a>.</p>
-        value:
-          allOf:
-          - $ref: '#/components/schemas/MetricValue'
-          - description: The value of the utilization metric.
-      description: <p>Describes a utilization metric of a resource, such as an Amazon EC2 instance.</p> <p>Compare the utilization metric data of your resource against its projected utilization metric data to determine the performance difference between your current resource and the recommended option.</p>
-    RecommendationSourceType:
-      type: string
-      enum:
-      - Ec2Instance
-      - AutoScalingGroup
-      - EbsVolume
-      - LambdaFunction
-      - EcsService
-    InferredWorkloadType:
-      type: string
-      enum:
-      - AmazonEmr
-      - ApacheCassandra
-      - ApacheHadoop
-      - Memcached
-      - Nginx
-      - PostgreSql
-      - Redis
-      - Kafka
-      - SQLServer
-    Finding:
-      type: string
-      enum:
-      - Underprovisioned
-      - Overprovisioned
-      - Optimized
-      - NotOptimized
-    GetRecommendationErrors:
-      type: array
-      items:
-        $ref: '#/components/schemas/GetRecommendationError'
-    EstimatedMonthlySavings:
-      type: object
-      properties:
-        currency:
-          allOf:
-          - $ref: '#/components/schemas/Currency'
-          - description: The currency of the estimated monthly savings.
-        value:
-          allOf:
-          - $ref: '#/components/schemas/Value'
-          - description: The value of the estimated monthly savings.
-      description: <p>Describes the estimated monthly savings amount possible, based on On-Demand instance pricing, by adopting Compute Optimizer recommendations for a given resource.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-ec2-recommendations.html#ec2-savings-calculation">Estimated monthly savings and savings opportunities</a> in the <i>Compute Optimizer User Guide</i>.</p>
     InstanceRecommendation:
       type: object
       properties:
@@ -566,45 +813,8 @@ components:
           - $ref: '#/components/schemas/ExternalMetricStatus'
           - description: ' An object that describes Compute Optimizer''s integration status with your external metrics provider. '
       description: Describes an Amazon EC2 instance recommendation.
-    RecommendationSources:
-      type: array
-      items:
-        $ref: '#/components/schemas/RecommendationSource'
-    OptInRequiredException: {}
-    RecommendationOptions:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceRecommendationOption'
-    PlatformDifferences:
-      type: array
-      items:
-        $ref: '#/components/schemas/PlatformDifference'
-    Value:
-      type: number
-      format: double
-    SavingsOpportunityPercentage:
-      type: number
-      format: double
-    FilterValue:
+    InstanceType:
       type: string
-    MetricValue:
-      type: number
-      format: double
-    NextToken:
-      type: string
-    ServiceUnavailableException: {}
-    InstanceArns:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceArn'
-    ExternalMetricsPreference:
-      type: object
-      properties:
-        source:
-          allOf:
-          - $ref: '#/components/schemas/ExternalMetricsSource'
-          - description: ' Contains the source options for external metrics preferences. '
-      description: ' Describes the external metrics preferences for EC2 rightsizing recommendations. '
     RecommendationPreferences:
       type: object
       properties:
@@ -613,243 +823,37 @@ components:
           - $ref: '#/components/schemas/CpuVendorArchitectures'
           - description: <p>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling group recommendations.</p> <p>For example, when you specify <code>AWS_ARM64</code> with:</p> <ul> <li> <p>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a> request, Compute Optimizer returns recommendations that consist of Graviton2 instance types only.</p> </li> <li> <p>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected utilization metrics for Graviton2 instance type recommendations only.</p> </li> <li> <p>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a> request, Compute Optimizer exports recommendations that consist of Graviton2 instance types only.</p> </li> </ul>
       description: Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, and <a>GetEC2RecommendationProjectedMetrics</a> request.
-    ExternalMetricStatusCode:
-      type: string
-      enum:
-      - NO_EXTERNAL_METRIC_SET
-      - INTEGRATION_SUCCESS
-      - DATADOG_INTEGRATION_ERROR
-      - DYNATRACE_INTEGRATION_ERROR
-      - NEWRELIC_INTEGRATION_ERROR
-      - INSTANA_INTEGRATION_ERROR
-      - INSUFFICIENT_DATADOG_METRICS
-      - INSUFFICIENT_DYNATRACE_METRICS
-      - INSUFFICIENT_NEWRELIC_METRICS
-      - INSUFFICIENT_INSTANA_METRICS
-    AccessDeniedException: {}
-    InstanceRecommendationFindingReasonCode:
-      type: string
-      enum:
-      - CPUOverprovisioned
-      - CPUUnderprovisioned
-      - MemoryOverprovisioned
-      - MemoryUnderprovisioned
-      - EBSThroughputOverprovisioned
-      - EBSThroughputUnderprovisioned
-      - EBSIOPSOverprovisioned
-      - EBSIOPSUnderprovisioned
-      - NetworkBandwidthOverprovisioned
-      - NetworkBandwidthUnderprovisioned
-      - NetworkPPSOverprovisioned
-      - NetworkPPSUnderprovisioned
-      - DiskIOPSOverprovisioned
-      - DiskIOPSUnderprovisioned
-      - DiskThroughputOverprovisioned
-      - DiskThroughputUnderprovisioned
-    UtilizationMetrics:
-      type: array
-      items:
-        $ref: '#/components/schemas/UtilizationMetric'
-    ExternalMetricStatusReason:
-      type: string
-    CpuVendorArchitectures:
-      type: array
-      items:
-        $ref: '#/components/schemas/CpuVendorArchitecture'
-    InstanceName:
-      type: string
-    GetEC2InstanceRecommendationsRequest:
-      type: object
-      title: GetEC2InstanceRecommendationsRequest
-      properties:
-        instanceArns:
-          allOf:
-          - $ref: '#/components/schemas/InstanceArns'
-          - description: The Amazon Resource Name (ARN) of the instances for which to return recommendations.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The token to advance to the next page of instance recommendations.
-        maxResults:
-          allOf:
-          - $ref: '#/components/schemas/MaxResults'
-          - description: <p>The maximum number of instance recommendations to return with a single request.</p> <p>To retrieve the remaining results, make another request with the returned <code>nextToken</code> value.</p>
-        filters:
-          allOf:
-          - $ref: '#/components/schemas/Filters'
-          - description: An array of objects to specify a filter that returns a more specific list of instance recommendations.
-        accountIds:
-          allOf:
-          - $ref: '#/components/schemas/AccountIds'
-          - description: <p>The ID of the Amazon Web Services account for which to return instance recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to return instance recommendations.</p> <p>Only one account ID can be specified per request.</p>
-        recommendationPreferences:
-          allOf:
-          - $ref: '#/components/schemas/RecommendationPreferences'
-          - description: An object to specify the preferences for the Amazon EC2 instance recommendations to return in the response.
-    LastRefreshTimestamp:
-      type: string
-      format: date-time
-    InstanceArn:
-      type: string
-    ExternalMetricStatus:
-      type: object
-      properties:
-        statusCode:
-          allOf:
-          - $ref: '#/components/schemas/ExternalMetricStatusCode'
-          - description: ' The status code for Compute Optimizer''s integration with an external metrics provider. '
-        statusReason:
-          allOf:
-          - $ref: '#/components/schemas/ExternalMetricStatusReason'
-          - description: ' The reason for Compute Optimizer''s integration status with your external metric provider. '
-      description: ' Describes Compute Optimizer''s integration status with your chosen external metric provider. For example, Datadog. '
-    ResourceNotFoundException: {}
-    FilterValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/FilterValue'
-    MaxResults:
-      type: integer
-      minimum: 0
-      maximum: 1000
-    InferredWorkloadTypesPreference:
-      type: string
-      enum:
-      - Active
-      - Inactive
-    EffectiveRecommendationPreferences:
-      type: object
-      properties:
-        cpuVendorArchitectures:
-          allOf:
-          - $ref: '#/components/schemas/CpuVendorArchitectures'
-          - description: <p>Describes the CPU vendor and architecture for an instance or Auto Scaling group recommendations.</p> <p>For example, when you specify <code>AWS_ARM64</code> with:</p> <ul> <li> <p>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a> request, Compute Optimizer returns recommendations that consist of Graviton2 instance types only.</p> </li> <li> <p>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected utilization metrics for Graviton2 instance type recommendations only.</p> </li> <li> <p>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a> request, Compute Optimizer exports recommendations that consist of Graviton2 instance types only.</p> </li> </ul>
-        enhancedInfrastructureMetrics:
-          allOf:
-          - $ref: '#/components/schemas/EnhancedInfrastructureMetrics'
-          - description: <p>Describes the activation status of the enhanced infrastructure metrics preference.</p> <p>A status of <code>Active</code> confirms that the preference is applied in the latest recommendation refresh, and a status of <code>Inactive</code> confirms that it's not yet applied to recommendations.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p>
-        inferredWorkloadTypes:
-          allOf:
-          - $ref: '#/components/schemas/InferredWorkloadTypesPreference'
-          - description: <p>Describes the activation status of the inferred workload types preference.</p> <p>A status of <code>Active</code> confirms that the preference is applied in the latest recommendation refresh. A status of <code>Inactive</code> confirms that it's not yet applied to recommendations.</p>
-        externalMetricsPreference:
-          allOf:
-          - $ref: '#/components/schemas/ExternalMetricsPreference'
-          - description: <p> An object that describes the external metrics recommendation preference. </p> <p> If the preference is applied in the latest recommendation refresh, an object with a valid <code>source</code> value appears in the response. If the preference isn't applied to the recommendations already, then this object doesn't appear in the response. </p>
-      description: Describes the effective recommendation preferences for a resource.
-    AccountId:
-      type: string
-    RecommendationSource:
-      type: object
-      properties:
-        recommendationSourceArn:
-          allOf:
-          - $ref: '#/components/schemas/RecommendationSourceArn'
-          - description: The Amazon Resource Name (ARN) of the recommendation source.
-        recommendationSourceType:
-          allOf:
-          - $ref: '#/components/schemas/RecommendationSourceType'
-          - description: The resource type of the recommendation source.
-      description: Describes the source of a recommendation, such as an Amazon EC2 instance or Auto Scaling group.
-    InstanceRecommendationFindingReasonCodes:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceRecommendationFindingReasonCode'
-    MetricName:
-      type: string
-      enum:
-      - Cpu
-      - Memory
-      - EBS_READ_OPS_PER_SECOND
-      - EBS_WRITE_OPS_PER_SECOND
-      - EBS_READ_BYTES_PER_SECOND
-      - EBS_WRITE_BYTES_PER_SECOND
-      - DISK_READ_OPS_PER_SECOND
-      - DISK_WRITE_OPS_PER_SECOND
-      - DISK_READ_BYTES_PER_SECOND
-      - DISK_WRITE_BYTES_PER_SECOND
-      - NETWORK_IN_BYTES_PER_SECOND
-      - NETWORK_OUT_BYTES_PER_SECOND
-      - NETWORK_PACKETS_IN_PER_SECOND
-      - NETWORK_PACKETS_OUT_PER_SECOND
-    InternalServerException: {}
-    InvalidParameterValueException: {}
-    ProjectedUtilizationMetrics:
-      type: array
-      items:
-        $ref: '#/components/schemas/UtilizationMetric'
-    TagKey:
-      type: string
-    InstanceState:
-      type: string
-      enum:
-      - pending
-      - running
-      - shutting-down
-      - terminated
-      - stopping
-      - stopped
-    InstanceRecommendations:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceRecommendation'
-    InstanceType:
-      type: string
-    TagValue:
-      type: string
-    LookBackPeriodInDays:
+    Value:
       type: number
       format: double
-    CurrentPerformanceRisk:
+    TagKey:
+      type: string
+    Finding:
       type: string
       enum:
-      - VeryLow
-      - Low
-      - Medium
-      - High
-  parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
+      - Underprovisioned
+      - Overprovisioned
+      - Optimized
+      - NotOptimized
+    ExternalMetricsPreference:
+      type: object
+      properties:
+        source:
+          allOf:
+          - $ref: '#/components/schemas/ExternalMetricsSource'
+          - description: ' Contains the source options for external metrics preferences. '
+      description: ' Describes the external metrics preferences for EC2 rightsizing recommendations. '
+    InvalidParameterValueException: {}
+    Tags:
+      type: array
+      items:
+        $ref: '#/components/schemas/Tag'
+    RecommendationSources:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecommendationSource'
+    AccountId:
+      type: string
   securitySchemes:
     hmac:
       type: apiKey

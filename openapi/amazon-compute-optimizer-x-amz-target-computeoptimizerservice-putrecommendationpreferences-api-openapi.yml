@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-11-01'
   x-release: v4
-  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.PutRecommendationPreferences #X Amz Target=ComputeOptimizerService.PutRecommendationPreferences #X Amz Target=ComputeOptimizerService.PutRecommendationPreferences API'
-  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.…'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: PutRecommendationPreferences
-      description: <p>Creates a new recommendation preference or updates an existing recommendation preference, such as enhanced infrastructure metrics.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p>
+      description: 'Creates a new recommendation preference or updates an existing recommendation preference, such as enhanced infrastructure metrics.
+
+
+        For more information, see Activating enhanced infrastructure metrics in the Compute Optimizer User Guide.'
       responses:
         '200':
           description: Success
@@ -248,20 +252,20 @@ paths:
       - '#X Amz Target=ComputeOptimizerService.PutRecommendationPreferences'
 components:
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -278,14 +282,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -299,43 +303,9 @@ components:
       - Dynatrace
       - NewRelic
       - Instana
-    InternalServerException: {}
-    InvalidParameterValueException: {}
+    ResourceNotFoundException: {}
     MissingAuthenticationToken: {}
-    ScopeValue:
-      type: string
-    ExternalMetricsPreference:
-      type: object
-      properties:
-        source:
-          allOf:
-          - $ref: '#/components/schemas/ExternalMetricsSource'
-          - description: ' Contains the source options for external metrics preferences. '
-      description: ' Describes the external metrics preferences for EC2 rightsizing recommendations. '
-    ScopeName:
-      type: string
-      enum:
-      - Organization
-      - AccountId
-      - ResourceArn
-    AccessDeniedException: {}
-    Scope:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/ScopeName'
-          - description: <p>The name of the scope.</p> <p>The following scopes are possible:</p> <ul> <li> <p> <code>Organization</code> - Specifies that the recommendation preference applies at the organization level, for all member accounts of an organization.</p> </li> <li> <p> <code>AccountId</code> - Specifies that the recommendation preference applies at the account level, for all resources of a given resource type in an account.</p> </li> <li> <p> <code>ResourceArn</code> - Specifies that the recommendation preference applies at the individual resource level.</p> </li> </ul>
-        value:
-          allOf:
-          - $ref: '#/components/schemas/ScopeValue'
-          - description: <p>The value of the scope.</p> <p>If you specified the <code>name</code> of the scope as:</p> <ul> <li> <p> <code>Organization</code> - The <code>value</code> must be <code>ALL_ACCOUNTS</code>.</p> </li> <li> <p> <code>AccountId</code> - The <code>value</code> must be a 12-digit Amazon Web Services account ID.</p> </li> <li> <p> <code>ResourceArn</code> - The <code>value</code> must be the Amazon Resource Name (ARN) of an EC2 instance or an Auto Scaling group.</p> </li> </ul> <p>Only EC2 instance and Auto Scaling group ARNs are currently supported.</p>
-      description: <p>Describes the scope of a recommendation preference.</p> <p>Recommendation preferences can be created at the organization level (for management accounts of an organization only), account level, and resource level. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p> <note> <p>You cannot create recommendation preferences for Auto Scaling groups at the organization and account levels. You can create recommendation preferences for Auto Scaling groups only at the resource level by specifying a scope name of <code>ResourceArn</code> and a scope value of the Auto Scaling group Amazon Resource Name (ARN). This will configure the preference for all instances that are part of the specified Auto Scaling group. You also cannot create recommendation preferences at the resource level for instances that are part of an Auto Scaling group. You can create recommendation preferences at the resource level only for standalone instances.</p> </note>
-    PutRecommendationPreferencesResponse:
-      type: object
-      properties: {}
-    ThrottlingException: {}
-    EnhancedInfrastructureMetrics:
+    InferredWorkloadTypesPreference:
       type: string
       enum:
       - Active
@@ -366,7 +336,26 @@ components:
           allOf:
           - $ref: '#/components/schemas/ExternalMetricsPreference'
           - description: <p>The provider of the external metrics recommendation preference to create or update.</p> <p>Specify a valid provider in the <code>source</code> field to activate the preference. To delete this preference, see the <a>DeleteRecommendationPreferences</a> action.</p> <p>This preference can only be set for the <code>Ec2Instance</code> resource type.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html">External metrics ingestion</a> in the <i>Compute Optimizer User Guide</i>.</p>
-    OptInRequiredException: {}
+    ScopeValue:
+      type: string
+    EnhancedInfrastructureMetrics:
+      type: string
+      enum:
+      - Active
+      - Inactive
+    Scope:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ScopeName'
+          - description: <p>The name of the scope.</p> <p>The following scopes are possible:</p> <ul> <li> <p> <code>Organization</code> - Specifies that the recommendation preference applies at the organization level, for all member accounts of an organization.</p> </li> <li> <p> <code>AccountId</code> - Specifies that the recommendation preference applies at the account level, for all resources of a given resource type in an account.</p> </li> <li> <p> <code>ResourceArn</code> - Specifies that the recommendation preference applies at the individual resource level.</p> </li> </ul>
+        value:
+          allOf:
+          - $ref: '#/components/schemas/ScopeValue'
+          - description: <p>The value of the scope.</p> <p>If you specified the <code>name</code> of the scope as:</p> <ul> <li> <p> <code>Organization</code> - The <code>value</code> must be <code>ALL_ACCOUNTS</code>.</p> </li> <li> <p> <code>AccountId</code> - The <code>value</code> must be a 12-digit Amazon Web Services account ID.</p> </li> <li> <p> <code>ResourceArn</code> - The <code>value</code> must be the Amazon Resource Name (ARN) of an EC2 instance or an Auto Scaling group.</p> </li> </ul> <p>Only EC2 instance and Auto Scaling group ARNs are currently supported.</p>
+      description: <p>Describes the scope of a recommendation preference.</p> <p>Recommendation preferences can be created at the organization level (for management accounts of an organization only), account level, and resource level. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p> <note> <p>You cannot create recommendation preferences for Auto Scaling groups at the organization and account levels. You can create recommendation preferences for Auto Scaling groups only at the resource level by specifying a scope name of <code>ResourceArn</code> and a scope value of the Auto Scaling group Amazon Resource Name (ARN). This will configure the preference for all instances that are part of the specified Auto Scaling group. You also cannot create recommendation preferences at the resource level for instances that are part of an Auto Scaling group. You can create recommendation preferences at the resource level only for standalone instances.</p> </note>
+    ThrottlingException: {}
     ResourceType:
       type: string
       enum:
@@ -376,12 +365,27 @@ components:
       - LambdaFunction
       - NotApplicable
       - EcsService
-    ResourceNotFoundException: {}
-    InferredWorkloadTypesPreference:
+    PutRecommendationPreferencesResponse:
+      type: object
+      properties: {}
+    ExternalMetricsPreference:
+      type: object
+      properties:
+        source:
+          allOf:
+          - $ref: '#/components/schemas/ExternalMetricsSource'
+          - description: ' Contains the source options for external metrics preferences. '
+      description: ' Describes the external metrics preferences for EC2 rightsizing recommendations. '
+    InvalidParameterValueException: {}
+    OptInRequiredException: {}
+    AccessDeniedException: {}
+    ScopeName:
       type: string
       enum:
-      - Active
-      - Inactive
+      - Organization
+      - AccountId
+      - ResourceArn
+    InternalServerException: {}
   securitySchemes:
     hmac:
       type: apiKey

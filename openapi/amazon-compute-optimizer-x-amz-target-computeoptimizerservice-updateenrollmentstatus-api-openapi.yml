@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-11-01'
   x-release: v4
-  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.UpdateEnrollmentStatus #X Amz Target=ComputeOptimizerService.UpdateEnrollmentStatus #X Amz Target=ComputeOptimizerService.UpdateEnrollmentStatus API'
-  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.…'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,16 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: UpdateEnrollmentStatus
-      description: <p>Updates the enrollment (opt in and opt out) status of an account to the Compute Optimizer service.</p> <p>If the account is a management account of an organization, this action can also be used to enroll member accounts of the organization.</p> <p>You must have the appropriate permissions to opt in to Compute Optimizer, to view its recommendations, and to opt out. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html">Controlling access with Amazon Web Services Identity and Access Management</a> in the <i>Compute Optimizer User Guide</i>.</p> <p>When you opt in, Compute Optimizer automatically creates a service-linked role in your account to access its data. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/using-service-linked-roles.html">Using Service-Linked Roles for Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</p>
+      description: 'Updates the enrollment (opt in and opt out) status of an account to the Compute Optimizer service.
+
+
+        If the account is a management account of an organization, this action can also be used to enroll member accounts of the organization.
+
+
+        You must have the appropriate permissions to opt in to Compute Optimizer, to view its recommendations, and to opt out. For more information, see Controlling access with Amazon Web Services Identity and Access Management in the Compute Optimizer User Guide.
+
+
+        When you opt in, Compute Optimizer automatically creates a service-linked role in your account to access its data. For more information, see Using Service-Linked Roles for Compute Optimizer in the Compute Optimizer User Guide.'
       responses:
         '200':
           description: Success
@@ -228,8 +238,8 @@ paths:
       - '#X Amz Target=ComputeOptimizerService.UpdateEnrollmentStatus'
 components:
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -246,14 +256,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -264,36 +274,13 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
   schemas:
-    InvalidParameterValueException: {}
-    Status:
-      type: string
-      enum:
-      - Active
-      - Inactive
-      - Pending
-      - Failed
-    MissingAuthenticationToken: {}
-    UpdateEnrollmentStatusResponse:
-      type: object
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/Status'
-          - description: The enrollment status of the account.
-        statusReason:
-          allOf:
-          - $ref: '#/components/schemas/StatusReason'
-          - description: The reason for the enrollment status of the account. For example, an account might show a status of <code>Pending</code> because member accounts of an organization require more time to be enrolled in the service.
-    AccessDeniedException: {}
-    StatusReason:
-      type: string
     UpdateEnrollmentStatusRequest:
       type: object
       required:
@@ -308,11 +295,34 @@ components:
           allOf:
           - $ref: '#/components/schemas/IncludeMemberAccounts'
           - description: Indicates whether to enroll member accounts of the organization if the account is the management account of an organization.
+    AccessDeniedException: {}
     ServiceUnavailableException: {}
+    InternalServerException: {}
+    InvalidParameterValueException: {}
+    StatusReason:
+      type: string
+    MissingAuthenticationToken: {}
+    Status:
+      type: string
+      enum:
+      - Active
+      - Inactive
+      - Pending
+      - Failed
     IncludeMemberAccounts:
       type: boolean
+    UpdateEnrollmentStatusResponse:
+      type: object
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/Status'
+          - description: The enrollment status of the account.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/StatusReason'
+          - description: The reason for the enrollment status of the account. For example, an account might show a status of <code>Pending</code> because member accounts of an organization require more time to be enrolled in the service.
     ThrottlingException: {}
-    InternalServerException: {}
   securitySchemes:
     hmac:
       type: apiKey

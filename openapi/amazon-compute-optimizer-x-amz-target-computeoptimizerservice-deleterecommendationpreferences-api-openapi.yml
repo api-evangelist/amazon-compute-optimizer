@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-11-01'
   x-release: v4
-  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences API'
-  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.…'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: DeleteRecommendationPreferences
-      description: <p>Deletes a recommendation preference, such as enhanced infrastructure metrics.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p>
+      description: 'Deletes a recommendation preference, such as enhanced infrastructure metrics.
+
+
+        For more information, see Activating enhanced infrastructure metrics in the Compute Optimizer User Guide.'
       responses:
         '200':
           description: Success
@@ -248,20 +252,20 @@ paths:
       - '#X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences'
 components:
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -278,35 +282,30 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
     ServiceUnavailableException: {}
-    InternalServerException: {}
-    InvalidParameterValueException: {}
+    RecommendationPreferenceName:
+      type: string
+      enum:
+      - EnhancedInfrastructureMetrics
+      - InferredWorkloadTypes
+      - ExternalMetricsPreference
+    ResourceNotFoundException: {}
     MissingAuthenticationToken: {}
     ScopeValue:
       type: string
-    ScopeName:
-      type: string
-      enum:
-      - Organization
-      - AccountId
-      - ResourceArn
-    AccessDeniedException: {}
-    DeleteRecommendationPreferencesResponse:
-      type: object
-      properties: {}
     Scope:
       type: object
       properties:
@@ -319,12 +318,10 @@ components:
           - $ref: '#/components/schemas/ScopeValue'
           - description: <p>The value of the scope.</p> <p>If you specified the <code>name</code> of the scope as:</p> <ul> <li> <p> <code>Organization</code> - The <code>value</code> must be <code>ALL_ACCOUNTS</code>.</p> </li> <li> <p> <code>AccountId</code> - The <code>value</code> must be a 12-digit Amazon Web Services account ID.</p> </li> <li> <p> <code>ResourceArn</code> - The <code>value</code> must be the Amazon Resource Name (ARN) of an EC2 instance or an Auto Scaling group.</p> </li> </ul> <p>Only EC2 instance and Auto Scaling group ARNs are currently supported.</p>
       description: <p>Describes the scope of a recommendation preference.</p> <p>Recommendation preferences can be created at the organization level (for management accounts of an organization only), account level, and resource level. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p> <note> <p>You cannot create recommendation preferences for Auto Scaling groups at the organization and account levels. You can create recommendation preferences for Auto Scaling groups only at the resource level by specifying a scope name of <code>ResourceArn</code> and a scope value of the Auto Scaling group Amazon Resource Name (ARN). This will configure the preference for all instances that are part of the specified Auto Scaling group. You also cannot create recommendation preferences at the resource level for instances that are part of an Auto Scaling group. You can create recommendation preferences at the resource level only for standalone instances.</p> </note>
-    RecommendationPreferenceNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/RecommendationPreferenceName'
     ThrottlingException: {}
-    OptInRequiredException: {}
+    DeleteRecommendationPreferencesResponse:
+      type: object
+      properties: {}
     ResourceType:
       type: string
       enum:
@@ -353,13 +350,20 @@ components:
           allOf:
           - $ref: '#/components/schemas/RecommendationPreferenceNames'
           - description: The name of the recommendation preference to delete.
-    RecommendationPreferenceName:
+    RecommendationPreferenceNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecommendationPreferenceName'
+    InvalidParameterValueException: {}
+    OptInRequiredException: {}
+    AccessDeniedException: {}
+    ScopeName:
       type: string
       enum:
-      - EnhancedInfrastructureMetrics
-      - InferredWorkloadTypes
-      - ExternalMetricsPreference
-    ResourceNotFoundException: {}
+      - Organization
+      - AccountId
+      - ResourceArn
+    InternalServerException: {}
   securitySchemes:
     hmac:
       type: apiKey

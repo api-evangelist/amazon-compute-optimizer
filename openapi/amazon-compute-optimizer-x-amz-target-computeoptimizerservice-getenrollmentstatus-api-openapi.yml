@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-11-01'
   x-release: v4
-  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEnrollmentStatus #X Amz Target=ComputeOptimizerService.GetEnrollmentStatus #X Amz Target=ComputeOptimizerService.GetEnrollmentStatus API'
-  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate. It reports whether your resources are optimal, and generates optimization recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer also provides recent utilization metric data, in addition to projected utilization metric data for the recommendations, which you can use to evaluate which recommendation provides the best price-performance trade-off. The analysis of your usage patterns can help you decide when to move or resize your running resources, and still meet your performance and capacity requirements. For more information about Compute Optimizer, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.
+  title: 'AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.…'
+  description: Compute Optimizer is a service that analyzes the configuration and utilization metrics of your Amazon Web Services compute resources, such as Amazon EC2 instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/compute-optimizer-2019-11-01.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: GetEnrollmentStatus
-      description: <p>Returns the enrollment (opt in) status of an account to the Compute Optimizer service.</p> <p>If the account is the management account of an organization, this action also confirms the enrollment status of member accounts of the organization. Use the <a>GetEnrollmentStatusesForOrganization</a> action to get detailed information about the enrollment status of member accounts of an organization.</p>
+      description: 'Returns the enrollment (opt in) status of an account to the Compute Optimizer service.
+
+
+        If the account is the management account of an organization, this action also confirms the enrollment status of member accounts of the organization. Use the GetEnrollmentStatusesForOrganization action to get detailed information about the enrollment status of member accounts of an organization.'
       responses:
         '200':
           description: Success
@@ -231,20 +235,20 @@ paths:
       - '#X Amz Target=ComputeOptimizerService.GetEnrollmentStatus'
 components:
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -261,32 +265,35 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    StatusReason:
-      type: string
-    NumberOfMemberAccountsOptedIn:
-      type: integer
-    ServiceUnavailableException: {}
-    InternalServerException: {}
-    InvalidParameterValueException: {}
-    MissingAuthenticationToken: {}
-    AccessDeniedException: {}
     LastUpdatedTimestamp:
       type: string
       format: date-time
+    ServiceUnavailableException: {}
+    MemberAccountsEnrolled:
+      type: boolean
+    StatusReason:
+      type: string
+    MissingAuthenticationToken: {}
+    NumberOfMemberAccountsOptedIn:
+      type: integer
     ThrottlingException: {}
+    GetEnrollmentStatusRequest:
+      type: object
+      title: GetEnrollmentStatusRequest
+      properties: {}
     Status:
       type: string
       enum:
@@ -317,12 +324,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/NumberOfMemberAccountsOptedIn'
           - description: The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-    GetEnrollmentStatusRequest:
-      type: object
-      title: GetEnrollmentStatusRequest
-      properties: {}
-    MemberAccountsEnrolled:
-      type: boolean
+    InvalidParameterValueException: {}
+    AccessDeniedException: {}
+    InternalServerException: {}
   securitySchemes:
     hmac:
       type: apiKey
