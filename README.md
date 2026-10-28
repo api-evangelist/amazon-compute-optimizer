@@ -1,4 +1,4 @@
-# Amazon Compute Optimizer (amazon-compute-optimizer)
+# Amazon Compute Optimizer
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,141 +64,253 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Amazon Compute Optimizer analyzes the configuration and utilization metrics of your AWS resources and provides recommendations to help you identify optimal AWS resource configurations. It uses machine learning to analyze historical utilization metrics and generates rightsizing recommendations for EC2 instances, Auto Scaling groups, EBS volumes, Lambda functions, ECS services on Fargate, and RDS instances.
+Amazon Compute Optimizer analyzes the configuration and utilization metrics of your AWS resources and provides recommendations to help you identify optimal AWS resource configurations. It uses machine learning to analyze historical utilization metrics and generates rightsizing recommendations for EC2 instances, Auto Scaling groups, EBS volumes, Lambda functions, ECS services on Fargate, and RDS instances to help reduce costs and improve performance.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/amazon-compute-optimizer/refs/heads/main/apis.yml)
+**Areas:** AWS · Cost Optimization · FinOps · Machine Learning · Resource Recommendations
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon Compute Optimizer on APIs.io
 
-## Tags:
+Everything profiled for Amazon Compute Optimizer is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-compute-optimizer/](https://apis.io/providers/amazon-compute-optimizer/)** — or go straight to one of the APIs or properties below.
 
- - AWS, Cost Optimization, FinOps, Machine Learning, Resource Recommendations
+### APIs (2)
 
-## Timestamps
+- [Amazon Compute Optimizer AWS Compute Optimizer API](https://apis.io/apis/amazon-compute-optimizer/amazon-compute-optimizer-aws-compute-optimizer-api/) — The AWS Compute Optimizer API from Amazon Compute Optimizer — 21 operation(s) for aws compute optimizer.
+- [Amazon Compute Optimizer Compute Optimizer Operations API](https://apis.io/apis/amazon-compute-optimizer/amazon-compute-optimizer-operations-api/) — The Compute Optimizer Operations API from Amazon Compute Optimizer — 7 operation(s) for compute optimizer operations.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Amazon Compute Optimizer API
-The Amazon Compute Optimizer API provides 21 operations for analyzing resource utilization and generating rightsizing recommendations for EC2 instances, Auto Scaling groups, EBS volumes, Lambda functions, ECS services, and RDS instances.
+#### MCP servers (1)
 
-**Human URL:** [https://aws.amazon.com/compute-optimizer/](https://aws.amazon.com/compute-optimizer/)
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags:
+- [awslabs.billing-cost-management-mcp-server](https://apis.io/servers/amazon-compute-optimizer/awslabs-billing-cost-management-mcp-server/)
 
- - AWS, Cost Optimization, FinOps, Machine Learning, Resource Recommendations
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://docs.aws.amazon.com/compute-optimizer/latest/ug/)
-- [OpenAPI](openapi/amazon-compute-optimizer-openapi.yml)
-- [APIReference](https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/)
-- [Pricing](https://aws.amazon.com/compute-optimizer/pricing/)
-- [GettingStarted](https://docs.aws.amazon.com/compute-optimizer/latest/ug/getting-started.html)
-- [FAQ](https://aws.amazon.com/compute-optimizer/faqs/)
-- [JSONSchema](json-schema/compute-optimizer-instance-recommendation-schema.json)
-- [JSONStructure](json-structure/compute-optimizer-instance-recommendation-structure.json)
-- [JSON-LD](json-ld/amazon-compute-optimizer-context.jsonld)
+- [Amazon Compute Optimizer Agentic Access](https://apis.io/agentic-access/amazon-compute-optimizer/amazon-compute-optimizer-agentic-access/)
 
-## Common Properties
+#### JSON Schema (273)
 
-- [Portal](https://aws.amazon.com/)
+The data models the API reads and writes.
+
+- [AccountEnrollmentStatus](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-account-enrollment-status/)
+- [AccountEnrollmentStatuses](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-account-enrollment-statuses/)
+- [AccountId](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-account-id/)
+- [AccountIds](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-account-ids/)
+- [AutoScalingConfiguration](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-auto-scaling-configuration/)
+- [AutoScalingGroupArn](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-arn/)
+- [AutoScalingGroupArns](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-arns/)
+- [AutoScalingGroupConfiguration](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-configuration/)
+- [AutoScalingGroupName](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-name/)
+- [AutoScalingGroupRecommendation](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-recommendation/)
+- [AutoScalingGroupRecommendationOption](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-recommendation-option/)
+- [AutoScalingGroupRecommendationOptions](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-recommendation-options/)
+- [AutoScalingGroupRecommendations](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-recommendations/)
+- [Code](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-code/)
+- [ContainerConfiguration](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-container-configuration/)
+- [ContainerConfigurations](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-container-configurations/)
+- [ContainerName](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-container-name/)
+- [ContainerRecommendation](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-container-recommendation/)
+- [ContainerRecommendations](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-container-recommendations/)
+- [CpuSize](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-cpu-size/)
+- [CpuVendorArchitecture](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-cpu-vendor-architecture/)
+- [CpuVendorArchitectures](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-cpu-vendor-architectures/)
+- [CreationTimestamp](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-creation-timestamp/)
+- [Currency](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-currency/)
+- [CurrentInstanceType](https://apis.io/schemas/amazon-compute-optimizer/compute-optimizer-current-instance-type/)
+- …and 248 more published on APIs.io
+
+#### JSON Structure (273)
+
+Data models expressed in JSON Structure.
+
+- [Compute Optimizer Account Enrollment Status Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-account-enrollment-status-structure/)
+- [Compute Optimizer Account Enrollment Statuses Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-account-enrollment-statuses-structure/)
+- [Compute Optimizer Account Id Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-account-id-structure/)
+- [Compute Optimizer Account Ids Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-account-ids-structure/)
+- [Compute Optimizer Auto Scaling Configuration Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-auto-scaling-configuration-structure/)
+- [Compute Optimizer Auto Scaling Group Arn Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-arn-structure/)
+- [Compute Optimizer Auto Scaling Group Arns Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-arns-structure/)
+- [Compute Optimizer Auto Scaling Group Configuration Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-configuration-structure/)
+- [Compute Optimizer Auto Scaling Group Name Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-name-structure/)
+- [Compute Optimizer Auto Scaling Group Recommendation Option Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-recommendation-option-structure/)
+- [Compute Optimizer Auto Scaling Group Recommendation Options Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-recommendation-options-structure/)
+- [Compute Optimizer Auto Scaling Group Recommendation Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-recommendation-structure/)
+- [Compute Optimizer Auto Scaling Group Recommendations Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-recommendations-structure/)
+- [Compute Optimizer Code Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-code-structure/)
+- [Compute Optimizer Container Configuration Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-container-configuration-structure/)
+- [Compute Optimizer Container Configurations Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-container-configurations-structure/)
+- [Compute Optimizer Container Name Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-container-name-structure/)
+- [Compute Optimizer Container Recommendation Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-container-recommendation-structure/)
+- [Compute Optimizer Container Recommendations Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-container-recommendations-structure/)
+- [Compute Optimizer Cpu Size Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-cpu-size-structure/)
+- [Compute Optimizer Cpu Vendor Architecture Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-cpu-vendor-architecture-structure/)
+- [Compute Optimizer Cpu Vendor Architectures Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-cpu-vendor-architectures-structure/)
+- [Compute Optimizer Creation Timestamp Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-creation-timestamp-structure/)
+- [Compute Optimizer Currency Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-currency-structure/)
+- [Compute Optimizer Current Instance Type Structure](https://apis.io/json-structure/amazon-compute-optimizer/compute-optimizer-current-instance-type-structure/)
+- …and 248 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Compute Optimizer Context](https://apis.io/jsonld/amazon-compute-optimizer/amazon-compute-optimizer-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Compute Optimizer Vocabulary](https://apis.io/vocabularies/amazon-compute-optimizer/amazon-compute-optimizer-vocabulary/)
+
+#### Examples (95)
+
+Example requests and responses.
+
+- [Compute Optimizer Account Enrollment Status Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-account-enrollment-status-example/)
+- [Compute Optimizer Auto Scaling Group Configuration Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-configuration-example/)
+- [Compute Optimizer Auto Scaling Group Recommendation Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-recommendation-example/)
+- [Compute Optimizer Auto Scaling Group Recommendation Option Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-auto-scaling-group-recommendation-option-example/)
+- [Compute Optimizer Container Configuration Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-container-configuration-example/)
+- [Compute Optimizer Container Recommendation Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-container-recommendation-example/)
+- [Compute Optimizer Current Performance Risk Ratings Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-current-performance-risk-ratings-example/)
+- [Compute Optimizer Delete Recommendation Preferences Request Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-delete-recommendation-preferences-request-example/)
+- [Compute Optimizer Delete Recommendation Preferences Response Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-delete-recommendation-preferences-response-example/)
+- [Compute Optimizer Describe Recommendation Export Jobs Request Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-describe-recommendation-export-jobs-request-example/)
+- [Compute Optimizer Describe Recommendation Export Jobs Response Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-describe-recommendation-export-jobs-response-example/)
+- [Compute Optimizer Ebs Filter Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-ebs-filter-example/)
+- [Compute Optimizer Ebs Utilization Metric Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-ebs-utilization-metric-example/)
+- [Compute Optimizer Ecs Service Projected Metric Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-ecs-service-projected-metric-example/)
+- [Compute Optimizer Ecs Service Projected Utilization Metric Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-ecs-service-projected-utilization-metric-example/)
+- [Compute Optimizer Ecs Service Recommendation Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-ecs-service-recommendation-example/)
+- [Compute Optimizer Ecs Service Recommendation Filter Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-ecs-service-recommendation-filter-example/)
+- [Compute Optimizer Ecs Service Recommendation Option Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-ecs-service-recommendation-option-example/)
+- [Compute Optimizer Ecs Service Recommended Option Projected Metric Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-ecs-service-recommended-option-projected-metric-example/)
+- [Compute Optimizer Ecs Service Utilization Metric Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-ecs-service-utilization-metric-example/)
+- [Compute Optimizer Effective Recommendation Preferences Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-effective-recommendation-preferences-example/)
+- [Compute Optimizer Enrollment Filter Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-enrollment-filter-example/)
+- [Compute Optimizer Estimated Monthly Savings Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-estimated-monthly-savings-example/)
+- [Compute Optimizer Export Auto Scaling Group Recommendations Request Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-export-auto-scaling-group-recommendations-request-example/)
+- [Compute Optimizer Export Auto Scaling Group Recommendations Response Example](https://apis.io/examples/amazon-compute-optimizer/compute-optimizer-export-auto-scaling-group-recommendations-response-example/)
+- …and 70 more published on APIs.io
+
+#### Collections (21)
+
+Postman and Open Collection request collections.
+
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-deleterecommendationpreferences-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DescribeRecommendationExportJobs API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-describerecommendationexportjobs-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.ExportAutoScalingGroupRecommendations API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-exportautoscalinggrouprecommendations-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.ExportEBSVolumeRecommendations API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-exportebsvolumerecommendations-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.ExportEC2InstanceRecommendations API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-exportec2instancerecommendations-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.ExportECSServiceRecommendations API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-exportecsservicerecommendations-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.ExportLambdaFunctionRecommendations API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-exportlambdafunctionrecommendations-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetAutoScalingGroupRecommendations API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getautoscalinggrouprecommendations-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEBSVolumeRecommendations API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getebsvolumerecommendations-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEC2InstanceRecommendations API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getec2instancerecommendations-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEC2RecommendationProjectedMetrics API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getec2recommendationprojectedmetrics-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetECSServiceRecommendationProjectedMetrics API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getecsservicerecommendationprojectedmetrics-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetECSServiceRecommendations API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getecsservicerecommendations-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEffectiveRecommendationPreferences API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-geteffectiverecommendationpreferences-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEnrollmentStatus API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getenrollmentstatus-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetEnrollmentStatusesForOrganization API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getenrollmentstatusesfororganization-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetLambdaFunctionRecommendations API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getlambdafunctionrecommendations-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetRecommendationPreferences API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getrecommendationpreferences-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.GetRecommendationSummaries API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-getrecommendationsummaries-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.PutRecommendationPreferences API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-putrecommendationpreferences-api/)
+- [AWS Compute Optimizer #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.DeleteRecommendationPreferences #X Amz Target=ComputeOptimizerService.UpdateEnrollmentStatus API](https://apis.io/collections/amazon-compute-optimizer/open-amazon-compute-optimizer-x-amz-target-computeoptimizerservice-updateenrollmentstatus-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Amazon Compute Optimizer Openapi Overlay](https://apis.io/overlays/amazon-compute-optimizer/amazon-compute-optimizer-openapi-overlay/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Compute Optimizer — jsonschema rules](https://apis.io/rules/amazon-compute-optimizer/amazon-compute-optimizer-jsonschema-spectral-rules/)
+- [Amazon Compute Optimizer API Rules](https://apis.io/rules/amazon-compute-optimizer/amazon-compute-optimizer-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Compute Optimizer Authentication](https://apis.io/security/amazon-compute-optimizer/amazon-compute-optimizer-authentication/)
+- [Amazon Compute Optimizer Domain Security](https://apis.io/security/amazon-compute-optimizer/amazon-compute-optimizer-domain-security/)
+- [Amazon Compute Optimizer Trust Center](https://apis.io/security/amazon-compute-optimizer/amazon-compute-optimizer-trust-center/)
+- [Amazon Compute Optimizer Vulnerability Disclosure](https://apis.io/security/amazon-compute-optimizer/amazon-compute-optimizer-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://aws.amazon.com/compute-optimizer/)
 - [Documentation](https://docs.aws.amazon.com/compute-optimizer/)
-- [TermsOfService](https://aws.amazon.com/service-terms/)
-- [PrivacyPolicy](https://aws.amazon.com/privacy/)
+- [Sign up](https://signin.aws.amazon.com/signup?request_type=register)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/aws/)
-- [GitHubOrganization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/compute-optimizer/)
-- [SignUp](https://signin.aws.amazon.com/signup?request_type=register)
-- [Login](https://aws.amazon.com/console/)
-- [StatusPage](https://health.aws.amazon.com/health/status)
-- [Contact](https://aws.amazon.com/contact-us/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| EC2 Instance Recommendations | Get rightsizing recommendations for over-provisioned or under-provisioned EC2 instances based on utilization metrics. |
-| Auto Scaling Group Recommendations | Optimize Auto Scaling group configurations for cost and performance based on historical usage patterns. |
-| EBS Volume Recommendations | Identify EBS volumes that can be downsized or converted to a different volume type for cost savings. |
-| Lambda Function Recommendations | Optimize Lambda function memory settings based on actual invocation utilization. |
-| ECS Service Recommendations | Rightsize ECS services running on AWS Fargate for CPU and memory efficiency. |
-| RDS Instance Recommendations | Get rightsizing recommendations for RDS database instances and clusters. |
-| Savings Opportunity Estimation | Estimate the potential cost savings from implementing rightsizing recommendations. |
-| Organization-Wide Analysis | Analyze recommendations across all accounts in an AWS Organization. |
+**Kin Score 55.7** — strong · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 65.6 |
+| Contract governance | 31.8 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 64.3 |
+| Access clarity | 52.6 |
 
-| Name | Description |
-|------|-------------|
-| Cost Reduction | Identify and eliminate over-provisioned AWS resources to reduce monthly cloud spending. |
-| Performance Optimization | Detect under-provisioned resources that may be causing performance issues and get upgrade recommendations. |
-| FinOps Reporting | Generate cross-account optimization reports to support FinOps practices and showback/chargeback processes. |
-| Migration Planning | Use recommendations to rightsize resources before or after migrating workloads to AWS. |
-| Continuous Optimization | Integrate recommendations into CI/CD pipelines to continuously monitor and optimize resource provisioning. |
+**Agent readiness 29.6** — agent-ready
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| AWS Cost Explorer | Correlate Compute Optimizer recommendations with Cost Explorer data for accurate savings projections. |
-| AWS Organizations | Enroll and analyze recommendations across all accounts in an AWS Organization. |
-| Amazon CloudWatch | Compute Optimizer uses CloudWatch utilization metrics to generate its ML-based recommendations. |
-| AWS Trusted Advisor | Complementary service that also provides rightsizing recommendations alongside Compute Optimizer. |
-| AWS Systems Manager | Use Systems Manager to implement EC2 instance type changes recommended by Compute Optimizer. |
+**Regulatory alignment 32.7** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-compute-optimizer/](https://apis.io/providers/amazon-compute-optimizer/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [Amazon Compute Optimizer OpenAPI](openapi/amazon-compute-optimizer-openapi.yml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Compute Optimizer: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-273 schema files extracted from the OpenAPI specification covering all request/response models.
-
-### JSON Structure
-
-273 JSON Structure files converted from JSON Schema using the json-structure.org specification.
-
-### JSON-LD
-
-- [Amazon Compute Optimizer Context](json-ld/amazon-compute-optimizer-context.jsonld) — 94 types, 141 properties
-
-### Examples
-
-273 example JSON files generated from JSON Schema definitions.
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [Amazon Compute Optimizer API](capabilities/shared/compute-optimizer.yaml) — 9 operations for resource recommendations and enrollment
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Amazon Compute Optimizer Resource Optimization](capabilities/resource-optimization.yaml) | Amazon Compute Optimizer API | 8 | Cloud Architect, FinOps Engineer |
-
-## Vocabulary
-
-- [Amazon Compute Optimizer Vocabulary](vocabulary/amazon-compute-optimizer-vocabulary.yaml) — Unified taxonomy mapping 8 resources, 3 actions, 1 workflow, and 2 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Amazon Compute Optimizer Spectral Rules](rules/amazon-compute-optimizer-spectral-rules.yml) — 24 rules across 13 categories enforcing Amazon Compute Optimizer API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-compute-optimizer/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
